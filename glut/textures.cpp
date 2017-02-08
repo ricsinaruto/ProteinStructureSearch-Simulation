@@ -23,15 +23,16 @@ static void reverseBytes(void* x, const int n)
 //MAGIC
 unsigned int loadTexBMP(char* file)
 {
-	unsigned int   texture;    /* Texture name */
-	FILE*          f;          /* File pointer */
-	unsigned short magic;      /* Image magic */
-	unsigned int   dx, dy, size; /* Image dimensions */
+	unsigned int   texture;		/* Texture name */
+	FILE*          f;			/* File pointer */
+	unsigned short magic;		/* Image magic */
+	unsigned int   dx, dy, size;/* Image dimensions */
 	unsigned short nbp, bpp;    /* Planes and bits per pixel */
-	unsigned char* image;      /* Image data */
-	unsigned int   k;          /* Counter */
+	unsigned char* image;		/* Image data */
+	unsigned int   k;			/* Counter */
 
-							   /*  Open file */
+
+	/*  Open file */
 	f = fopen(file, "rb");
 	if (!f) fatal("Cannot open file %s\n", file);
 	/*  Check image magic */

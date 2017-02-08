@@ -19,6 +19,6 @@ field 2 applied to protein: 17 18 18
 output protein: 18 18 17
 field 1: 0
 field 1 applied to protein: 18 17 18
-field 2: 1
+field 2: 4
 field 2 applied to protein: 17 18 18
 output protein: 18 18 17

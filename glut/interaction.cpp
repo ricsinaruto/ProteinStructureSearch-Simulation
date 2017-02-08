@@ -82,7 +82,7 @@ void futasv()
 	
 	
 	
-	if (!t) fileki << ";";
+	if (!t) fileki << ",";
 	for (i = 1; i <= 36; i++)
 	{
 		for (j = 1; j <= 36; j++)
@@ -91,7 +91,7 @@ void futasv()
 			{
 				if (dronpa[i][j][k].van)
 				{
-					if (!t) fileki << i - 1 << " " << j - 1 << " " << k - 1 << ";";
+					if (!t) fileki << i - 1 << " " << j - 1 << " " << k - 1 << ",";
 					szamlal++;
 				}
 			}
@@ -124,7 +124,7 @@ void futasv()
 	for (l = 0; l < n; l++)
 	{
 		t += dt;
-		fileki << t << ";";
+		fileki << t << ",";
 		for (i = 0; i < szamlal; i++)
 		{
 			//A eset
@@ -178,7 +178,7 @@ void futasv()
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].dip = dronpa[itomb[i]][jtomb[i]][ktomb[i]].dipB = -100 +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB + dronpa[itomb[i]][jtomb[i]][ktomb[i]].qp1B + dronpa[itomb[i]][jtomb[i]][ktomb[i]].qp2B;
 			}
-			fileki << dronpa[itomb[i]][jtomb[i]][ktomb[i]].dip << ";";
+			fileki << dronpa[itomb[i]][jtomb[i]][ktomb[i]].dip << ",";
 		}
 		fileki << endl;
 		
@@ -191,7 +191,7 @@ void futasv()
 	{
 		for (i = 0; i < sor.length(); i++)
 		{
-			if (sor[i] == '.') fileki << ",";
+			if (sor[i] == '.') fileki << ".";
 			else fileki << sor[i];
 		}
 		fileki << endl;
@@ -404,9 +404,9 @@ int *grafszam(int molekulaSzam)
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
 	bool hasonlit=false;
-	if (be1 < be2 && kacsacsor==0) hasonlit = true;
+	if ((be1+4) < be2 && kacsacsor==0) hasonlit = true;
 	
-	if (be1>be2 && kacsacsor == 1) hasonlit = true;
+	if (be1>(be2+4) && kacsacsor == 1) hasonlit = true;
 
 	if (kacsacsor == 2) hasonlit = true;
 
@@ -477,6 +477,8 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 	int l0, m0, n0, p0, tr10, tr20, tr30, tr40;
 
 	ofstream fileki;
+	string fileki_string = "";
+	string fileki_vegso = "";
 	int ter_max = 10;
 	if (bemenetek_szam == 4) { l0 = 0, m0 = 1, n0 = 2, p0 = 3; tr10 = -ter_max, tr20 = -ter_max, tr30 = -ter_max, tr40 = -ter_max; }
 	else if (bemenetek_szam==3) { l0 = molekulaSzam-4, m0 = 0, n0 = 1, p0 = 2; tr10 = -ter_max, tr20 = -ter_max, tr30 = -ter_max, tr40 = ter_max;}
@@ -507,7 +509,7 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 					{
 						for (int megegy_kimenet=0; megegy_kimenet < kimenetek_szam; megegy_kimenet++)
 						{
-
+							fileki_string = "";
 							fileki.open("talalatok.txt");
 							lehetosegek = 0;
 							int lul = 0;
@@ -717,9 +719,15 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 														}
 
 
-														if (lul == 0)
+														if (lul == 0) {
+
+															fileki_string += (to_string(itomb[j]) + " ");
+															fileki_string += (to_string(jtomb[j]) + " " + to_string(ktomb[j]));
+															fileki_string += "     ";
+
 															fileki << itomb[j] << " " <<
-															jtomb[j] << " " << ktomb[j] << endl;
+																jtomb[j] << " " << ktomb[j] << endl;
+														}
 														//cout << dronpa[itomb[j]][jtomb[j]][ktomb[j]].dip << endl;
 														dronpa[itomb[j]][jtomb[j]][ktomb[j]].dip = -100;
 														dronpa[itomb[j]][jtomb[j]][ktomb[j]].dipA = -100;
@@ -763,6 +771,12 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 																if (i == 3) {
 																	lol = l; terr = tr4;
 																}
+
+																fileki_string += (string("field ") + to_string(i + 1));
+																fileki_string += (string(": ") + to_string(terr)+"     ");
+																fileki_string += (string("field ") + to_string(i + 1) + string(" applied to protein: ") + to_string(itomb[lol]) + " " +
+																	to_string(jtomb[lol]) + " " + to_string(ktomb[lol]) + "     ");
+
 																fileki << "field " << i + 1 << ": " << terr << endl;
 																fileki << "field " << i + 1 << " applied to protein: " << itomb[lol] << " " <<
 																	jtomb[lol] << " " << ktomb[lol] << endl;
@@ -774,6 +788,10 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 
 															for (int i = 0; i < kimenetek_szam; i++)
 															{
+
+																fileki_string+= (string("output protein: ") + to_string(itomb[j_elmentes[i]]) + string(" ") +
+																	to_string(jtomb[j_elmentes[i]]) + " " + to_string(ktomb[j_elmentes[i]]) + "     ");
+
 																fileki << "output protein: " << itomb[j_elmentes[i]] << " " <<
 																	jtomb[j_elmentes[i]] << " " << ktomb[j_elmentes[i]] << endl;
 																//cout << "kimenet molekula: " << itomb[j_elmentes[i]] << " " <<
@@ -832,9 +850,12 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 								n = molekulaSzam + 1;
 								megegy = 1000;
 								megegy_kimenet = 1000;
-
+								//fileki.open("talalatok.txt");
+								//fileki << fileki_string;
+								//fileki.close();
 								sikerult = true;
 							}
+							//fileki << fileki_string;
 							fileki.close();
 						}
 					}

@@ -15,12 +15,12 @@ int main(int argc, char* argv[])
 	windowName = "TDK";
 	screencastID = 17;
 	toggleAxes = 1;			//alapból a rács megjelenítésével induljon
-	toggleAnimation = 0;	//animávió alapból ki van kapcsolva
+	
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(windowWidth, windowHeight);
-	glutInitWindowPosition(450, 350);	//az ablak alap nagysága pixelben
+	glutInitWindowPosition(0, 0);	//where to put the window
 
 	main_window = glutCreateWindow(windowName);
 
@@ -33,10 +33,11 @@ int main(int argc, char* argv[])
 	glutPassiveMotionFunc(windowPmotion);
 	glutMouseWheelFunc(mouseWheel);
 
+	//saját inicializáló függvények
 	initializeTextures();
 	initializeObjs();
 	lul();
-	timer(toggleAnimation);
+	
 
 
 
@@ -49,7 +50,7 @@ int main(int argc, char* argv[])
 			for (k = 0; k < 38; k++)
 			{
 				dronpa[i][j][k].van = false;
-				dronpa[i][j][k].ter = false;
+				dronpa[i][j][k].ter = 0;
 				dronpa[i][j][k].dipA = 0;
 				dronpa[i][j][k].dipB = 0;
 				dronpa[i][j][k].dip = 0;
