@@ -64,7 +64,7 @@ void drawLight(void)
 		/*  Draw light position as sphere (still no lighting here) */
 		glColor3fv(white);
 		glDisable(GL_LIGHTING);
-		sphere(Position[0], Position[1], Position[2], 0.1, 0);
+	
 
 		/*  Set ambient, diffuse, specular components and position of light 0 */
 		/*

@@ -6,8 +6,8 @@
 
 /*  Common #defines */
 /*  Defaults for window sizing  */
-#define DEF_WINDOW_HEIGHT 450
-#define DEF_WINDOW_WIDTH 500
+#define DEF_WINDOW_HEIGHT 720
+#define DEF_WINDOW_WIDTH 1280
 
 /*  Projection  */
 #define DEF_ASP 1
@@ -40,14 +40,3 @@
 
 /*  Textures  */
 #define TEX_DEFAULT 36
-#define TEX_BRICK 37
-#define TEX_CRATE 38
-#define TEX_ICE 39
-#define TEX_FIRE 40
-#define TEX_EARTH 41
-#define TEX_WOOD 42
-#define TEX_VENUS 43 
-
-/*  Animation  */
-#define DEF_ANIMATE 1
-#define DEF_ANIMATE_PAUSED 0

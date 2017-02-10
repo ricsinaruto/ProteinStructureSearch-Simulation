@@ -38,7 +38,7 @@
 #include "print.h"   /* printing functions */
 #include "shapes.h"  /* basic shapes (cube, cone, etc) */
 #include "textures.h"/* texture functionality */
-#include "animate.h" /* animation functionality*/
+
 
 /*  Structs  */
 #include "structs.h" /* common structs */
@@ -90,7 +90,7 @@ extern int toggleAnimation;  /* toggle animation */
 
 
 							 /*  Objects  */
-extern cube_s cubes[50000]; /* cube objects */
+extern cube_s cubes[60000]; /* cube objects */
 extern molekula dronpa[38][38][38]; //molekula class 36*36*36os elrendezés
 
 //my own shit

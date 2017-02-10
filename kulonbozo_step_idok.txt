@@ -1,0 +1,9 @@
+NOR
+8 s 50 step
+11 s 500 step
+36 s 5000 step
+
+AND
+26 s 50 step
+37 s 500 step
+130 s 5000 step
