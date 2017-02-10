@@ -38,7 +38,7 @@ void initializeGlobals(void)
 	currentTexture = TEX_DEFAULT;
 
 	//ugyanazok mint screencasts.h-ban
-	toggleAnimation = DEF_ANIMATE;
+	
 	mouseBtnPressed = "Press the left mouse button before pressing the right one when using the q,w,e keys!";
 	mouseState = "";
 	Shift = "rotation";
@@ -85,6 +85,7 @@ void initializeObjs(void)
 					dronpa[szamok[0] + 1][szamok[1] + 1][szamok[2] + 1].dipA = -100;
 					dronpa[szamok[0] + 1][szamok[1] + 1][szamok[2] + 1].dipB = -100;
 					dronpa[szamok[0] + 1][szamok[1] + 1][szamok[2] + 1].ter = false;
+
 					szamlalo = 0;
 					szamok[0] = 36;
 					szamok[1] = 36;
@@ -140,13 +141,7 @@ void initializeTextures(void)
 	TEX_WOOD 6
 	TEX_VENUS 7
 	*/
-	textures[TEX_BRICK] = loadTexBMP("txBrick14.bmp");
-	textures[TEX_CRATE] = loadTexBMP("txCrate.bmp");
-	textures[TEX_ICE] = loadTexBMP("txIce7.bmp");
-	textures[TEX_FIRE] = loadTexBMP("txLava1.bmp");
-	textures[TEX_EARTH] = loadTexBMP("txRock5.bmp");
-	textures[TEX_WOOD] = loadTexBMP("txWood3.bmp");
-	textures[TEX_VENUS] = loadTexBMP("txVenus.bmp");
+	
 
 	textures[0] = loadTexBMP("0.bmp");
 	textures[1] = loadTexBMP("1.bmp");

@@ -51,9 +51,6 @@
     <ClCompile Include="fatal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="animate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screencasts.h">
@@ -90,9 +87,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fatal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="animate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="structs.h">

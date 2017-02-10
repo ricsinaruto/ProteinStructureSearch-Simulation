@@ -249,88 +249,8 @@ void cube(double x, double y, double z,double dx, double dy, double dz,double th
 	glColor4f(1, 1, 1, 1);
 }
 
-/*
-*  sphere
-*  ------
-*  Draw a sphere
-*     at (x,y,z)
-*     radius (r)
-*     rotated rot around the y axis
-*/
-void sphere(double x, double y, double z, double r, double rot)
-{
-	int th, ph;
-	float yellow[] = { 1.0,1.0,0.0,1.0 };
-	float emissions[] = { 0.0,0.0,0.01*emission,1.0 };
-	/*
-	Material shininess = specular exponent
-	Material specular = specular color of material
-	Material emission = simulates original lighting from an object
-	*/
-	glMaterialfv(GL_FRONT, GL_SHININESS, shinyvec);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, yellow);
-	glMaterialfv(GL_FRONT, GL_EMISSION, emissions);
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, currentTexture);
-	glPushMatrix();
 
-	/*  Transform */
-	glTranslated(x, y, z);
-	glScaled(r, r, r);
-	glRotated(rot, 0, 1, 0);
 
-	/*  Bands of latitude */
-	for (ph = -90; ph<90; ph += DEF_D) {
-		glBegin(GL_QUAD_STRIP);
-		for (th = 0; th <= 360; th += 2 * DEF_D) {
-			vertex(th, ph);
-			vertex(th, ph + DEF_D);
-		}
-		glEnd();
-	}
-
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-}
-
-/*
-*  vertex
-*  ------
-*  Draw vertex in polar coordinates with normal
-*/
-void vertex(double th, double ph)
-{
-	double x = Sin(th)*Cos(ph);
-	double y = Cos(th)*Cos(ph);
-	double z = Sin(ph);
-	/*  For a sphere at the origin, the position
-	and normal vectors are the same */
-	glNormal3d(x, y, z);
-	glTexCoord2d(th / 360.0, ph / 180.0 + 0.5);
-	glVertex3d(x, y, z);
-}
-
-//koordináták printelése az adott helyre, ezt most nem használjuk
-void szoveg(int hely,double x, double y, double z,double dx, double dy, double dz,double th)
-{
-	/*  Cube vertices */
-	GLfloat vertA[3] = { 0.5, 0.5, 0.5 };
-	
-
-	glPushMatrix();
-	/*  Transform */
-	glTranslated(x, y, z);
-	glRotated(th, 0, 1, 0);
-	glScaled(dx, dy, dz);
-
-	glRasterPos3fv(vertA);
-	print("%i",hely);
-
-	
-
-	glPopMatrix();
-	
-}
 
 //ugyanaz mint a cube függvény, csak kisebb fekete kockákat rajzol
 void negyzetracs(double x, double y, double z,double dx, double dy, double dz,double th,int i, int j,int k)
