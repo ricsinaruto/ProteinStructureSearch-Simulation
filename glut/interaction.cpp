@@ -3,7 +3,7 @@ using namespace std;
 
 
 //egyeneletkhez paraméterek
-double dt = 0.01;
+double dt = 1;
 double t = 0;
 double K = -0.07;
 double Ce = 0.18;
@@ -74,7 +74,7 @@ void futasv()
 	ifstream filebe;
 	int i, j, k, l, n;
 	string sor;
-	n = 5000;
+	n = 50;
 	int szamlal = 0;
 	if (!t) fileki.open("tmp.csv");
 	else fileki.open("tmp.csv", ios::app);
@@ -209,7 +209,7 @@ void futas()
 {
 	int i, j, k, l, n;
 	string sor;
-	n = 5000;
+	n = 50;
 	int szamlal = 0;
 	
 
