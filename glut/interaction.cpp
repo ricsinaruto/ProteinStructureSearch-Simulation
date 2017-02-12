@@ -1,9 +1,9 @@
-#include "screencasts.h"
+Ôªø#include "screencasts.h"
 using namespace std;
 
 
-//egyeneletkhez paramÈterek
-double dt = 1;
+//egyeneletkhez param√©terek
+double dt = 0.1;
 double t = 0;
 double K = -0.07;
 double Ce = 0.18;
@@ -29,13 +29,13 @@ int struktura_szamlal = 0;
 
 
 
-//bemenetek a proba f¸ggvÈnyhez
+//bemenetek a proba f√ºggv√©nyhez
 int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },{ 0,1,1,0 },{ 1,1,1,0 },
 { 0,0,0,1 },{ 1,0,0,1 },{ 0,1,0 ,1 },{ 1,1,0,1 },{ 0,0,1,1 },{ 1,0,1,1 },{ 0,1,1,1 },{ 1,1,1,1 } };
 
 
 
-//tÈr nagys·g megad·sa, i lenyom·sakor fut le
+//t√©r nagys√°g megad√°sa, i lenyom√°sakor fut le
 void ternagysag()
 {
 	if (szamlalo == 3)
@@ -43,7 +43,7 @@ void ternagysag()
 		if (szamok[0]==0) ter = -(szamok[1] * 10 + szamok[2]);
 		else ter = szamok[1] * 10 + szamok[2];
 		
-		//alaphelyzetre ·llÌt·s
+		//alaphelyzetre √°ll√≠t√°s
 		szamlalo = 0;
 		szamok[0] = 36;
 		szamok[1] = 36;
@@ -51,7 +51,7 @@ void ternagysag()
 	}
 }
 
-//kimenetek megad·sa, k lenyom·sakor fut le
+//kimenetek megad√°sa, k lenyom√°sakor fut le
 void kimenet()
 {
 	bemenetek_szama = log2(szamlalo-1);
@@ -60,21 +60,21 @@ void kimenet()
 	{
 		kimenetek[szamok[0]-1][i-1] = szamok[i];
 
-		//alaphelyzetre ·llÌt·s
+		//alaphelyzetre √°ll√≠t√°s
 		szamok[i] = 36;
 	}
 	szamok[0] = 36;
 	szamlalo = 0;
 }
 
-//r billenty˚ lenyom·sakor ez fut le. A megadott strukt˙ra szimul·ciÛj·t futtatja le
+//r billenty√ª lenyom√°sakor ez fut le. A megadott strukt√∫ra szimul√°ci√≥j√°t futtatja le
 void futasv()
 {
 	ofstream fileki;
 	ifstream filebe;
 	int i, j, k, l, n;
 	string sor;
-	n = 50;
+	n = 500;
 	int szamlal = 0;
 	if (!t) fileki.open("tmp.csv");
 	else fileki.open("tmp.csv", ios::app);
@@ -134,7 +134,7 @@ void futasv()
 					dronpa[itomb[i]][jtomb[i] - 1][ktomb[i]].dipB + dronpa[itomb[i]][jtomb[i] + 1][ktomb[i]].dipB +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i] - 1].dipB + dronpa[itomb[i]][jtomb[i]][ktomb[i] + 1].dipB);
 
-				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += ter;
+				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += dronpa[itomb[i]][jtomb[i]][ktomb[i]].terMag;
 
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA = dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB +
 					(U / Ce1 - dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB / (Ce1*Ce2))*dt;
@@ -160,7 +160,7 @@ void futasv()
 					dronpa[itomb[i]][jtomb[i] - 1][ktomb[i]].dipA + dronpa[itomb[i]][jtomb[i] + 1][ktomb[i]].dipA +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i] - 1].dipA + dronpa[itomb[i]][jtomb[i]][ktomb[i] + 1].dipA);
 
-				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += ter;
+				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += dronpa[itomb[i]][jtomb[i]][ktomb[i]].terMag;
 
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB = dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA +
 					(U / Ce1 - dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA / (Ce1*Ce2))*dt;
@@ -204,14 +204,15 @@ void futasv()
 	delete[] ktomb;
 }
 
-//ezt haszn·lja a proba f¸ggvÈny
+
+//ugyanaz mint a futas, csak egyszerre t√∂bb t√©r is lehet
 void futas()
 {
 	int i, j, k, l, n;
 	string sor;
-	n = 50;
+	n = 500;
 	int szamlal = 0;
-	
+
 
 
 	for (i = 1; i <= 36; i++)
@@ -248,7 +249,7 @@ void futas()
 			}
 		}
 	}
-	
+
 	for (l = 0; l < n; l++)
 	{
 		for (i = 0; i < szamlal; i++)
@@ -260,7 +261,7 @@ void futas()
 					dronpa[itomb[i]][jtomb[i] - 1][ktomb[i]].dipB + dronpa[itomb[i]][jtomb[i] + 1][ktomb[i]].dipB +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i] - 1].dipB + dronpa[itomb[i]][jtomb[i]][ktomb[i] + 1].dipB);
 
-				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += ter;
+				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += dronpa[itomb[i]][jtomb[i]][ktomb[i]].terMag;
 
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA = dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB +
 					(U / Ce1 - dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB / (Ce1*Ce2))*dt;
@@ -286,7 +287,7 @@ void futas()
 					dronpa[itomb[i]][jtomb[i] - 1][ktomb[i]].dipA + dronpa[itomb[i]][jtomb[i] + 1][ktomb[i]].dipA +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i] - 1].dipA + dronpa[itomb[i]][jtomb[i]][ktomb[i] + 1].dipA);
 
-				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += ter;
+				if (dronpa[itomb[i]][jtomb[i]][ktomb[i]].ter) U += dronpa[itomb[i]][jtomb[i]][ktomb[i]].terMag;
 
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB = dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA +
 					(U / Ce1 - dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeA / (Ce1*Ce2))*dt;
@@ -304,7 +305,7 @@ void futas()
 				dronpa[itomb[i]][jtomb[i]][ktomb[i]].dip = dronpa[itomb[i]][jtomb[i]][ktomb[i]].dipB = -100 +
 					dronpa[itomb[i]][jtomb[i]][ktomb[i]].qeB + dronpa[itomb[i]][jtomb[i]][ktomb[i]].qp1B + dronpa[itomb[i]][jtomb[i]][ktomb[i]].qp2B;
 			}
-		}		
+		}
 	}
 
 	delete[] itomb;
@@ -312,7 +313,7 @@ void futas()
 	delete[] ktomb;
 }
 
-//-100-ra ·llÌtja dipÛl ÈrtÈkeket
+//-100-ra √°ll√≠tja dip√≥l √©rt√©keket
 void wipe()
 {
 	int i, j, k;
@@ -331,7 +332,7 @@ void wipe()
 	}
 }
 
-//kisz·molja Ès sorba rakja egy strukt˙ra molekul·inak a szomszÈds·gi gr·fsz·m·t
+//kisz√°molja √©s sorba rakja egy strukt√∫ra molekul√°inak a szomsz√©ds√°gi gr√°fsz√°m√°t
 int *grafszam(int molekulaSzam)
 {
 	int *molekulak = new int[molekulaSzam];
@@ -346,11 +347,11 @@ int *grafszam(int molekulaSzam)
 	int l = 0;
 	int m = 0;
 
-	for (int i = 18-(molekulaSzam-1); i <= 18+molekulaSzam-1; i++)
+	for (int i = 18 - (molekulaSzam - 1); i <= 18 + molekulaSzam - 1; i++)
 	{
-		for (int j = 18-(molekulaSzam-1); j <= 18+molekulaSzam-1; j++)
+		for (int j = 18 - (molekulaSzam - 1); j <= 18 + molekulaSzam - 1; j++)
 		{
-			for (int k = 18-(molekulaSzam-1); k <= 18+molekulaSzam-1; k++)
+			for (int k = 18 - (molekulaSzam - 1); k <= 18 + molekulaSzam - 1; k++)
 			{
 				if (dronpa[i][j][k].van)
 				{
@@ -369,21 +370,21 @@ int *grafszam(int molekulaSzam)
 		{
 			if (abs(itomb[m] - itomb[l]) + abs(jtomb[m] - jtomb[l]) + abs(ktomb[m] - ktomb[l]) == 1)
 				molekulak[m]++;
-			
+
 		}
 	}
-	
+
 
 	bool swapped = true;
 	while (swapped)
 	{
 		swapped = false;
-		for (int j = 0; j < molekulaSzam-1; j++)
+		for (int j = 0; j < molekulaSzam - 1; j++)
 		{
-			if (molekulak[j] < molekulak[j+1])
+			if (molekulak[j] < molekulak[j + 1])
 			{
 				int k = molekulak[j];
-				molekulak[j] = molekulak[j+1];
+				molekulak[j] = molekulak[j + 1];
 				molekulak[j + 1] = k;
 
 				swapped = true;
@@ -400,13 +401,13 @@ int *grafszam(int molekulaSzam)
 	delete[] molekulak;
 }
 
-//ˆsszehasonlÌt·st vÈgez be1 Ès be2 kˆzˆtt, 0 bemenetre igazt ad ha be1<be2, 1 bemenetre igazt ad ha be1>be2
+//√∂sszehasonl√≠t√°st v√©gez be1 √©s be2 k√∂z√∂tt, 0 bemenetre igazt ad ha be1<be2-10, 1 bemenetre igazt ad ha be1>be2+10
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
 	bool hasonlit=false;
-	if ((be1+4) < be2 && kacsacsor==0) hasonlit = true;
+	if ((be1+10) < be2 && kacsacsor==0) hasonlit = true;
 	
-	if (be1>(be2+4) && kacsacsor == 1) hasonlit = true;
+	if (be1>(be2+10) && kacsacsor == 1) hasonlit = true;
 
 	if (kacsacsor == 2) hasonlit = true;
 
@@ -419,7 +420,7 @@ int factorial(int f)
 	return(f * factorial(f - 1));
 }
 
-//ez tart a legtˆbb ideig, ebben van egy adott strukt˙r·n bel¸l a k¸lˆnbˆzı terekkel valÛ tesztelÈs
+//ez tart a legt√∂bb ideig, ebben van egy adott strukt√∫r√°n bel√ºl a k√ºl√∂nb√∂z√µ terekkel val√≥ tesztel√©s
 bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 {
 	//cout << "terteszt kezd" << endl;
@@ -892,7 +893,7 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 	return sikerult;
 }
 
-//f-re lefutÛ szimul·ciÛs f¸ggvÈny
+//f-re lefut√≥ szimul√°ci√≥s f√ºggv√©ny
 bool proba(int molekulaSzam)
 {
 	
@@ -989,18 +990,132 @@ bool proba(int molekulaSzam)
 	return sikerult;
 }
 
-//f-re lefutÛ szimul·ciÛs fıf¸ggvÈny
+
+//random number gen
+double fRand(double fMin, double fMax)
+{
+	
+	double f = (double)rand() / RAND_MAX;
+	return fMin + f * (fMax - fMin);
+}
+
+//t√©r keres√©s
+void harmony_search() {
+
+	//az els≈ë fut√°st csak egyszer kell, √©s elmentj√ºk az alap dip√≥l √©rt√©keket
+	futas();
+	double *dipol = new double[3];
+	for (int i = 0; i < 3; i++) {
+		dipol[i] = dronpa[i+17][18][18].dip;
+	}
+
+	//k√≠v√°nt √©rt√©k
+	double *desired = new double[3];
+	
+	desired[0] = dipol[0]-10;
+	desired[1] = dipol[1] + 10;
+	desired[2] = dipol[2] - 10;
+	
+
+	//jelenlegi √©rt√©k
+	double *actual = new double[3];
+	for (int i = 0; i < 3; i++) {
+		actual[i] =dipol[i];
+	}
+	
+
+	//random inicializ√°l√°s
+	double ter0 = fRand(-10,10);
+	double ter2 = fRand(-10, 10);
+	
+
+	//fitness
+	double fitness = 0;
+	double bestFitness = 100000000;
+	int iteration = 0;
+	bool hasonlit = false;
+
+	//keres√©s
+	while (!(hasonlitas(actual[0],dipol[0],0) && hasonlitas(actual[1], dipol[1], 1) && hasonlitas(actual[2], dipol[2], 0))) {
+		//szimul√°ci√≥
+		for (int i = 0; i < 3; i++) {
+			dronpa[i+17][18][18].dip =dipol[i];
+			dronpa[i +17][18][18].dipA = dipol[i];
+			dronpa[i +17][18][18].dipB = dipol[i];
+			dronpa[i + 17][18][18].qeA = 0;
+			dronpa[i + 17][18][18].qeB = 0;
+			dronpa[i + 17][18][18].qp1A = 0;
+			dronpa[i + 17][18][18].qp1B = 0;
+			dronpa[i + 17][18][18].qp2A = 0;
+			dronpa[i + 17][18][18].qp2B = 0;
+		}
+		
+		ter0 = fRand(-10, 10);
+		ter2 = fRand(-10, 10);
+		dronpa[17][18][18].terMag =ter0;
+		dronpa[19][18][18].terMag = ter2;
+		//cout << ter0 << "   " << ter2 << endl;
+		futas();
+
+		dronpa[17][18][18].terMag = 0;
+		dronpa[19][18][18].terMag = 0;
+		futas();
+
+		//ki√©rt√©kel√©s
+		fitness = 0;
+		for (int i = 0; i < 3; i++) {
+			actual[i]=dronpa[i + 17][18][18].dip;
+			//cout << actual[i] << "  ";
+		}
+		//cout << endl;
+		if (actual[0] > desired[0]) fitness += (actual[0] - desired[0])*(actual[0] - desired[0]);
+		if (actual[2] > desired[2]) fitness += (actual[2] - desired[2])*(actual[2] - desired[2]);
+		if (actual[1] < desired[1]) fitness += (actual[1] - desired[1])*(actual[1] - desired[1]);
+
+		fitness = sqrt(fitness);
+		
+		if (fitness < bestFitness) bestFitness = fitness;
+		//cout << fitness << endl;
+
+		iteration++;
+
+	}
+
+	//megadja a pr√≥b√°lgat√°sok sz√°m√°t
+	cout << iteration << endl;
+
+
+	//null√°z√≥, hogy t√∂bbsz√∂r lehessen futtatni a keres√©st an√©lk√ºl hogy √∫jraind√≠tn√°nk a programot
+	for (int i = 0; i < 3; i++) {
+		dronpa[i + 17][18][18].dip = -100;
+		dronpa[i + 17][18][18].dipA = -100;
+		dronpa[i + 17][18][18].dipB = -100;
+		dronpa[i + 17][18][18].qeA = 0;
+		dronpa[i + 17][18][18].qeB = 0;
+		dronpa[i + 17][18][18].qp1A = 0;
+		dronpa[i + 17][18][18].qp1B = 0;
+		dronpa[i + 17][18][18].qp2A = 0;
+		dronpa[i + 17][18][18].qp2B = 0;
+	}
+
+
+
+}
+
+//f-re lefut√≥ szimul√°ci√≥s f√µf√ºggv√©ny
 void fofuggveny()
 {
 	ofstream fileki;
 
+	//NAND strukt√∫ra, korl√°tok bemeneti t√©rre: -10,+10..... kimeneti treshholdok: -10,+10 dip√≥l elt√©r√©s az alapt√≥l
 	bool sikerult = false;
 	int i = 18, j = 18, k = 18;
 	dronpa[i-1][j][k].van = true;
 	dronpa[i-1][j][k].dip = -100;
 	dronpa[i-1][j][k].dipA = -100;
 	dronpa[i-1][j][k].dipB = -100;
-	dronpa[i-1][j][k].ter = false;
+	dronpa[i-1][j][k].ter = true;
+	
 
 	dronpa[i][j][k].van = true;
 	dronpa[i][j][k].dip = -100;
@@ -1008,11 +1123,12 @@ void fofuggveny()
 	dronpa[i][j][k].dipB = -100;
 	dronpa[i][j][k].ter = false;
 
-	dronpa[i][j-1][k].van = true;
-	dronpa[i][j-1][k].dip = -100;
-	dronpa[i][j-1][k].dipA = -100;
-	dronpa[i][j-1][k].dipB = -100;
-	dronpa[i][j-1][k].ter = false;
+	dronpa[i+1][j][k].van = true;
+	dronpa[i+1][j][k].dip = -100;
+	dronpa[i+1][j][k].dipA = -100;
+	dronpa[i+1][j][k].dipB = -100;
+	dronpa[i+1][j][k].ter = true;
+	
 
 	itomb_mol[0] = i-1;
 	jtomb_mol[0] = j;
@@ -1022,135 +1138,18 @@ void fofuggveny()
 	jtomb_mol[1] = j;
 	ktomb_mol[1] = k;
 
-	itomb_mol[2] = i;
-	jtomb_mol[2] = j-1;
+	itomb_mol[2] = i+1;
+	jtomb_mol[2] = j;
 	ktomb_mol[2] = k;
 
 
-	if (bemenetek_szama + kimenetek_szama < 4)
-	{
-		struktura_szamlal = 3;
-		int molekulaszam = 4;
-
-
-		while (!sikerult)
-		{
-			if (molekulaszam == 4)
-			{
-				sikerult = proba(molekulaszam);
-				molekulaszam++;
-				struktura_szamlal = struktura_szamlal - 2;
-			}
-			else
-			{
-				int lul = struktura_szamlal;
-				int i = 0;
-				int j = 0;
-				while (i<struktura_szamlal && j<molekulaszam - 1)
-				{
-					if (!dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van)
-					{
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = true;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = -100;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = -100;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = -100;
-						i++;
-						j++;
-					}
-					else i++;
-				}
-
-
-				sikerult = proba(molekulaszam);
-				cout << molekulaszam << endl;
-
-				for (int i = 0; i<struktura_szamlal; i++)
-				{
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = false;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = 0;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = 0;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = 0;
-				}
-
-
-				molekulaszam++;
-				//struktura_szamlal = molekulaszam;
-			}
-
-		}
-	}
-
-	else
-	{
-		dronpa[i][j ][k-1].van = true;
-		dronpa[i][j ][k-1].dip = -100;
-		dronpa[i][j ][k-1].dipA = -100;
-		dronpa[i][j ][k-1].dipB = -100;
-		dronpa[i][j ][k-1].ter = false; 
-
-		itomb_mol[3] = i;
-		jtomb_mol[3] = j;
-		ktomb_mol[3] = k-1;
-
-		struktura_szamlal = 4;
-		int molekulaszam = 5;
-
-
-		while (!sikerult)
-		{
-			if (molekulaszam == 5)
-			{
-				sikerult = proba(molekulaszam);
-				molekulaszam++;
-				struktura_szamlal = struktura_szamlal - 2;
-			}
-			else
-			{
-				int lul = struktura_szamlal;
-				int i = 0;
-				int j = 0;
-				while (i<struktura_szamlal && j<molekulaszam - 1)
-				{
-					if (!dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van)
-					{
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = true;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = -100;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = -100;
-						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = -100;
-						i++;
-						j++;
-					}
-					else i++;
-				}
-
-
-				sikerult = proba(molekulaszam);
-				cout << molekulaszam << endl;
-
-				for (int i = 0; i<struktura_szamlal; i++)
-				{
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = false;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = 0;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = 0;
-					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = 0;
-				}
-
-
-				molekulaszam++;
-				//struktura_szamlal = molekulaszam;
-			}
-
-		}
-	}
-
-	
-
-
+	//t√©r keres√©s
+	harmony_search();
 
 	
 }
 
-//strukt˙ra elmentÈse
+//strukt√∫ra elment√©se
 void save()
 {
 	ofstream strukt;
@@ -1189,7 +1188,7 @@ void save()
 	
 }
 
-//beolvas·sa a strukt˙r·nak
+//beolvas√°sa a strukt√∫r√°nak
 void load()
 {
 	ifstream filebe;
@@ -1271,7 +1270,7 @@ void load()
 				{
 					for (int i = -18; i < 18; i++)
 					{
-						//ez megrajzolja a kock·t
+						//ez megrajzolja a kock√°t
 						if (szam == hely)
 						{
 							cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 } ,{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -1313,13 +1312,13 @@ void load()
 	filebe.close();
 }
 
-// q,w,e billenty˚k lenyom·sakor a mozgat·sok Ès forg·sok kezelÈse
+// q,w,e billenty√ªk lenyom√°sakor a mozgat√°sok √©s forg√°sok kezel√©se
 void windowPmotion(int x, int y)
 {
 	mouseX = x;
 	mouseY = y;
 
-	//fÈny forgat·sa
+	//f√©ny forgat√°sa
 	if (Shift == "light")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1341,7 +1340,7 @@ void windowPmotion(int x, int y)
 		}
 	}
 
-	//strukt˙ra forgat·sa
+	//strukt√∫ra forgat√°sa
 	else if (Shift=="rotation")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1363,7 +1362,7 @@ void windowPmotion(int x, int y)
 		}
 	}
 
-	//strukt˙ra mozgat·sa
+	//strukt√∫ra mozgat√°sa
 	else if (Shift=="movement")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1390,14 +1389,14 @@ void windowPmotion(int x, int y)
 	redisplayAll();
 }
 
-//zoomol·s
+//zoomol√°s
 void mouseWheel(int scroll, int dir, int x, int y)
 {
 	dim -= (double)dir;
 	redisplayAll();
 }
 
-//egÈr gombok lenyom·s·nak kezelÈse
+//eg√©r gombok lenyom√°s√°nak kezel√©se
 void windowMouse(int btn, int state, int x, int y)
 {
 	if (btn == GLUT_LEFT_BUTTON) mouseBtnPressed = "Left";
@@ -1418,7 +1417,7 @@ void windowMouse(int btn, int state, int x, int y)
 
 
 
-//ˆsszes billenty˚ lenyom·s kezelÈse
+//√∂sszes billenty√ª lenyom√°s kezel√©se
 void windowKey(unsigned char key, int x, int y)
 {
 	/*  Exit on ESC */
@@ -1431,7 +1430,7 @@ void windowKey(unsigned char key, int x, int y)
 		else valto = "parameters";
 	}
 
-	//paramÈterek megad·sa
+	//param√©terek megad√°sa
 	if (valto == "parameters")
 	{
 		//toggle axes and parameter display
@@ -1450,32 +1449,32 @@ void windowKey(unsigned char key, int x, int y)
 
 		else if (key == 't') enter = "field";
 
-		//mozg·s, forg·s, fÈny forg·s
+		//mozg√°s, forg√°s, f√©ny forg√°s
 		else if (key == 'q') Shift = "movement";
 		else if (key == 'w') Shift = "rotation";
 		else if (key == 'e') Shift = "light";
 
-		//tÈr nagys·g·nak megad·sa
+		//t√©r nagys√°g√°nak megad√°sa
 		else if (key == 'i') {
 			enter = "field magnitude";  ternagysag();
 		}
 
-		//kimenet megad·s
+		//kimenet megad√°s
 		else if (key == 'k') {
 			enter = "output"; kimenet();
 		}
 
-		//szimul·ciÛ futtat·sa
+		//szimul√°ci√≥ futtat√°sa
 		else if (key == 'r') futasv();
 
-		//prÛba f¸ggvÈny
+		//pr√≥ba f√ºggv√©ny
 		else if (key == 'f') fofuggveny();
 
-		//dipÛlok tˆrlÈse
+		//dip√≥lok t√∂rl√©se
 		else if (key == 'p') wipe();
-		//strukt˙ra elmentÈse
+		//strukt√∫ra elment√©se
 		else if (key == 's') save();
-		//strukt˙ra betˆltÈse
+		//strukt√∫ra bet√∂lt√©se
 		else if (key == 'o') load();
 	}
 
@@ -1500,11 +1499,11 @@ void windowKey(unsigned char key, int x, int y)
 	//else if (key == 'n' && shininess>-1) shininess -= 1;
 	//else if (key == 'N' && shininess<7) shininess += 1;
 
-	//enter Ès delete gombok
+	//enter √©s delete gombok
 	if (key == 13)	enter = "pressed";
 	if (key == 8)  enter = "delete";
 
-	//alfanumerikus koordin·t·k megad·sa
+	//alfanumerikus koordin√°t√°k megad√°sa
 	if (valto == "coordinates")
 	{
 		for (int i = 97; i < 123; i++)
@@ -1518,7 +1517,7 @@ void windowKey(unsigned char key, int x, int y)
 		}
 	}
 
-	//0-9ig koordin·ta megad·s
+	//0-9ig koordin√°ta megad√°s
 	for (int i = 48; i < 58; i++)
 	{
 		if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }

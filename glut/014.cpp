@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	initializeObjs();
 	lul();
 	
-
+	srand(time(NULL));
 
 
 	//molekula rács létrehozása, alapból 0 minden molekula dipólja, és false az értéke
