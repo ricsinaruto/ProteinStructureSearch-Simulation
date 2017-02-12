@@ -405,9 +405,9 @@ int *grafszam(int molekulaSzam)
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
 	bool hasonlit=false;
-	if ((be1+10) < be2 && kacsacsor==0) hasonlit = true;
+	if ((be1+1) < be2 && kacsacsor==0) hasonlit = true;
 	
-	if (be1>(be2+10) && kacsacsor == 1) hasonlit = true;
+	if (be1>(be2+1) && kacsacsor == 1) hasonlit = true;
 
 	if (kacsacsor == 2) hasonlit = true;
 
@@ -999,6 +999,29 @@ double fRand(double fMin, double fMax)
 	return fMin + f * (fMax - fMin);
 }
 
+
+//logikai függvény összes sorát megnézi, hogy jó-e
+bool logikai_hasonlitas(double **actual, double **desired) {
+
+	bool jo = true;
+
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (jo && j==0) {
+				if (!hasonlitas(actual[i][j], desired[j][bemenetek[i][0]], bemenetek[i][0])) jo = false;
+			}
+			if (jo && j == 1) {
+				if (!hasonlitas(actual[i][j], desired[j][kimenetek[0][i]],kimenetek[0][i])) jo = false;
+			}
+			if (jo && j == 2) {
+				if (hasonlitas(actual[i][j], desired[j][bemenetek[i][1]], bemenetek[i][1])) jo = false;
+			}
+		}
+	}
+
+	return jo;
+}
+
 //tér keresés
 void harmony_search() {
 
@@ -1010,23 +1033,30 @@ void harmony_search() {
 	}
 
 	//kívánt érték
-	double *desired = new double[3];
-	
-	desired[0] = dipol[0]-10;
-	desired[1] = dipol[1] + 10;
-	desired[2] = dipol[2] - 10;
-	
-
-	//jelenlegi érték
-	double *actual = new double[3];
+	double **desired = new double*[3];
+	for (int i = 0; i < 3; i++) { desired[i] = new double[2]; }
 	for (int i = 0; i < 3; i++) {
-		actual[i] =dipol[i];
+		for (int j = 0; j < 2; j++) {
+			if (j==0) desired[i][j] = dipol[i]-1;
+			else desired[i][j] = dipol[i] + 1;
+		}
 	}
 	
 
-	//random inicializálás
-	double ter0 = fRand(-10,10);
-	double ter2 = fRand(-10, 10);
+	//jelenlegi érték, első index a logikai sor, második a molekula száma
+	double **actual = new double*[4];
+	for (int i = 0; i < 4; i++) { actual[i] = new double[3]; }
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 3; j++) {
+			actual[i][j] = dipol[j];
+		}
+	}
+	
+	//random tér inicializálás
+	double **inputTer = new double*[2];
+	for (int i = 0; i < 2; i++) { inputTer[i] = new double[2]; } //első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
+	
+	
 	
 
 	//fitness
@@ -1036,41 +1066,54 @@ void harmony_search() {
 	bool hasonlit = false;
 
 	//keresés
-	while (!(hasonlitas(actual[0],dipol[0],0) && hasonlitas(actual[1], dipol[1], 1) && hasonlitas(actual[2], dipol[2], 0))) {
+	while (!hasonlit) {
+		
+		//random tér inicializálás
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				inputTer[i][j] = fRand(-10,10);
+			}
+		}
+
+
+
 		//szimuláció
-		for (int i = 0; i < 3; i++) {
-			dronpa[i+17][18][18].dip =dipol[i];
-			dronpa[i +17][18][18].dipA = dipol[i];
-			dronpa[i +17][18][18].dipB = dipol[i];
-			dronpa[i + 17][18][18].qeA = 0;
-			dronpa[i + 17][18][18].qeB = 0;
-			dronpa[i + 17][18][18].qp1A = 0;
-			dronpa[i + 17][18][18].qp1B = 0;
-			dronpa[i + 17][18][18].qp2A = 0;
-			dronpa[i + 17][18][18].qp2B = 0;
+		for (int j = 0; j < 4; j++) {
+			for (int i = 0; i < 3; i++) {
+				dronpa[i + 17][18][18].dip = dipol[i];
+				dronpa[i + 17][18][18].dipA = dipol[i];
+				dronpa[i + 17][18][18].dipB = dipol[i];
+				dronpa[i + 17][18][18].qeA = 0;
+				dronpa[i + 17][18][18].qeB = 0;
+				dronpa[i + 17][18][18].qp1A = 0;
+				dronpa[i + 17][18][18].qp1B = 0;
+				dronpa[i + 17][18][18].qp2A = 0;
+				dronpa[i + 17][18][18].qp2B = 0;
+			}
+
+			
+			dronpa[17][18][18].terMag = inputTer[0][bemenetek[j][0]];
+			dronpa[19][18][18].terMag = inputTer[1][bemenetek[j][1]];
+			//cout << ter0 << "   " << ter2 << endl;
+			futas();
+
+			dronpa[17][18][18].terMag = 0;
+			dronpa[19][18][18].terMag = 0;
+			futas();
+
+			for (int i = 0; i < 3; i++) {
+				actual[j][i] = dronpa[i + 17][18][18].dip;
+				//cout << actual[i] << "  ";
+			}
 		}
 		
-		ter0 = fRand(-10, 10);
-		ter2 = fRand(-10, 10);
-		dronpa[17][18][18].terMag =ter0;
-		dronpa[19][18][18].terMag = ter2;
-		//cout << ter0 << "   " << ter2 << endl;
-		futas();
-
-		dronpa[17][18][18].terMag = 0;
-		dronpa[19][18][18].terMag = 0;
-		futas();
 
 		//kiértékelés
 		fitness = 0;
-		for (int i = 0; i < 3; i++) {
-			actual[i]=dronpa[i + 17][18][18].dip;
-			//cout << actual[i] << "  ";
-		}
 		//cout << endl;
-		if (actual[0] > desired[0]) fitness += (actual[0] - desired[0])*(actual[0] - desired[0]);
+		/*if (actual[0] > desired[0]) fitness += (actual[0] - desired[0])*(actual[0] - desired[0]);
 		if (actual[2] > desired[2]) fitness += (actual[2] - desired[2])*(actual[2] - desired[2]);
-		if (actual[1] < desired[1]) fitness += (actual[1] - desired[1])*(actual[1] - desired[1]);
+		if (actual[1] < desired[1]) fitness += (actual[1] - desired[1])*(actual[1] - desired[1]);*/
 
 		fitness = sqrt(fitness);
 		
@@ -1078,6 +1121,10 @@ void harmony_search() {
 		//cout << fitness << endl;
 
 		iteration++;
+
+		//megfelelnek-e a logikai értékek
+		hasonlit=logikai_hasonlitas(actual,desired);
+		cout << hasonlit << endl;
 
 	}
 
