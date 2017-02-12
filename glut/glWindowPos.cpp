@@ -1,17 +1,15 @@
+#include "screencasts.h"
 /*
 *  glWindowPos for use on those systems without it
 *  (OpenGL versions prior to 1.4)
 */
 
-/*
-*  Set raster curser in window (pixel) coordinates
-*/
-#include "screencasts.h"
-void glWindowPos4f(float x, float y, float z, float w)
-{
+/* Set raster curser in window (pixel) coordinates */
+void glWindowPos4f(float x, float y, float z, float w) {
 	//  Integer versions of x and y
 	int ix = (int)x;
 	int iy = (int)y;
+
 	//  Save transform attributes (Matrix Mode and Viewport)
 	glPushAttrib(GL_TRANSFORM_BIT | GL_VIEWPORT_BIT);
 	//  Save projection matrix and set identity
@@ -22,6 +20,7 @@ void glWindowPos4f(float x, float y, float z, float w)
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 	glLoadIdentity();
+
 	//  Set viewport to 2x2 pixels around (x,y)
 	glViewport(ix - 1, iy - 1, 2, 2);
 	//  Finally set the raster position
@@ -35,9 +34,7 @@ void glWindowPos4f(float x, float y, float z, float w)
 	glPopAttrib();
 }
 
-/*
-*  glWindowPos wrappers
-*/
+/* glWindowPos wrappers */
 void glWindowPos2s(short  x, short  y) { glWindowPos4f(x, y, 0, 1); }
 void glWindowPos2i(int    x, int    y) { glWindowPos4f(x, y, 0, 1); }
 void glWindowPos2f(float  x, float  y) { glWindowPos4f(x, y, 0, 1); }

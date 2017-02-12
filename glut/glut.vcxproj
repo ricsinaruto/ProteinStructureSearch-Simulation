@@ -135,7 +135,6 @@
     <ClCompile Include="display.cpp" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="error.cpp" />
-    <ClCompile Include="fatal.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="glWindowPos.cpp" />
     <ClCompile Include="initialization.cpp" />
@@ -149,7 +148,6 @@
     <ClInclude Include="display.h" />
     <ClInclude Include="draw.h" />
     <ClInclude Include="error.h" />
-    <ClInclude Include="fatal.h" />
     <ClInclude Include="glWindowPos.h" />
     <ClInclude Include="initialization.h" />
     <ClInclude Include="interaction.h" />

@@ -125,8 +125,47 @@ void initializeObjs(void)
 			}
 		}
 	}
+
+	hely = 0;
+	for (int k = -18; k < 18; k++)
+	{
+		for (int j = -18; j < 18; j++)
+		{
+			for (int i = -18; i < 18; i++)
+			{
+				h1[hely] = hely / 1296;
+				h2[hely] = (hely - h1[hely] * 1296) / 36;
+				h3[hely] = hely - h1[hely] * 1296 - h2[hely] * 36;
+
+				hely++;
+			}
+		}
+	}
 }
 
+//molekula rács létrehozása, alapból 0 minden molekula dipólja, és false az értéke
+void initializeProteins(void) {
+	for (int i = 0; i < 38; i++)
+	{
+		for (int j = 0; j < 38; j++)
+		{
+			for (int k = 0; k < 38; k++)
+			{
+				dronpa[i][j][k].van = false;
+				dronpa[i][j][k].ter = 0;
+				dronpa[i][j][k].dipA = 0;
+				dronpa[i][j][k].dipB = 0;
+				dronpa[i][j][k].dip = 0;
+				dronpa[i][j][k].qeA = 0;
+				dronpa[i][j][k].qeB = 0;
+				dronpa[i][j][k].qp1A = 0;
+				dronpa[i][j][k].qp1B = 0;
+				dronpa[i][j][k].qp2A = 0;
+				dronpa[i][j][k].qp2B = 0;
+			}
+		}
+	}
+}
 
 //textúrák inicializálása
 void initializeTextures(void)

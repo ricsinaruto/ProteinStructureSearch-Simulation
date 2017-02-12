@@ -1,11 +1,8 @@
-#include "screencasts.h"
+﻿#include "screencasts.h"
 /*  Global descriptions on screencasts.h  */
 
-/*  ID-used to keep screencasts separate  */
-int screencastID = 0;
-
 /*  WINDOW  */
-char *windowName = "OpenGL screenscasts XX: Placeholder";
+char *windowName = "Placeholder";
 int windowHeight = DEF_WINDOW_HEIGHT;
 int windowWidth = DEF_WINDOW_WIDTH;
 
@@ -41,7 +38,7 @@ int lightTh = DEF_L_TH;
 unsigned int textures[44];
 int currentTexture = TEX_DEFAULT;
 
-//ugyanazok mint screencasts.h-ban
+/* ugyanazok mint screencasts.h-ban */
 char *mouseBtnPressed = "";
 char *mouseState = "";
 char *Shift = "";
@@ -61,9 +58,13 @@ char *enter="";
 char *valto = "";
 int kimenetek_szama = 6;
 int bemenetek_szama = 3;
-int kimenetek[7][16] = { { 0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
-{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,0,1,1,1,0,1,0,0,1,0,1,0,0,1 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};
 int h1[46656], h2[46656], h3[46656];
+
+//ez egy 7 szegmenses kijelző logikai függvénye
+int kimenetek[7][16] = { { 0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
+						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,0,1,1,1,0,1,0,0,1,0,1,0,0,1 },
+						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
+						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};
 
 
 /*  OBJECTS  */
