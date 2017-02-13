@@ -70,7 +70,7 @@ void drawParameters(void) {
 
 		
 		//some other params
-		printAt(5, 45, "Diffuse=%d  //  field=%i", diffuse,ter );
+		printAt(5, 45, "Diffuse=%d  //  field=%i", diffuse,0);
 		printAt(5, 25, "enter=%s // movement type=%s // mousebtn=%s // switch=%s", 
 				enter, Shift, mouseBtnPressed, valto);
 

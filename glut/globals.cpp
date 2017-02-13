@@ -2,23 +2,23 @@
 /*  Global descriptions on screencasts.h  */
 
 /*  WINDOW  */
-char *windowName = "Placeholder";
-int windowHeight = DEF_WINDOW_HEIGHT;
-int windowWidth = DEF_WINDOW_WIDTH;
+char *windowName =	"Placeholder";
+int windowHeight =	DEF_WINDOW_HEIGHT;
+int windowWidth =	DEF_WINDOW_WIDTH;
 
 /*  TOGGLE DRAW DISPLAYS  */
-int toggleAxes = DEF_AXES;
-int toggleParams = DEF_PARAMS;
+int toggleAxes =	DEF_AXES;
+int toggleParams =	DEF_PARAMS;
 
 /*  PROJECTION  */
-double asp = DEF_ASP;
-double dim = DEF_DIM;
-int th = DEF_TH;
-int ph = DEF_PH;
-int fov = DEF_FOV;
-double ecX = DEF_ECX;
-double ecY = DEF_ECY;
-double ecZ = DEF_ECZ;
+double asp =	DEF_ASP;
+double dim =	DEF_DIM;
+int	   th  =	DEF_TH;
+int    ph  =	DEF_PH;
+int    fov =	DEF_FOV;
+double ecX =	DEF_ECX;
+double ecY =	DEF_ECY;
+double ecZ =	DEF_ECZ;
 
 /*  LIGHTING  */
 int toggleLight = DEF_LIGHT;
@@ -35,30 +35,49 @@ int lightPh = DEF_L_PH;
 int lightTh = DEF_L_TH;
 
 /*  TEXTURES  */
-unsigned int textures[44];
+unsigned int textures[TEX_NUMBER];
 int currentTexture = TEX_DEFAULT;
 
-/* ugyanazok mint screencasts.h-ban */
-char *mouseBtnPressed = "";
+/* EQUATION PARAMETERS */
+double t = 0;
+double dt = TIME_STEP;
+double K =	K_CONST;
+double tav = DIST_CONST;
+
+double U = 0;
+double Ce1 = CE1_CONST;
+double Ce2 = CE2_CONST;
+double Cp1 = CP1_CONST;
+double Cp2 = CP2_CONST;
+
+/* INTERACTION VARIABLES */
+char *mouseBtnPressed = INIT_TEXT;
+char *enter = DEF_ENTER;
+char *valto = DEF_VALTO;
+char *Shift = DEF_SHIFT;
 char *mouseState = "";
-char *Shift = "";
-char *fel="";
-double jobbx = 0;
+char *fel= "";
+
 int mouseX = 0, mouseY = 0;
 int xcoord = 0, ycoord = 0;
 int th2 = 0, ph2 = 0;
-double ecX2 = 0, ecY2 = 0;
 int lightTh2 = 0, lightPh2 = 0;
-double fely = 0, timed = 0;
-int main_window;
-int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+double ecX2 = 0, ecY2 = 0;
+double jobbx = 0;
+
+int main_window=0;
 int szamlalo=0;
-int ter = 0;
-char *enter="";
-char *valto = "";
-int kimenetek_szama = 6;
-int bemenetek_szama = 3;
-int h1[46656], h2[46656], h3[46656];
+
+
+/* SEARCHING ALGORITHM */
+int kimenetek_szama = DEF_KIMENETEK_SZAMA;
+int bemenetek_szama = DEF_BEMENETEK_SZAMA;
+int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+
+int *itomb_mol = new int[COORD_ARRAY_LENGTH];
+int *jtomb_mol = new int[COORD_ARRAY_LENGTH];
+int *ktomb_mol = new int[COORD_ARRAY_LENGTH];
+int struktura_szamlal = 0;
 
 //ez egy 7 szegmenses kijelző logikai függvénye
 int kimenetek[7][16] = { { 0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
@@ -66,7 +85,12 @@ int kimenetek[7][16] = { { 0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};
 
+//bemenetek a proba függvényhez
+int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },
+						{ 0,1,1,0 },{ 1,1,1,0 },{ 0,0,0,1 },{ 1,0,0,1 },{ 0,1,0 ,1 },{ 1,1,0,1 },
+						{ 0,0,1,1 },{ 1,0,1,1 },{ 0,1,1,1 },{ 1,1,1,1 } };
 
-/*  OBJECTS  */
-cube_s cubes[60000];
-molekula dronpa[38][38][38];
+/* VISUALIZATION */
+cube_s cubes[CUBE_COUNT_BOUNDARY];
+molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD];
+int h1[CUBE_COUNT], h2[CUBE_COUNT], h3[CUBE_COUNT];

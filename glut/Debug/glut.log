@@ -1,3 +1,13 @@
-﻿  initialization.cpp
+﻿  interaction.cpp
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(158): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(323): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(326): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(329): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(572): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(578): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(580): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(601): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(885): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)

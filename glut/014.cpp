@@ -3,9 +3,6 @@
 
 //Start up GLUT and tell it what to do
 int main(int argc, char* argv[]) {
-
-	initializeGlobals();
-
 	windowName = "Dronpa Simulation Program";
 	toggleAxes = 1;			//alapból a rács megjelenítésével induljon
 	

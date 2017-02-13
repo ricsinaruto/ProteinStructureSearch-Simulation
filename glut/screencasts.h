@@ -81,7 +81,7 @@ extern float lightY;      /* elevation of light */
 extern float white[];     /* the color white */
 extern int lightPh;       /* light movement */
 extern int lightTh;
-extern int ter;
+
 
 /* textures */
 extern unsigned int textures[44]; /* holds our textures */
@@ -104,7 +104,7 @@ extern int mouseX, mouseY;		//a q,w,e-hez kell
 extern int xcoord, ycoord;		//a q,w,e-hez kell
 extern int th2, ph2;			//forgatáshoz kell
 extern int lightTh2, lightPh2;	//fény forgatáshoz kell
-extern double fely, timed;		//asszem obsolete
+		//asszem obsolete
 extern double ecX2, ecY2;		//x és y menti mozgatáshoz kell
 extern int main_window;			//obsolete
 extern int szamok[17];			//tartalmazza a beírt molekula koordinátáit, ezt használom a kimenetek megadására is
@@ -115,6 +115,28 @@ extern int kimenetek_szama;
 extern int bemenetek_szama;
 extern int kimenetek[7][16];
 extern int h1[46656], h2[46656], h3[46656];
+//bemenetek a proba függvényhez
+extern int bemenetek[16][4];
+
+//egyeneletkhez paraméterek
+extern double dt;
+extern double t;
+extern double K;
+extern double tav;
+
+
+extern double U;
+extern double Ce1;
+extern double Ce2;
+extern double Cp1;
+extern double Cp2;
+
+//ezekben tároljuk a létrehozott molekulák koordinátáit
+extern int *itomb_mol;
+extern int *jtomb_mol;
+extern int *ktomb_mol;
+extern int struktura_szamlal;
+
 
 
 #endif
