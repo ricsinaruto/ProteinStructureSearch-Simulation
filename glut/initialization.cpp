@@ -168,55 +168,24 @@ void initializeProteins(void) {
 }
 
 //textúrák inicializálása
-void initializeTextures(void)
-{
-	/*
-	TEX_DEFAULT 0
-	TEX_BRICK 1
-	TEX_CRATE 2
-	TEX_ICE 3
-	TEX_FIRE 4
-	TEX_EARTH 5
-	TEX_WOOD 6
-	TEX_VENUS 7
-	*/
-	
+void initializeTextures(void) {
+	//számok
+	for (int i = 0; i < 10; i++) {
+		std::string ok = std::to_string(i)+".bmp";
+		char* c = &ok[0];
+		textures[i] = loadTexBMP(c);
+	}
 
-	textures[0] = loadTexBMP("0.bmp");
-	textures[1] = loadTexBMP("1.bmp");
-	textures[2] = loadTexBMP("2.bmp");
-	textures[3] = loadTexBMP("3.bmp");
-	textures[4] = loadTexBMP("4.bmp");
-	textures[5] = loadTexBMP("5.bmp");
-	textures[6] = loadTexBMP("6.bmp");
-	textures[7] = loadTexBMP("7.bmp");
-	textures[8] = loadTexBMP("8.bmp");
-	textures[9] = loadTexBMP("9.bmp");
+	//karakterek
+	for (int i = 10; i < 36; i++) {
+		std::stringstream ss;
+		std::string ok;
+		char v = i+87;
 
-	textures[10] = loadTexBMP("a.bmp");
-	textures[11] = loadTexBMP("b.bmp");
-	textures[12] = loadTexBMP("c.bmp");
-	textures[13] = loadTexBMP("d.bmp");
-	textures[14] = loadTexBMP("e.bmp");
-	textures[15] = loadTexBMP("f.bmp");
-	textures[16] = loadTexBMP("g.bmp");
-	textures[17] = loadTexBMP("h.bmp");
-	textures[18] = loadTexBMP("i.bmp");
-	textures[19] = loadTexBMP("j.bmp");
-	textures[20] = loadTexBMP("k.bmp");
-	textures[21] = loadTexBMP("l.bmp");
-	textures[22] = loadTexBMP("m.bmp");
-	textures[23] = loadTexBMP("n.bmp");
-	textures[24] = loadTexBMP("o.bmp");
-	textures[25] = loadTexBMP("p.bmp");
-	textures[26] = loadTexBMP("q.bmp");
-	textures[27] = loadTexBMP("r.bmp");
-	textures[28] = loadTexBMP("s.bmp");
-	textures[29] = loadTexBMP("t.bmp");
-	textures[30] = loadTexBMP("u.bmp");
-	textures[31] = loadTexBMP("v.bmp");
-	textures[32] = loadTexBMP("w.bmp");
-	textures[33] = loadTexBMP("x.bmp");
-	textures[34] = loadTexBMP("y.bmp");
-	textures[35] = loadTexBMP("z.bmp");
+		ss << v;
+		ss >> ok;
+		ok += ".bmp";
+		char* c = &ok[0];
+		textures[i] = loadTexBMP(c);
+	}
 }
