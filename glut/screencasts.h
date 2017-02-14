@@ -117,6 +117,8 @@ extern int kimenetek[7][16];
 extern int h1[46656], h2[46656], h3[46656];
 //bemenetek a proba függvényhez
 extern int bemenetek[16][4];
+extern double tolerance;
+extern double max_ter;
 
 //egyeneletkhez paraméterek
 extern double dt;

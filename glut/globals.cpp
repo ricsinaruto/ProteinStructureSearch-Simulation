@@ -72,6 +72,8 @@ int szamlalo=0;
 /* SEARCHING ALGORITHM */
 int kimenetek_szama = DEF_KIMENETEK_SZAMA;
 int bemenetek_szama = DEF_BEMENETEK_SZAMA;
+double tolerance	= DEF_TOLERANCE;
+double max_ter = DEF_MAX_TER;
 int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 
 int *itomb_mol = new int[COORD_ARRAY_LENGTH];
@@ -79,8 +81,8 @@ int *jtomb_mol = new int[COORD_ARRAY_LENGTH];
 int *ktomb_mol = new int[COORD_ARRAY_LENGTH];
 int struktura_szamlal = 0;
 
-//ez egy 7 szegmenses kijelző logikai függvénye
-int kimenetek[7][16] = { { 0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
+//nem tudom mi ez a logikai függvény lol
+int kimenetek[7][16] = { { 0,0,0,1,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,0,1,1,1,0,1,0,0,1,0,1,0,0,1 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};

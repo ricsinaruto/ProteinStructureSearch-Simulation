@@ -21,6 +21,7 @@ class molekula
 {
 public:
 	bool van;	//van-e molekula az adott helyen
+	bool kell;	//részt vesz-e az adott logikai függvényben
 	bool ter;	//térrel terhelt-e a molekula az adott helyen
 	double terMag;	//mekkora térrel terhelt a molekula
 	double dipA, dipB, dip;		//dipólok

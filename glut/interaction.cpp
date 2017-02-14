@@ -34,21 +34,21 @@ void kimenet()
 }
 
 //r billentyû lenyomásakor ez fut le. A megadott struktúra szimulációját futtatja le
-void futasv()
+void futasv(char* file_name,bool first_open)
 {
 	ofstream fileki;
 	ifstream filebe;
 	int i, j, k, l, n;
 	string sor;
-	n = 500;
+	n = 50/dt;
 	int szamlal = 0;
-	if (!t) fileki.open("tmp.csv");
+	if (first_open) fileki.open("tmp.csv");
 	else fileki.open("tmp.csv", ios::app);
 
 	
 	
 	
-	if (!t) fileki << ",";
+	if (first_open) fileki << ",";
 	for (i = 1; i <= 36; i++)
 	{
 		for (j = 1; j <= 36; j++)
@@ -57,13 +57,13 @@ void futasv()
 			{
 				if (dronpa[i][j][k].van)
 				{
-					if (!t) fileki << i - 1 << " " << j - 1 << " " << k - 1 << ",";
+					if (first_open) fileki << i - 1 << " " << j - 1 << " " << k - 1 << ",";
 					szamlal++;
 				}
 			}
 		}
 	}
-	if (!t) fileki << endl;
+	if (first_open) fileki << endl;
 
 	int *itomb = new int[szamlal];
 	int *jtomb = new int[szamlal];
@@ -152,7 +152,7 @@ void futasv()
 	fileki.close();
 
 	filebe.open("tmp.csv");
-	fileki.open("graf.csv");
+	fileki.open(file_name);
 	while (getline(filebe, sor))
 	{
 		for (i = 0; i < sor.length(); i++)
@@ -176,7 +176,7 @@ void futas()
 {
 	int i, j, k, l, n;
 	string sor;
-	n = 500;
+	n = 50/dt;
 	int szamlal = 0;
 
 
@@ -282,13 +282,13 @@ void futas()
 
 
 
-//összehasonlítást végez be1 és be2 között, 0 bemenetre igazt ad ha be1<be2-10, 1 bemenetre igazt ad ha be1>be2+10
+//összehasonlítást végez be1 és be2 között, 0 bemenetre igazt ad ha be1<be2, 1 bemenetre igazt ad ha be1>be2
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
 	bool hasonlit=false;
-	if ((be1+1) < be2 && kacsacsor==0) hasonlit = true;
+	if ((be1) < be2 && kacsacsor==0) hasonlit = true;
 	
-	if (be1>(be2+1) && kacsacsor == 1) hasonlit = true;
+	if (be1>(be2) && kacsacsor == 1) hasonlit = true;
 
 	if (kacsacsor == 2) hasonlit = true;
 
@@ -311,27 +311,41 @@ double fRand(double fMin, double fMax)
 	return fMin + f * (fMax - fMin);
 }
 
-
 //logikai függvény összes sorát megnézi, hogy jó-e
 bool logikai_hasonlitas(double **actual, double **desired) {
 
 	bool jo = true;
+	int bemenetek_iteralo = 0;
+	int kimenetek_iteralo = 0;
 
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (jo && j==0) {
-				if (!hasonlitas(actual[i][j], desired[j][bemenetek[i][0]], bemenetek[i][0])) jo = false;
+	for (int i = 0; i < pow(2,bemenetek_szama); i++) {
+		for (int j = 0; j < bemenetek_szama+kimenetek_szama; j++) {
+			if (jo && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+				if (!hasonlitas(actual[i][j], desired[j][bemenetek[i][bemenetek_iteralo]], bemenetek[i][bemenetek_iteralo])) jo = false;
+				bemenetek_iteralo++;
 			}
-			if (jo && j == 1) {
-				if (!hasonlitas(actual[i][j], desired[j][kimenetek[0][i]],kimenetek[0][i])) jo = false;
-			}
-			if (jo && j == 2) {
-				if (hasonlitas(actual[i][j], desired[j][bemenetek[i][1]], bemenetek[i][1])) jo = false;
+			if (jo && !dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+				if (!hasonlitas(actual[i][j], desired[j][kimenetek[kimenetek_iteralo][i]],kimenetek[kimenetek_iteralo][i])) jo = false;
+				kimenetek_iteralo++;
 			}
 		}
+		bemenetek_iteralo = kimenetek_iteralo = 0;
 	}
 
 	return jo;
+}
+
+//reset dipole moment
+void reset_dipole(int i, int j, int k, double dipole) {
+	dronpa[i][j][k].dip = dipole;
+	dronpa[i][j][k].dipA = dipole;
+	dronpa[i][j][k].dipB = dipole;
+	dronpa[i][j][k].qeA = 0;
+	dronpa[i][j][k].qeB = 0;
+	dronpa[i][j][k].qp1A = 0;
+	dronpa[i][j][k].qp1B = 0;
+	dronpa[i][j][k].qp2A = 0;
+	dronpa[i][j][k].qp2B = 0;
 }
 
 //tér keresés
@@ -339,35 +353,45 @@ void harmony_search() {
 
 	//az első futást csak egyszer kell, és elmentjük az alap dipól értékeket
 	futas();
-	double *dipol = new double[3];
-	for (int i = 0; i < 3; i++) {
-		dipol[i] = dronpa[i+17][18][18].dip;
+	double *dipol = new double[struktura_szamlal];
+	for (int i = 0; i < struktura_szamlal; i++) {
+		dipol[i] = dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip;
 	}
 
-	//kívánt érték
-	double **desired = new double*[3];
-	for (int i = 0; i < 3; i++) { desired[i] = new double[2]; }
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 2; j++) {
-			if (j==0) desired[i][j] = dipol[i]-1;
-			else desired[i][j] = dipol[i] + 1;
+	//kívánt érték, alaptól 10 dipol eltérés 
+	double **desired = new double*[bemenetek_szama+kimenetek_szama];
+	for (int i = 0; i <bemenetek_szama+kimenetek_szama; i++) { desired[i] = new double[2]; }
+
+	int kell_iterator = 0;
+	for (int i = 0; i < struktura_szamlal; i++) {
+		if (dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].kell) {
+			for (int j = 0; j < 2; j++) {
+				if (j == 0) desired[kell_iterator][j] = dipol[i] - tolerance;
+				else desired[kell_iterator][j] = dipol[i] + tolerance;
+			}
+			kell_iterator++;
 		}
 	}
 	
 
 	//jelenlegi érték, első index a logikai sor, második a molekula száma
-	double **actual = new double*[4];
-	for (int i = 0; i < 4; i++) { actual[i] = new double[3]; }
-	for (int i = 0; i < 4; i++) {
+	double **actual = new double*[pow(2,bemenetek_szama)];
+	for (int i = 0; i < pow(2, bemenetek_szama); i++) { actual[i] = new double[bemenetek_szama+kimenetek_szama]; }
+
+	kell_iterator = 0;
+	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 		for (int j = 0; j < 3; j++) {
-			actual[i][j] = dipol[j];
+			if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+				actual[i][kell_iterator] = dipol[j];
+				kell_iterator++;
+			}
 		}
+		kell_iterator = 0;
 	}
 	
 	//random tér inicializálás
-	double **inputTer = new double*[2];
-	for (int i = 0; i < 2; i++) { inputTer[i] = new double[2]; } //első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
-	
+	double **inputTer = new double*[bemenetek_szama];
+	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; } //első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
 	
 	
 
@@ -381,41 +405,50 @@ void harmony_search() {
 	while (!hasonlit) {
 		
 		//random tér inicializálás
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < bemenetek_szama; i++) {
 			for (int j = 0; j < 2; j++) {
-				inputTer[i][j] = fRand(-10,10);
+				inputTer[i][j] = fRand(-max_ter,max_ter);
 			}
 		}
 
 
-
-		//szimuláció
-		for (int j = 0; j < 4; j++) {
-			for (int i = 0; i < 3; i++) {
-				dronpa[i + 17][18][18].dip = dipol[i];
-				dronpa[i + 17][18][18].dipA = dipol[i];
-				dronpa[i + 17][18][18].dipB = dipol[i];
-				dronpa[i + 17][18][18].qeA = 0;
-				dronpa[i + 17][18][18].qeB = 0;
-				dronpa[i + 17][18][18].qp1A = 0;
-				dronpa[i + 17][18][18].qp1B = 0;
-				dronpa[i + 17][18][18].qp2A = 0;
-				dronpa[i + 17][18][18].qp2B = 0;
+		/* SIMULATION */
+		for (int i = 0; i < pow(2,bemenetek_szama); i++) {
+			for (int j = 0; j < struktura_szamlal; j++) {
+				reset_dipole(itomb_mol[j], jtomb_mol[j], ktomb_mol[j], dipol[j]);
 			}
 
-			
-			dronpa[17][18][18].terMag = inputTer[0][bemenetek[j][0]];
-			dronpa[19][18][18].terMag = inputTer[1][bemenetek[j][1]];
-			//cout << ter0 << "   " << ter2 << endl;
+			//tér aplikálás
+			int bemenet_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = inputTer[bemenet_iteralo][bemenetek[i][bemenet_iteralo]];
+						bemenet_iteralo++;
+				}
+			}
+			std::string ok = "graf"+std::to_string(i) + ".csv";
+			char* c = &ok[0];
+			//futasv(c,true);
 			futas();
 
-			dronpa[17][18][18].terMag = 0;
-			dronpa[19][18][18].terMag = 0;
+			bemenet_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = 0;
+					bemenet_iteralo++;
+				}
+			}
+			//futasv(c,false);
 			futas();
 
-			for (int i = 0; i < 3; i++) {
-				actual[j][i] = dronpa[i + 17][18][18].dip;
-				//cout << actual[i] << "  ";
+		
+			//dipól értékek elmentése
+			int kell_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+					actual[i][kell_iteralo] = dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].dip;
+					kell_iteralo++;
+				}
 			}
 		}
 		
@@ -436,76 +469,98 @@ void harmony_search() {
 
 		//megfelelnek-e a logikai értékek
 		hasonlit=logikai_hasonlitas(actual,desired);
-		cout << hasonlit << endl;
-
+		
+		//cout << hasonlit << endl;
 	}
 
+	/* Adatok kiíratása */
+	for (int i = 0; i < bemenetek_szama; i++) {
+		for (int j = 0; j < 2; j++) {
+			cout <<i<<". input molekulara "<<j<<" logikai ter nagysaga: "<< inputTer[i][j] << "   ";
+		}
+		cout << endl;
+	}
 	//megadja a próbálgatások számát
-	cout << iteration << endl;
+	cout <<"number of iterations: "<< iteration << endl<<endl;
 
 
 	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
-	for (int i = 0; i < 3; i++) {
-		dronpa[i + 17][18][18].dip = -100;
-		dronpa[i + 17][18][18].dipA = -100;
-		dronpa[i + 17][18][18].dipB = -100;
-		dronpa[i + 17][18][18].qeA = 0;
-		dronpa[i + 17][18][18].qeB = 0;
-		dronpa[i + 17][18][18].qp1A = 0;
-		dronpa[i + 17][18][18].qp1B = 0;
-		dronpa[i + 17][18][18].qp2A = 0;
-		dronpa[i + 17][18][18].qp2B = 0;
+	for (int i = 0; i < struktura_szamlal; i++) {
+		reset_dipole(itomb_mol[i], jtomb_mol[i], ktomb_mol[i], -100);
 	}
 
+	/* tömb és mátrixok törlése */
+	//for (int i = 0; i < bemenetek_szama + kimenetek_szama; i++) { delete[] desired[i]; }
+	//delete[] desired;
+	//desired = nullptr;
 
+	//for (int i = 0; i < pow(2, bemenetek_szama); i++) { delete[] actual[i]; }
+	//delete[] actual;
+	//actual = nullptr;
 
+	//for (int i = 0; i < bemenetek_szama; i++) { delete[] inputTer[i]; }
+	//delete[] inputTer;
+	//inputTer = nullptr;
+
+	//delete[] dipol;
+	//dipol = nullptr;
 }
 
 //f-re lefutó szimulációs fõfüggvény
 void fofuggveny()
 {
-	ofstream fileki;
-
-	//NAND struktúra, korlátok bemeneti térre: -10,+10..... kimeneti treshholdok: -10,+10 dipól eltérés az alaptól
-	bool sikerult = false;
 	int i = 18, j = 18, k = 18;
-	dronpa[i-1][j][k].van = true;
-	dronpa[i-1][j][k].dip = -100;
-	dronpa[i-1][j][k].dipA = -100;
-	dronpa[i-1][j][k].dipB = -100;
-	dronpa[i-1][j][k].ter = true;
+	struktura_szamlal = 4;	//ennyi molekula inicializálva
+
+	//XOR és XNOR struktúrát még nem talált
+	itomb_mol[0] = 17;
+	jtomb_mol[0] = 17;
+	ktomb_mol[0] = 18;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].van = true;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].kell = true;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].dip = -100;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].dipA = -100;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].dipB = -100;
+	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].ter = true;
+	
+	
+	itomb_mol[1] = 16;
+	jtomb_mol[1] = 18;
+	ktomb_mol[1] = 18;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].van = true;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].kell = true;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].dip = -100;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].dipA = -100;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].dipB = -100;
+	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].ter = true;
 	
 
-	dronpa[i][j][k].van = true;
-	dronpa[i][j][k].dip = -100;
-	dronpa[i][j][k].dipA = -100;
-	dronpa[i][j][k].dipB = -100;
-	dronpa[i][j][k].ter = false;
+	itomb_mol[2] = 18;
+	jtomb_mol[2] = 18;
+	ktomb_mol[2] = 18;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].van = true;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].kell = true;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dip = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipA = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipB = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].ter = false;
 
-	dronpa[i+1][j][k].van = true;
-	dronpa[i+1][j][k].dip = -100;
-	dronpa[i+1][j][k].dipA = -100;
-	dronpa[i+1][j][k].dipB = -100;
-	dronpa[i+1][j][k].ter = true;
+
+	itomb_mol[3] = 17;
+	jtomb_mol[3] = 18;
+	ktomb_mol[3] = 18;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].van = true;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].kell = false;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dip = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipA = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipB = -100;
+	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].ter = false;
 	
-
-	itomb_mol[0] = i-1;
-	jtomb_mol[0] = j;
-	ktomb_mol[0] = k;
-
-	itomb_mol[1] = i;
-	jtomb_mol[1] = j;
-	ktomb_mol[1] = k;
-
-	itomb_mol[2] = i+1;
-	jtomb_mol[2] = j;
-	ktomb_mol[2] = k;
-
+	
+	
 
 	//tér keresés
 	harmony_search();
-
-	
 }
 
 //struktúra elmentése
@@ -824,7 +879,7 @@ void windowKey(unsigned char key, int x, int y)
 		}
 
 		//szimuláció futtatása
-		else if (key == 'r') futasv();
+		else if (key == 'r') futasv("graf.csv",false);
 
 		//próba függvény
 		else if (key == 'f') fofuggveny();
