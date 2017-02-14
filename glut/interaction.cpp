@@ -1,5 +1,7 @@
 ﻿#include "screencasts.h"
 using namespace std;
+#define e 2.71828182845904523536
+
 
 //tér nagyság megadása, i lenyomásakor fut le
 /*
@@ -319,7 +321,7 @@ bool logikai_hasonlitas(double **actual, double **desired) {
 	int kimenetek_iteralo = 0;
 
 	for (int i = 0; i < pow(2,bemenetek_szama); i++) {
-		for (int j = 0; j < bemenetek_szama+kimenetek_szama; j++) {
+		for (int j = 0; j < bemenetek_szama+kimenetek_szama; j++) {  //ezt át kell írni struktura_szamlal-ra!!!!!!!!
 			if (jo && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
 				if (!hasonlitas(actual[i][j], desired[j][bemenetek[i][bemenetek_iteralo]], bemenetek[i][bemenetek_iteralo])) jo = false;
 				bemenetek_iteralo++;
@@ -333,6 +335,49 @@ bool logikai_hasonlitas(double **actual, double **desired) {
 	}
 
 	return jo;
+}
+
+//fitness function számoló
+double fitness_func(double **actual, double **desired) {
+	double fitness=0;
+
+	int bemenetek_iteralo = 0;
+	int kimenetek_iteralo = 0;
+
+	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
+		for (int j = 0; j < bemenetek_szama + kimenetek_szama; j++) {
+			if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+				if (bemenetek[i][bemenetek_iteralo]) {
+					if (actual[i][j] < desired[j][bemenetek[i][bemenetek_iteralo]]) {
+						fitness += sqrt(pow(desired[j][bemenetek[i][bemenetek_iteralo]] - actual[i][j], 2));
+					}
+				}
+				else {
+					if (actual[i][j] > desired[j][bemenetek[i][bemenetek_iteralo]]) {
+						fitness += sqrt(pow(desired[j][bemenetek[i][bemenetek_iteralo]] - actual[i][j], 2));
+					}
+				}
+				bemenetek_iteralo++;
+			}
+			if (!dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+				if (kimenetek[kimenetek_iteralo][i]) {
+					if (actual[i][j] < desired[j][kimenetek[kimenetek_iteralo][i]]) {
+						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]] - actual[i][j], 2));
+					}
+				}
+				else {
+					if (actual[i][j] > desired[j][kimenetek[kimenetek_iteralo][i]]) {
+						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]] - actual[i][j], 2));
+					}
+				}
+				kimenetek_iteralo++;
+			}
+		}
+		bemenetek_iteralo = kimenetek_iteralo = 0;
+	}
+
+
+	return fitness;
 }
 
 //reset dipole moment
@@ -395,25 +440,149 @@ void harmony_search() {
 	
 	
 
-	//fitness
-	double fitness = 0;
-	double bestFitness = 100000000;
-	int iteration = 0;
+	//simulated annealing paraméterek, ahol [2][2] van azt majd át kell rakni dinamikusra
+	// /* SIMULATION */ algoritmust átrakni egy függvénybe
+	int iteration = 1;
 	bool hasonlit = false;
 
+	int n = 20;								//number of children
+	int stuff = 1;								//a while számlálója
+	int fori;										//for ciklusokhoz
+
+	double x, y;								//ez lesz egy random szám
+	//random tér inicializálás (original candidate)
+	for (int i = 0; i < bemenetek_szama; i++) {
+		for (int j = 0; j < 2; j++) {
+			inputTer[i][j] = fRand(-max_ter, max_ter);
+		}
+	}			
+	double r[2][2];								//child number
+	double w[2][2];								//child number variations
+	double best[2][2] = { {inputTer[0][0],inputTer[0][1]},{ inputTer[1][0],inputTer[1][1]} };			//best number
+
+	int t = 10000;								//"temperature"
+
+	double nu = 0;								//gaussian nu-je
+	double sigma[2][2] = { {1,1},{1,1} };		//gaussian sigmája
+
+	double distro;								//amibe elmentjük a gaussian által létrehozott számot
+	double z;									//a distrohoz kell
+	double fitness;								//fitness számoláshoz
+	double sugar = 1;								//sugár a random generátorhoz
+	double besto = 0;
+	double bestoszam = 0;
+	double finalbest = 0;
+
 	//keresés
-	while (!hasonlit) {
+	while (!hasonlit && t>0) {
 		
 		//random tér inicializálás
-		for (int i = 0; i < bemenetek_szama; i++) {
+		/*for (int i = 0; i < bemenetek_szama; i++) {
 			for (int j = 0; j < 2; j++) {
 				inputTer[i][j] = fRand(-max_ter,max_ter);
+			}
+		}*/
+
+		//random szám generálás 1
+		for (int i = 0; i < bemenetek_szama; i++) {
+			for (int j = 0; j < 2;) {
+
+				z = 0;
+				while (z <= 0 || z >= 1) {
+					x = fRand(-sugar, sugar);
+					y = fRand(-sugar, sugar);
+					z = x*x + y*y;
+				}
+				//gaussian random szám
+				distro = nu + x*sigma[i][j] * sqrt(-2 * log(z) / z);
+
+				r[i][j] = inputTer[i][j] + distro;
+				if (r[i][j]>10 || r[i][j]<-10);
+				else j++;
 			}
 		}
 
 
+		//generáció szimulálása
+		for (fori=0; fori <= n; fori++) {
+			//random szám generálás 2
+			for (int i = 0; i < bemenetek_szama; i++) {
+				for (int j = 0; j < 2;) {
+
+					z = 0;
+					while (z <= 0 || z >= 1) {
+						x = fRand(-sugar, sugar);
+						y = fRand(-sugar, sugar);
+						z = x*x + y*y;
+					}
+					//gaussian random szám
+					distro = nu + x*sigma[i][j] * sqrt(-2 * log(z) / z);
+
+					w[i][j] = inputTer[i][j] + distro;
+					if (w[i][j]>10 || w[i][j]<-10);
+					else j++;
+				}
+			}
+
+			
+			/* SIMULATION */
+			for (int i = 0; i < pow(2, bemenetek_szama); i++) {
+				for (int j = 0; j < struktura_szamlal; j++) {
+					reset_dipole(itomb_mol[j], jtomb_mol[j], ktomb_mol[j], dipol[j]);
+				}
+
+				//tér aplikálás
+				int bemenet_iteralo = 0;
+				for (int j = 0; j < struktura_szamlal; j++) {
+					if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+						dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = w[bemenet_iteralo][bemenetek[i][bemenet_iteralo]];
+						bemenet_iteralo++;
+					}
+				}
+				std::string ok = "graf" + std::to_string(i) + ".csv";
+				char* c = &ok[0];
+				//futasv(c,true);
+				futas();
+
+				bemenet_iteralo = 0;
+				for (int j = 0; j < struktura_szamlal; j++) {
+					if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+						dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = 0;
+						bemenet_iteralo++;
+					}
+				}
+				//futasv(c,false);
+				futas();
+
+
+				//dipól értékek elmentése
+				int kell_iteralo = 0;
+				for (int j = 0; j < struktura_szamlal; j++) {
+					if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+						actual[i][kell_iteralo] = dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].dip;
+						kell_iteralo++;
+					}
+				}
+			}
+
+			//összehasonlítás, fitness
+			fitness=fitness_func(actual,desired);
+			besto += fitness;
+
+			//legyen-e csere?
+			if (besto / (fori + (iteration - 1)*n) < (besto - fitness) / (fori + (iteration - 1)*n - 1)) {
+				for (int i = 0; i < bemenetek_szama; i++) {
+					for (int j = 0; j < 2; j++) {
+						r[i][j] = w[i][j];
+					}
+				}
+			}
+		}
+
+		x = fRand(0, 1);
+
 		/* SIMULATION */
-		for (int i = 0; i < pow(2,bemenetek_szama); i++) {
+		for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 			for (int j = 0; j < struktura_szamlal; j++) {
 				reset_dipole(itomb_mol[j], jtomb_mol[j], ktomb_mol[j], dipol[j]);
 			}
@@ -422,11 +591,11 @@ void harmony_search() {
 			int bemenet_iteralo = 0;
 			for (int j = 0; j < struktura_szamlal; j++) {
 				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
-					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = inputTer[bemenet_iteralo][bemenetek[i][bemenet_iteralo]];
-						bemenet_iteralo++;
+					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = r[bemenet_iteralo][bemenetek[i][bemenet_iteralo]];
+					bemenet_iteralo++;
 				}
 			}
-			std::string ok = "graf"+std::to_string(i) + ".csv";
+			std::string ok = "graf" + std::to_string(i) + ".csv";
 			char* c = &ok[0];
 			//futasv(c,true);
 			futas();
@@ -441,7 +610,7 @@ void harmony_search() {
 			//futasv(c,false);
 			futas();
 
-		
+
 			//dipól értékek elmentése
 			int kell_iteralo = 0;
 			for (int j = 0; j < struktura_szamlal; j++) {
@@ -451,21 +620,77 @@ void harmony_search() {
 				}
 			}
 		}
+
+		//összehasonlítás
+		fitness = fitness_func(actual, desired);
+		bestoszam += fitness;
+		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1) || 
+			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)) {
+			for (int i = 0; i < bemenetek_szama; i++) {
+				for (int j = 0; j < 2; j++) {
+					inputTer[i][j] = r[i][j];
+				}
+			}
+		}
+
+		/* SIMULATION */
+		for (int i = 0; i < pow(2, bemenetek_szama); i++) {
+			for (int j = 0; j < struktura_szamlal; j++) {
+				reset_dipole(itomb_mol[j], jtomb_mol[j], ktomb_mol[j], dipol[j]);
+			}
+
+			//tér aplikálás
+			int bemenet_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = inputTer[bemenet_iteralo][bemenetek[i][bemenet_iteralo]];
+					bemenet_iteralo++;
+				}
+			}
+			std::string ok = "graf" + std::to_string(i) + ".csv";
+			char* c = &ok[0];
+			//futasv(c,true);
+			futas();
+
+			bemenet_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
+					dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].terMag = 0;
+					bemenet_iteralo++;
+				}
+			}
+			//futasv(c,false);
+			futas();
+
+
+			//dipól értékek elmentése
+			int kell_iteralo = 0;
+			for (int j = 0; j < struktura_szamlal; j++) {
+				if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
+					actual[i][kell_iteralo] = dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].dip;
+					kell_iteralo++;
+				}
+			}
+		}
+
+		//összehasonlítás 2
+		fitness = fitness_func(actual, desired);
+		finalbest += fitness;
+
+		if (finalbest / stuff < (finalbest - fitness) / (stuff - 1)) {
+			for (int i = 0; i < bemenetek_szama; i++) {
+				for (int j = 0; j < 2; j++) {
+					best[i][j] = inputTer[i][j];
+				}
+			}
+		}
 		
 
-		//kiértékelés
-		fitness = 0;
-		//cout << endl;
-		/*if (actual[0] > desired[0]) fitness += (actual[0] - desired[0])*(actual[0] - desired[0]);
-		if (actual[2] > desired[2]) fitness += (actual[2] - desired[2])*(actual[2] - desired[2]);
-		if (actual[1] < desired[1]) fitness += (actual[1] - desired[1])*(actual[1] - desired[1]);*/
+		cout << "legjobb: " << finalbest/stuff<< "    current fitness: "<<fitness << endl;
 
-		fitness = sqrt(fitness);
-		
-		if (fitness < bestFitness) bestFitness = fitness;
-		//cout << fitness << endl;
-
+		t--;
 		iteration++;
+		stuff++;
 
 		//megfelelnek-e a logikai értékek
 		hasonlit=logikai_hasonlitas(actual,desired);
