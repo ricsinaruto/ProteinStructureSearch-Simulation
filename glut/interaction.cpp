@@ -410,10 +410,8 @@ void harmony_search() {
 	int kell_iterator = 0;
 	for (int i = 0; i < struktura_szamlal; i++) {
 		if (dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].kell) {
-			for (int j = 0; j < 2; j++) {
-				if (j == 0) desired[kell_iterator][j] = dipol[i] - tolerance;
-				else desired[kell_iterator][j] = dipol[i] + tolerance;
-			}
+			desired[kell_iterator][0] = dipol[i] - tolerance;
+			desired[kell_iterator][1] = dipol[i] + tolerance;
 			kell_iterator++;
 		}
 	}
@@ -425,18 +423,18 @@ void harmony_search() {
 
 	kell_iterator = 0;
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
-		for (int j = 0; j < 3; j++) {
+		for (int j = 0; j < 3; j++) { //ezt a részt nem vágom, h miért fixen 3, tippem h nem gondoltad még ki, hogy hogy kéne megadni, hogy ...
 			if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
-				actual[i][kell_iterator] = dipol[j];
+				actual[i][kell_iterator] = dipol[j]; //... ez a rész működjön (dipol[j]) ?
 				kell_iterator++;
 			}
 		}
 		kell_iterator = 0;
 	}
 	
-	//random tér inicializálás
+	//random tér inicializálás, első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
 	double **inputTer = new double*[bemenetek_szama];
-	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; } //első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
+	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; }
 	
 	
 
@@ -468,7 +466,7 @@ void harmony_search() {
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
 	double fitness;								//fitness számoláshoz
-	double sugar = 1;								//sugár a random generátorhoz
+	double sugar = 1;							//sugár a random generátorhoz
 	double besto = 0;
 	double bestoszam = 0;
 	double finalbest = 0;
