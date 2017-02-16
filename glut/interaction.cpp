@@ -403,17 +403,15 @@ void harmony_search() {
 		dipol[i] = dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip;
 	}
 
-	//kívánt érték, alaptól 10 dipol eltérés 
+	//kívánt érték, alaptól tolerance nagyságú dipol eltérés 
 	double **desired = new double*[bemenetek_szama+kimenetek_szama];
 	for (int i = 0; i <bemenetek_szama+kimenetek_szama; i++) { desired[i] = new double[2]; }
 
 	int kell_iterator = 0;
 	for (int i = 0; i < struktura_szamlal; i++) {
 		if (dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].kell) {
-			for (int j = 0; j < 2; j++) {
-				if (j == 0) desired[kell_iterator][j] = dipol[i] - tolerance;
-				else desired[kell_iterator][j] = dipol[i] + tolerance;
-			}
+			desired[kell_iterator][0] = dipol[i] - tolerance;
+			desired[kell_iterator][1] = dipol[i] + tolerance;
 			kell_iterator++;
 		}
 	}
@@ -425,18 +423,18 @@ void harmony_search() {
 
 	kell_iterator = 0;
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
-		for (int j = 0; j < 3; j++) {
+		for (int j = 0; j < struktura_szamlal; j++) { //ezt a részt nem vágom, h miért fixen 3, tippem h nem gondoltad még ki, hogy hogy kéne megadni, hogy ...
 			if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
-				actual[i][kell_iterator] = dipol[j];
+				actual[i][kell_iterator] = dipol[j]; //... ez a rész működjön (dipol[j]) ?
 				kell_iterator++;
 			}
 		}
 		kell_iterator = 0;
 	}
 	
-	//random tér inicializálás
+	//random tér inicializálás, első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
 	double **inputTer = new double*[bemenetek_szama];
-	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; } //első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
+	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; }
 	
 	
 
@@ -460,7 +458,7 @@ void harmony_search() {
 	double w[2][2];								//child number variations
 	double best[2][2] = { {inputTer[0][0],inputTer[0][1]},{ inputTer[1][0],inputTer[1][1]} };			//best number
 
-	int t = 10000;								//"temperature"
+	int t = 1000;								//"temperature"
 
 	double nu = 0;								//gaussian nu-je
 	double sigma[2][2] = { {1,1},{1,1} };		//gaussian sigmája
@@ -468,7 +466,7 @@ void harmony_search() {
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
 	double fitness;								//fitness számoláshoz
-	double sugar = 1;								//sugár a random generátorhoz
+	double sugar = 1;							//sugár a random generátorhoz
 	double besto = 0;
 	double bestoszam = 0;
 	double finalbest = 0;
@@ -497,7 +495,7 @@ void harmony_search() {
 				distro = nu + x*sigma[i][j] * sqrt(-2 * log(z) / z);
 
 				r[i][j] = inputTer[i][j] + distro;
-				if (r[i][j]>10 || r[i][j]<-10);
+				if (r[i][j]>max_ter || r[i][j]<-max_ter);
 				else j++;
 			}
 		}
@@ -519,7 +517,7 @@ void harmony_search() {
 					distro = nu + x*sigma[i][j] * sqrt(-2 * log(z) / z);
 
 					w[i][j] = inputTer[i][j] + distro;
-					if (w[i][j]>10 || w[i][j]<-10);
+					if (w[i][j]>max_ter || w[i][j]<-max_ter);
 					else j++;
 				}
 			}
@@ -649,8 +647,8 @@ void harmony_search() {
 			}
 			std::string ok = "graf" + std::to_string(i) + ".csv";
 			char* c = &ok[0];
-			//futasv(c,true);
-			futas();
+			futasv(c,true);
+			//futas();
 
 			bemenet_iteralo = 0;
 			for (int j = 0; j < struktura_szamlal; j++) {
@@ -659,8 +657,8 @@ void harmony_search() {
 					bemenet_iteralo++;
 				}
 			}
-			//futasv(c,false);
-			futas();
+			futasv(c,false);
+			//futas();
 
 
 			//dipól értékek elmentése
@@ -735,11 +733,11 @@ void harmony_search() {
 void fofuggveny()
 {
 	int i = 18, j = 18, k = 18;
-	struktura_szamlal = 4;	//ennyi molekula inicializálva
+	struktura_szamlal = 3;	//ennyi molekula inicializálva
 
 	//XOR és XNOR struktúrát még nem talált
-	itomb_mol[0] = 17;
-	jtomb_mol[0] = 17;
+	itomb_mol[0] = 18;
+	jtomb_mol[0] = 18;
 	ktomb_mol[0] = 18;
 	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].van = true;
 	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].kell = true;
@@ -760,7 +758,7 @@ void fofuggveny()
 	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].ter = true;
 	
 
-	itomb_mol[2] = 18;
+	itomb_mol[2] = 17;
 	jtomb_mol[2] = 18;
 	ktomb_mol[2] = 18;
 	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].van = true;
@@ -774,12 +772,12 @@ void fofuggveny()
 	itomb_mol[3] = 17;
 	jtomb_mol[3] = 18;
 	ktomb_mol[3] = 18;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].van = true;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].kell = false;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dip = -100;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipA = -100;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].dipB = -100;
-	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].ter = false;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].van = true;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].kell = false;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dip = -100;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dipA = -100;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dipB = -100;
+	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].ter = false;
 	
 	
 	
