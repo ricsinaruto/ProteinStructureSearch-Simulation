@@ -736,7 +736,7 @@ void fofuggveny()
 	struktura_szamlal = 3;	//ennyi molekula inicializálva
 
 	//XOR és XNOR struktúrát még nem talált
-	itomb_mol[0] = 18;
+	itomb_mol[0] = 19;
 	jtomb_mol[0] = 18;
 	ktomb_mol[0] = 18;
 	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].van = true;
@@ -747,7 +747,7 @@ void fofuggveny()
 	dronpa[itomb_mol[0]][jtomb_mol[0]][ktomb_mol[0]].ter = true;
 	
 	
-	itomb_mol[1] = 16;
+	itomb_mol[1] = 17;
 	jtomb_mol[1] = 18;
 	ktomb_mol[1] = 18;
 	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].van = true;
@@ -758,7 +758,7 @@ void fofuggveny()
 	dronpa[itomb_mol[1]][jtomb_mol[1]][ktomb_mol[1]].ter = true;
 	
 
-	itomb_mol[2] = 17;
+	itomb_mol[2] = 18;
 	jtomb_mol[2] = 18;
 	ktomb_mol[2] = 18;
 	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].van = true;
@@ -769,15 +769,7 @@ void fofuggveny()
 	dronpa[itomb_mol[2]][jtomb_mol[2]][ktomb_mol[2]].ter = false;
 
 
-	itomb_mol[3] = 17;
-	jtomb_mol[3] = 18;
-	ktomb_mol[3] = 18;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].van = true;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].kell = false;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dip = -100;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dipA = -100;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].dipB = -100;
-	dronpa[itomb_mol[3]][jtomb_mol[3]][ktomb_mol[3]].ter = false;
+
 	
 	
 	
