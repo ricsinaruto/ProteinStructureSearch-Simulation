@@ -38,6 +38,7 @@ void init_molekula::set_desired() {
 
 //tér nagyság megadása
 void init_molekula::set_ter(double terMag) {
+	dronpa[x][y][z].ter = true;
 	dronpa[x][y][z].terMag = terMag;
 }
 

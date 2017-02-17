@@ -4,6 +4,8 @@ c:\users\ricsi\documents\github\tdk-project\glut\014.cpp(32): warning C4244: 'ar
   Compiling...
   textures.cpp
   shapes.cpp
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(21): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(23): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -18,8 +20,8 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(27): warning C4838: 
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(27): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(28): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(29): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(30): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(30): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(31): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(31): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(32): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -34,8 +36,8 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(36): warning C4838: 
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(36): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(37): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(38): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(39): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(39): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(40): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(41): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -50,8 +52,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(45): warning C4838: 
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(46): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(46): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(47): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(47): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(258): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(258): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(259): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(259): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(260): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(260): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(261): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(261): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(262): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -62,12 +68,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(264): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(264): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(265): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(265): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(266): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(266): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(267): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(267): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(268): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(268): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(269): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(269): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(270): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(270): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(271): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -78,12 +84,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(273): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(273): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(274): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(274): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(275): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(275): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(276): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(276): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(277): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(277): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(278): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(278): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(279): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(279): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(280): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -94,12 +100,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(282): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(282): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(283): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(283): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(284): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(284): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(285): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(285): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(286): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(286): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(313): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(313): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(314): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(314): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(315): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(315): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(316): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(316): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(317): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -110,12 +116,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(319): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(319): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(320): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(320): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(321): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(321): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(322): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(322): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(323): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(323): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(324): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(324): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(325): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(325): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(326): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -126,12 +132,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(328): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(328): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(329): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(329): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(330): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(330): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(331): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(331): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(332): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(332): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(333): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(333): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(334): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(334): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(335): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -142,12 +148,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(337): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(337): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(338): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(338): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(339): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(339): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(340): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(340): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(341): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(341): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(383): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(383): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(384): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(384): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(385): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(385): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(386): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(386): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(387): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -158,12 +164,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(389): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(389): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(390): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(390): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(391): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(391): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(392): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(392): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(393): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(393): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(394): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(394): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(395): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(395): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(396): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -174,12 +180,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(398): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(398): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(399): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(399): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(400): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(400): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(401): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(401): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(402): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(402): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(403): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(403): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(404): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(404): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(405): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -190,12 +196,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(407): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(407): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(408): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(408): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(409): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(409): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(410): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(410): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(411): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(411): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(451): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(451): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(452): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(452): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(453): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(453): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(454): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(454): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(455): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -206,12 +212,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(457): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(457): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(458): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(458): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(459): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(459): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(460): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(460): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(461): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(461): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(462): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(462): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(463): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(463): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(464): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -222,12 +228,12 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(466): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(466): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(467): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(467): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(468): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(468): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(469): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(469): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(470): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(470): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(471): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(471): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(472): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(472): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(473): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
@@ -238,24 +244,25 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(475): warning C4838:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(475): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(477): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(477): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(478): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(478): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(479): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(479): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
   print.cpp
   interaction.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(45): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(160): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(181): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(323): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(675): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(681): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(683): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(704): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(988): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(371): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(652): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(655): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(664): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4101: 'tr20': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4101: 'tr30': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4101: 'tr10': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4101: 'tr40': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1098): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1104): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1106): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1127): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1394): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   initialization.cpp
   globals.cpp
   glWindowPos.cpp

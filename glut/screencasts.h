@@ -122,6 +122,7 @@ extern int h1[46656], h2[46656], h3[46656];
 extern int bemenetek[16][4];
 extern double tolerance;
 extern double max_ter;
+extern int struktura_szamlal;
 
 //egyeneletkhez paraméterek
 extern double dt;
@@ -140,8 +141,5 @@ extern double Cp2;
 extern int *itomb_mol;
 extern int *jtomb_mol;
 extern int *ktomb_mol;
-
-
-
 
 #endif

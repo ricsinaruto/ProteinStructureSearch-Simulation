@@ -1,14 +1,14 @@
 ﻿//kereső algoritmushoz molekula class
 class init_molekula {
 public:
-	int x, y, z; //koordináták
-	bool kell; //részt vesz-e az adott logikai függvényben
-	bool ter; //térrel terhelt-e a molekula az adott helyen
-	bool kimenet; //kimenet-e az adott molekula
+	int x, y, z;			//koordináták
+	bool kell;				//részt vesz-e az adott logikai függvényben
+	bool ter;				//térrel terhelt-e a molekula az adott helyen
+	bool kimenet;			//kimenet-e az adott molekula
 
 	double init_dipole;		//első futás után dipol moment
 	double desired[2];		//desired vektor
-	double *actual; //actual dipole érték
+	double *actual;			//actual dipole érték
 
 	//konstruktor
 	void initialize_molekula(int _x, int  _y, int  _z, bool _kell, bool _ter, bool _kimenet);

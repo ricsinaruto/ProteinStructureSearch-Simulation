@@ -9,7 +9,6 @@
 *     at (x,y,z)
 *     dimensions (dx,dy,dz)
 *     rotated th about the y axis
-*  TODO: Refactor this!!!
 */
 void cube(double x, double y, double z,double dx, double dy, double dz,double th,int i,int j,int k)
 {
@@ -248,8 +247,6 @@ void cube(double x, double y, double z,double dx, double dy, double dz,double th
 	glDisable(GL_TEXTURE_2D);
 	glColor4f(1, 1, 1, 1);
 }
-
-
 
 
 //ugyanaz mint a cube függvény, csak kisebb fekete kockákat rajzol

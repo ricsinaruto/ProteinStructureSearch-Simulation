@@ -2,23 +2,6 @@
 using namespace std;
 
 
-
-//tér nagyság megadása, i lenyomásakor fut le
-/*
-void ternagysag() {
-	if (szamlalo == 3)
-	{
-		if (szamok[0]==0) ter = -(szamok[1] * 10 + szamok[2]);
-		else ter = szamok[1] * 10 + szamok[2];
-		
-		//alaphelyzetre állítás
-		szamlalo = 0;
-		szamok[0] = 36;
-		szamok[1] = 36;
-		szamok[2] = 36;
-	}
-}*/
-
 //kimenetek megadása, k lenyomásakor fut le
 void kimenet()
 {
@@ -172,7 +155,6 @@ void futasv(char* file_name,bool first_open)
 	delete[] ktomb;
 }
 
-
 //ugyanaz mint a futas, csak egyszerre több tér is lehet
 void futas()
 {
@@ -281,8 +263,74 @@ void futas()
 	delete[] ktomb;
 }
 
+//kiszámolja és sorba rakja egy struktúra molekuláinak a szomszédsági gráfszámát
+int *grafszam(int molekulaSzam)
+{
+	int *molekulak = new int[molekulaSzam];
+	for (int i = 0; i < molekulaSzam; i++)
+	{
+		molekulak[i] = 0;
+	}
+
+	int *itomb = new int[molekulaSzam];
+	int *jtomb = new int[molekulaSzam];
+	int *ktomb = new int[molekulaSzam];
+	int l = 0;
+	int m = 0;
+
+	for (int i = 18 - (molekulaSzam - 1); i <= 18 + molekulaSzam - 1; i++)
+	{
+		for (int j = 18 - (molekulaSzam - 1); j <= 18 + molekulaSzam - 1; j++)
+		{
+			for (int k = 18 - (molekulaSzam - 1); k <= 18 + molekulaSzam - 1; k++)
+			{
+				if (dronpa[i][j][k].van)
+				{
+					itomb[l] = i;
+					jtomb[l] = j;
+					ktomb[l] = k;
+					l++;
+				}
+			}
+		}
+	}
+
+	for (l = 0; l < molekulaSzam; l++)
+	{
+		for (m = 0; m < molekulaSzam; m++)
+		{
+			if (abs(itomb[m] - itomb[l]) + abs(jtomb[m] - jtomb[l]) + abs(ktomb[m] - ktomb[l]) == 1)
+				molekulak[m]++;
+
+		}
+	}
 
 
+	bool swapped = true;
+	while (swapped)
+	{
+		swapped = false;
+		for (int j = 0; j < molekulaSzam - 1; j++)
+		{
+			if (molekulak[j] < molekulak[j + 1])
+			{
+				int k = molekulak[j];
+				molekulak[j] = molekulak[j + 1];
+				molekulak[j + 1] = k;
+
+				swapped = true;
+			}
+		}
+	}
+
+	//for (int i=0;i<molekulaSzam;i++) cout << molekulak[i]<<endl;
+	return molekulak;
+
+	delete[] itomb;
+	delete[] jtomb;
+	delete[] ktomb;
+	delete[] molekulak;
+}
 
 //összehasonlítást végez be1 és be2 között, 0 bemenetre igazt ad ha be1<be2, 1 bemenetre igazt ad ha be1>be2
 bool hasonlitas(int be1, int be2, int kacsacsor)
@@ -304,7 +352,7 @@ int factorial(int f)
 	return(f * factorial(f - 1));
 }
 
-//random number gen
+//random number generator
 double fRand(double fMin, double fMax)
 {
 	
@@ -313,12 +361,12 @@ double fRand(double fMin, double fMax)
 }
 
 //logikai függvény összes sorát megnézi, hogy jó-e
-bool logikai_hasonlitas() {
+bool logikai_hasonlitas(int molekulaszam) {
 	bool jo = true;
 	int kimenetek_iteralo = 0;
 
 	for (int i = 0; i < pow(2,bemenetek_szama); i++) {
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) { 
+		for (int j = 0; j < molekulaszam; j++) {
 			if (jo && protein[j].kimenet) {
 				if (!hasonlitas(protein[j].actual[i], protein[j].desired[kimenetek[kimenetek_iteralo][i]],kimenetek[kimenetek_iteralo][i])) jo = false;
 				kimenetek_iteralo++;
@@ -331,12 +379,12 @@ bool logikai_hasonlitas() {
 }
 
 //fitness function számoló
-double fitness_func() {
+double fitness_func(int molekulaszam) {
 	double fitness=0;
 	int kimenetek_iteralo = 0;
 
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+		for (int j = 0; j < molekulaszam; j++) {
 			if (protein[j].kimenet) {
 				if (kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]]+OVER_FIT) {
@@ -358,19 +406,20 @@ double fitness_func() {
 	return fitness;
 }
 
-//szimuláció sorozatot lefuttat
-void SIMULATION(double **ter_vektor,bool mentes) {
+//szimuláció sorozatot lefuttat, ha mentes igaz, akkor elmenti .csv-be
+void SIMULATION(double **ter_vektor,bool mentes, int molekulaszam) {
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+		for (int j = 0; j < molekulaszam; j++) {
 			protein[j].reset_dipole(protein[j].init_dipole);
 		}
 
 		//tér aplikálás
 		int bemenet_iteralo = 0;
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+		for (int j = 0; j < molekulaszam; j++) {
 			if (protein[j].ter) {
 				protein[j].set_ter(ter_vektor[bemenet_iteralo][bemenetek[i][bemenet_iteralo]]);
 				bemenet_iteralo++;
+				
 			}
 		}
 		std::string ok = "graf" + std::to_string(i) + ".csv";
@@ -379,7 +428,7 @@ void SIMULATION(double **ter_vektor,bool mentes) {
 		else futas();
 
 		bemenet_iteralo = 0;
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+		for (int j = 0; j < molekulaszam; j++) {
 			if (protein[j].ter) {
 				protein[j].set_ter(0);
 				bemenet_iteralo++;
@@ -389,7 +438,7 @@ void SIMULATION(double **ter_vektor,bool mentes) {
 		else futas();
 
 		//dipól értékek elmentése
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+		for (int j = 0; j <molekulaszam; j++) {
 			if (protein[j].kimenet) {
 				protein[j].update_actual(i);
 			}
@@ -398,11 +447,11 @@ void SIMULATION(double **ter_vektor,bool mentes) {
 }
 
 //tér keresés
-void harmony_search() {
+bool harmony_search(int molekulaszam) {
 
 	//az első futást csak egyszer kell, és elmentjük az alap dipól értékeket
 	futas();
-	for (int i = 0; i < DEF_PROTEIN_NUMBER; i++) {
+	for (int i = 0; i < molekulaszam; i++) {
 		protein[i].set_init_dipole();
 		protein[i].set_desired();
 		protein[i].set_actual();
@@ -419,9 +468,9 @@ void harmony_search() {
 	int iteration = 1;
 	bool hasonlit = false;
 
-	int n = ITER_NUMBER;								//number of children
+	int n = ITER_NUMBER;						//number of children
 	int stuff = 1;								//a while számlálója
-	int fori;										//for ciklusokhoz
+	int fori;									//for ciklusokhoz
 
 	double x, y;								//ez lesz egy random szám
 
@@ -451,26 +500,24 @@ void harmony_search() {
 
 	int t = DEF_TEMP;							//"temperature"
 	double sigma = DEF_SIGMA;					//gaussian sigma-ja
-	double nu = DEF_NU;								//gaussian nu-je
+	double nu = DEF_NU;							//gaussian nu-je
 
 
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
 	double fitness;								//fitness számoláshoz
-	double sugar = DEF_SUGAR;							//sugár a random generátorhoz
+	double sugar = DEF_SUGAR;					//sugár a random generátorhoz
 	double besto = 0;							//best fitness számoláshoz
 	double bestoszam = 0;						//best fitness számoláshoz
 	double finalbest = 0;						//best fitness számoláshoz
 
 	//keresés
 	while (!hasonlit && t>0) {
-		
-
 		//random szám generálás 1
 		for (int i = 0; i < bemenetek_szama; i++) {
 			for (int j = 0; j < 2;) {
-
 				z = 0;
+
 				while (z <= 0 || z >= 1) {
 					x = fRand(-sugar, sugar);
 					y = fRand(-sugar, sugar);
@@ -485,14 +532,13 @@ void harmony_search() {
 			}
 		}
 
-
 		//generáció szimulálása
 		for (fori=0; fori <= n; fori++) {
 			//random szám generálás 2
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2;) {
-
 					z = 0;
+
 					while (z <= 0 || z >= 1) {
 						x = fRand(-sugar, sugar);
 						y = fRand(-sugar, sugar);
@@ -506,14 +552,14 @@ void harmony_search() {
 					else j++;
 				}
 			}
-
 			
 			/* SIMULATION */
-			SIMULATION(child_ter,false);
+			SIMULATION(child_ter,false,molekulaszam);
 
 			//összehasonlítás, fitness
-			fitness=fitness_func();
+			fitness=fitness_func(molekulaszam);
 			besto += fitness;
+			
 
 			//legyen-e csere?
 			if (besto / (fori + (iteration - 1)*n) < (besto - fitness) / (fori + (iteration - 1)*n - 1)) {
@@ -526,10 +572,10 @@ void harmony_search() {
 		}
 
 		/* SIMULATION */ 
-		SIMULATION(candidate_ter,false);
+		SIMULATION(candidate_ter,false,molekulaszam);
 		//összehasonlítás
 		x = fRand(0, 1);
-		fitness = fitness_func();
+		fitness = fitness_func(molekulaszam);
 		bestoszam += fitness;
 		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1) || 
 			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)) {
@@ -541,9 +587,9 @@ void harmony_search() {
 		}
 
 		/* SIMULATION */
-		SIMULATION(inputTer,MENTES);
+		SIMULATION(inputTer,MENTES,molekulaszam);
 		//összehasonlítás 2
-		fitness = fitness_func();
+		fitness = fitness_func(molekulaszam);
 		finalbest += fitness;
 		if (finalbest / stuff < (finalbest - fitness) / (stuff - 1)) {
 			for (int i = 0; i < bemenetek_szama; i++) {
@@ -552,14 +598,14 @@ void harmony_search() {
 				}
 			}
 		}
-		cout << "legjobb: " << finalbest/stuff<< "    current fitness: "<<fitness << endl;
+		//cout << "legjobb: " << finalbest/stuff<< "    current fitness: "<<fitness << endl;
 
 		t--;
 		iteration++;
 		stuff++;
 
 		//megfelelnek-e a logikai értékek
-		hasonlit=logikai_hasonlitas();
+		hasonlit=logikai_hasonlitas(molekulaszam);
 		
 		//cout << hasonlit << endl;
 	}
@@ -576,7 +622,7 @@ void harmony_search() {
 
 
 	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
-	for (int i = 0; i < DEF_PROTEIN_NUMBER; i++) {
+	for (int i = 0; i < molekulaszam; i++) {
 		protein[i].reset_dipole(DEF_DIPOL);
 	}
 
@@ -595,20 +641,397 @@ void harmony_search() {
 
 	//delete[] dipol;
 	//dipol = nullptr;
+	return hasonlit;
+}
+
+//ez tart a legtöbb ideig, ebben van egy adott struktúrán belül a különbözõ terekkel való tesztelés
+bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
+{
+	//cout << "terteszt kezd" << endl;
+	int **kimenet = new int*[kimenetek_szama];
+	for (int i = 0; i < kimenetek_szama; i++) { kimenet[i] = new int[pow(2, bemenetek_szama)]; }
+
+	int **kimenetek_t = new int*[kimenetek_szam];
+	for (int i = 0; i < kimenetek_szam; i++) { kimenetek_t[i] = new int[pow(2, bemenetek_szam)]; }
+	for (int i = 0; i < kimenetek_szam; i++)
+	{
+		for (int j = 0; j < pow(2, bemenetek_szam); j++)
+		{
+			kimenetek_t[i][j] = kimenetek[i][j];
+		}
+	}
+
+	int **bemenetek_t = new int*[pow(2, bemenetek_szam)];
+	for (int i = 0; i < pow(2, bemenetek_szam); i++) { bemenetek_t[i] = new int[bemenetek_szam]; }
+	for (int i = 0; i < pow(2, bemenetek_szam); i++)
+	{
+		for (int j = 0; j < bemenetek_szam; j++) { bemenetek_t[i][j] = bemenetek[i][j]; }
+	}
+
+
+	int *itomb = new int[molekulaSzam];
+	int *jtomb = new int[molekulaSzam];
+	int *ktomb = new int[molekulaSzam];
+	int l = 0;
+	int m = 0;
+	int n = 0;
+	int p = 0;
+	bool sikerult = false;
+	double *dipolmoment = new double[molekulaSzam];
+
+	for (int i = 18 - (molekulaSzam - 1); i <= 18 + molekulaSzam - 1; i++)
+	{
+		for (int j = 18 - (molekulaSzam - 1); j <= 18 + molekulaSzam - 1; j++)
+		{
+			for (int k = 18 - (molekulaSzam - 1); k <= 18 + molekulaSzam - 1; k++)
+			{
+				if (dronpa[i][j][k].van)
+				{
+					itomb[l] = i;
+					jtomb[l] = j;
+					ktomb[l] = k;
+
+					protein[l].initialize_molekula(i, j, k, false, false, false);
+					l++;
+					
+				}
+			}
+		}
+	}
+	int *j_elmentes = new int[kimenetek_szam];
+	int szimulacioszam = 0;
+	int lehetosegek = 0;
+	int tr1 = 0, tr2 = 0, tr3 = 0, tr4 = 0;
+	int l0, m0, n0, p0, tr10, tr20, tr30, tr40;
+
+	ofstream fileki;
+	string fileki_string = "";
+	string fileki_vegso = "";
+	int ter_max = 10;
+	if (bemenetek_szam == 4) { l0 = 0, m0 = 1, n0 = 2, p0 = 3; }
+	else if (bemenetek_szam == 3) { l0 = molekulaSzam - 4, m0 = 0, n0 = 1, p0 = 2;  }
+	else if (bemenetek_szam == 2) { l0 = molekulaSzam - 4, m0 = molekulaSzam - 3, n0 = 0, p0 = 1; }
+	else if (bemenetek_szam == 1) { l0 = molekulaSzam - 4, m0 = molekulaSzam - 3, n0 = molekulaSzam - 2, p0 = 0; }
+
+	for (l = l0; l < molekulaSzam - 3; l++) {
+		for (m = m0 + l - l0; m < molekulaSzam - 2; m++) {
+			for (n = n0 + m - m0; n < molekulaSzam - 1; n++) {
+				for (p = p0 + n - n0; p < molekulaSzam; p++) {
+					for (int i = 0; i < molekulaSzam; i++) {
+						protein[i].kell = true;
+						protein[i].kimenet = true;
+
+						//teszt
+						protein[p].kell = true;
+						protein[p].ter = true;
+						protein[n].kell = true;
+						protein[n].ter = true;
+						
+
+						sikerult = harmony_search(molekulaSzam);
+
+
+						protein[p].kell = false;
+						protein[p].ter = false;
+						protein[n].kell = false;
+						protein[n].ter = false;
+
+						protein[i].kell = false;
+						protein[i].kimenet = false;
+
+						if (sikerult) {
+							i = molekulaSzam;
+							l = molekulaSzam;
+							m = molekulaSzam;
+							n = molekulaSzam;
+							p = molekulaSzam;
+							cout << "siker" << endl;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	for (int i = 0; i < kimenetek_szama; i++) { delete[] kimenet[i]; }
+	delete[] kimenet;
+
+
+	for (int i = 0; i < kimenetek_szam; i++) { delete[] kimenetek_t[i]; }
+	delete[] kimenetek_t;
+
+
+	for (int i = 0; i < pow(2, bemenetek_szam); i++) { delete[] bemenetek_t[i]; }
+	delete[] bemenetek_t;
+
+	delete[] itomb;
+	delete[] jtomb;
+	delete[] ktomb;
+	delete[] dipolmoment;
+	delete[] j_elmentes;
+
+
+	//cout << "terteszt veg" << endl;
+	return sikerult;
+}
+
+//f-re lefutó szimulációs függvény
+bool proba(int molekulaSzam)
+{
+
+	int eddigiMolekulak = molekulaSzam - 1;
+	int i = 18, j = 18, k = 18;
+	bool sikerult = false;
+
+
+	int hasonlit_int = 1;
+	int **osszehasonlito = new int*[1000];
+	for (int i = 0; i < 1000; i++) { osszehasonlito[i] = new int[molekulaSzam]; }
+	osszehasonlito[0] = grafszam(eddigiMolekulak);
+
+
+	for (int i = 18 - (molekulaSzam - 1); i <= 18 + molekulaSzam - 1; i++)
+	{
+		for (int j = 18 - (molekulaSzam - 1); j <= 18 + molekulaSzam - 1; j++)
+		{
+			for (int k = 18 - (molekulaSzam - 1); k <= 18 + molekulaSzam - 1; k++)
+			{
+				if (!dronpa[i][j][k].van)
+				{
+					for (int l = 0; l < eddigiMolekulak; l++)
+					{
+						if (abs(i - itomb_mol[l]) + abs(j - jtomb_mol[l]) + abs(k - ktomb_mol[l]) == 1)
+						{
+							dronpa[i][j][k].van = true;
+							dronpa[i][j][k].dip = -100;
+							dronpa[i][j][k].dipA = -100;
+							dronpa[i][j][k].dipB = -100;
+							dronpa[i][j][k].ter = false;
+						}
+					}
+
+					if (dronpa[i][j][k].van)
+					{
+						eddigiMolekulak = molekulaSzam;
+						bool hasonlit = false;
+						osszehasonlito[hasonlit_int] = grafszam(eddigiMolekulak);
+						int p;
+						for (p = 0; p < hasonlit_int;)
+						{
+							bool anyad = false;
+							for (int h = 0; h < molekulaSzam; h++)
+							{
+								if (osszehasonlito[p][h] != osszehasonlito[hasonlit_int][h])
+									anyad = true;
+
+							}
+							if (anyad) p++;
+							else p = hasonlit_int + 1;
+						}
+
+						if (p == hasonlit_int)
+						{
+							//run
+							if (bemenetek_szama + kimenetek_szama <= molekulaSzam)	sikerult = terteszt(eddigiMolekulak, bemenetek_szama, kimenetek_szama);
+							if (sikerult)
+							{
+								i = 18 + molekulaSzam;
+								j = 18 + molekulaSzam;
+								k = 18 + molekulaSzam;
+							}
+
+							osszehasonlito[hasonlit_int] = grafszam(eddigiMolekulak);
+							
+							if (!sikerult) {
+								cout << endl<<endl;
+								cout << endl<<endl;
+								cout << endl;
+								cout << endl;
+								cout << "egyszer" << endl;
+							}
+							hasonlit_int++;
+
+							itomb_mol[struktura_szamlal] = i;
+							jtomb_mol[struktura_szamlal] = j;
+							ktomb_mol[struktura_szamlal] = k;
+							struktura_szamlal++;
+						}
+
+						dronpa[i][j][k].van = false;
+						dronpa[i][j][k].dip = 0;
+						dronpa[i][j][k].dipA = 0;
+						dronpa[i][j][k].dipB = 0;
+						dronpa[i][j][k].ter = false;
+
+						eddigiMolekulak = molekulaSzam - 1;
+					}
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < 1000; i++) { delete[] osszehasonlito[i]; }
+	delete[] osszehasonlito;
+
+
+
+	return sikerult;
 }
 
 //f-re lefutó szimulációs fõfüggvény
 void fofuggveny()
 {
+	ofstream fileki;
 	
-	//XOR és XNOR struktúrát még nem talált
-	protein[0].initialize_molekula(17, 18, 18, true, true, false);
-	protein[1].initialize_molekula(18, 18, 18, true, true, true);
-	//protein[2].initialize_molekula(19, 18, 18, true, true, true);
-	
+	bool sikerult = false;
+	int i = 18, j = 18, k = 18;
+	dronpa[i - 1][j][k].van = true;
+	dronpa[i - 1][j][k].dip = -100;
+	dronpa[i - 1][j][k].dipA = -100;
+	dronpa[i - 1][j][k].dipB = -100;
+	dronpa[i - 1][j][k].ter = false;
 
-	//tér keresés
-	harmony_search();
+	dronpa[i][j][k].van = true;
+	dronpa[i][j][k].dip = -100;
+	dronpa[i][j][k].dipA = -100;
+	dronpa[i][j][k].dipB = -100;
+	dronpa[i][j][k].ter = false;
+
+	dronpa[i][j - 1][k].van = true;
+	dronpa[i][j - 1][k].dip = -100;
+	dronpa[i][j - 1][k].dipA = -100;
+	dronpa[i][j - 1][k].dipB = -100;
+	dronpa[i][j - 1][k].ter = false;
+
+	itomb_mol[0] = i - 1;
+	jtomb_mol[0] = j;
+	ktomb_mol[0] = k;
+
+	itomb_mol[1] = i;
+	jtomb_mol[1] = j;
+	ktomb_mol[1] = k;
+
+	itomb_mol[2] = i;
+	jtomb_mol[2] = j - 1;
+	ktomb_mol[2] = k;
+
+
+	if (bemenetek_szama + kimenetek_szama < 4)
+	{
+		struktura_szamlal = 3;
+		int molekulaszam = 4;
+
+
+		while (!sikerult)
+		{
+			if (molekulaszam == 4)
+			{
+				sikerult = proba(molekulaszam);
+				molekulaszam++;
+				struktura_szamlal = struktura_szamlal - 2;
+			}
+			else
+			{
+				int lul = struktura_szamlal;
+				int i = 0;
+				int j = 0;
+				while (i<struktura_szamlal && j<molekulaszam - 1)
+				{
+					if (!dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van)
+					{
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = true;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = -100;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = -100;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = -100;
+						i++;
+						j++;
+					}
+					else i++;
+				}
+
+
+				sikerult = proba(molekulaszam);
+				cout << molekulaszam << endl;
+
+				for (int i = 0; i<struktura_szamlal; i++)
+				{
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = false;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = 0;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = 0;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = 0;
+				}
+
+
+				molekulaszam++;
+				//struktura_szamlal = molekulaszam;
+			}
+
+		}
+	}
+
+	else
+	{
+		dronpa[i][j][k - 1].van = true;
+		dronpa[i][j][k - 1].dip = -100;
+		dronpa[i][j][k - 1].dipA = -100;
+		dronpa[i][j][k - 1].dipB = -100;
+		dronpa[i][j][k - 1].ter = false;
+
+		itomb_mol[3] = i;
+		jtomb_mol[3] = j;
+		ktomb_mol[3] = k - 1;
+
+		struktura_szamlal = 4;
+		int molekulaszam = 5;
+
+
+		while (!sikerult)
+		{
+			if (molekulaszam == 5)
+			{
+				sikerult = proba(molekulaszam);
+				molekulaszam++;
+				struktura_szamlal = struktura_szamlal - 2;
+			}
+			else
+			{
+				int lul = struktura_szamlal;
+				int i = 0;
+				int j = 0;
+				while (i<struktura_szamlal && j<molekulaszam - 1)
+				{
+					if (!dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van)
+					{
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = true;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = -100;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = -100;
+						dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = -100;
+						i++;
+						j++;
+					}
+					else i++;
+				}
+
+
+				sikerult = proba(molekulaszam);
+				cout << molekulaszam << endl;
+
+				for (int i = 0; i<struktura_szamlal; i++)
+				{
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].van = false;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dip = 0;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipA = 0;
+					dronpa[itomb_mol[i]][jtomb_mol[i]][ktomb_mol[i]].dipB = 0;
+				}
+
+
+				molekulaszam++;
+				//struktura_szamlal = molekulaszam;
+			}
+
+		}
+	}
 }
 
 //struktúra elmentése
@@ -650,7 +1073,7 @@ void save()
 	
 }
 
-//beolvasása a struktúrának
+//struktúra beolvasása
 void load()
 {
 	ifstream filebe;
@@ -774,17 +1197,18 @@ void load()
 	filebe.close();
 }
 
+
+
+/*  BILLENTYŰ ÉS EGÉR KEZELÉS  */
+
 // q,w,e billentyûk lenyomásakor a mozgatások és forgások kezelése
-void windowPmotion(int x, int y)
-{
+void windowPmotion(int x, int y) {
 	mouseX = x;
 	mouseY = y;
 
 	//fény forgatása
-	if (Shift == "light")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	if (Shift == "light") {
+		if (mouseBtnPressed == "Left") {
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -795,18 +1219,15 @@ void windowPmotion(int x, int y)
 			ph2 = ph;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
+		if (mouseBtnPressed == "Right") {
 			lightTh = (lightTh2 + (mouseX - xcoord));
 			lightPh = (lightPh2 + (mouseX - xcoord));
 		}
 	}
 
 	//struktúra forgatása
-	else if (Shift=="rotation")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	else if (Shift=="rotation") {
+		if (mouseBtnPressed == "Left")	{
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -817,18 +1238,15 @@ void windowPmotion(int x, int y)
 			ecY2 = ecY;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
+		if (mouseBtnPressed == "Right") {
 			th = (th2 + (mouseX - xcoord));
 			ph = (ph2 + (mouseY - ycoord));
 		}
 	}
 
 	//struktúra mozgatása
-	else if (Shift=="movement")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	else if (Shift=="movement") {
+		if (mouseBtnPressed == "Left") {
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -839,8 +1257,7 @@ void windowPmotion(int x, int y)
 			ph2 = ph;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
+		if (mouseBtnPressed == "Right") {
 			ecX = ecX2 + (-mouseX + xcoord)/10;
 			ecY = ecY2 + (mouseY - ycoord)/10;
 		}
@@ -852,15 +1269,13 @@ void windowPmotion(int x, int y)
 }
 
 //zoomolás
-void mouseWheel(int scroll, int dir, int x, int y)
-{
+void mouseWheel(int scroll, int dir, int x, int y) {
 	dim -= (double)dir;
 	redisplayAll();
 }
 
 //egér gombok lenyomásának kezelése
-void windowMouse(int btn, int state, int x, int y)
-{
+void windowMouse(int btn, int state, int x, int y) {
 	if (btn == GLUT_LEFT_BUTTON) mouseBtnPressed = "Left";
 	else if (btn == GLUT_RIGHT_BUTTON) mouseBtnPressed = "Right";
 
@@ -877,24 +1292,19 @@ void windowMouse(int btn, int state, int x, int y)
 	redisplayAll();
 }
 
-
-
 //összes billentyû lenyomás kezelése
-void windowKey(unsigned char key, int x, int y)
-{
+void windowKey(unsigned char key, int x, int y) {
 	/*  Exit on ESC */
 	if (key == 27) exit(0);
 
 	//space
-	if (key == 32)
-	{
+	if (key == 32) {
 		if (valto == "parameters") valto = "coordinates";
 		else valto = "parameters";
 	}
 
 	//paraméterek megadása
-	if (valto == "parameters")
-	{
+	if (valto == "parameters") {
 		//toggle axes and parameter display
 		if (key == 'x' || key == 'X') toggleAxes = 1 - toggleAxes;
 		else if (key == 'v' || key == 'V') toggleParams = 1 - toggleParams;
@@ -965,48 +1375,33 @@ void windowKey(unsigned char key, int x, int y)
 	if (key == 8)  enter = "delete";
 
 	//alfanumerikus koordináták megadása
-	if (valto == "coordinates")
-	{
-		for (int i = 97; i < 123; i++)
-		{
+	if (valto == "coordinates") {
+		for (int i = 97; i < 123; i++) {
 			if (key == i) { szamok[szamlalo] = i-87; szamlalo++; key = ','; }
 		}
 
-		for (int i = 48; i < 58; i++)
-		{
+		for (int i = 48; i < 58; i++) {
 			if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }
 		}
 	}
 
 	//0-9ig koordináta megadás
-	for (int i = 48; i < 58; i++)
-	{
+	for (int i = 48; i < 58; i++) {
 		if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }
 	}
 
 	/*  Translate shininess power to value (-1 => 0) */
 	shinyvec[0] = shininess<0 ? 0 : pow(2.0, shininess);
-
 	redisplayAll();
 }
 
-/*
-*  windowMenu
-*  ------
-*  Window menu is the same as the keyboard clicks
-*/
-void windowMenu(int value)
-{
+/* Window menu is the same as the keyboard clicks */
+void windowMenu(int value) {
 	windowKey((unsigned char)value, 0, 0);
 }
 
-/*
-*  windowSpecial()
-*  ------
-*  GLUT calls this routine when an arrow key is pressed
-*/
-void windowSpecial(int key, int x, int y)
-{
+/* GLUT calls this routine when an arrow key is pressed */
+void windowSpecial(int key, int x, int y) {
 	int modifiers = glutGetModifiers();
 	/*  If holding shift, then rotate/elevate */
 	if (modifiers == GLUT_ACTIVE_SHIFT) {

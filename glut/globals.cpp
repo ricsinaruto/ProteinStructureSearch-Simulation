@@ -67,7 +67,7 @@ double jobbx = 0;
 
 int main_window=0;
 int szamlalo=0;
-
+int struktura_szamlal = 0;
 
 /* SEARCHING ALGORITHM */
 int kimenetek_szama = DEF_KIMENETEK_SZAMA;
