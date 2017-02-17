@@ -322,10 +322,6 @@ bool logikai_hasonlitas(double **actual, double **desired) {
 
 	for (int i = 0; i < pow(2,bemenetek_szama); i++) {
 		for (int j = 0; j < bemenetek_szama+kimenetek_szama; j++) {  //ezt át kell írni struktura_szamlal-ra!!!!!!!!
-			if (jo && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
-				if (!hasonlitas(actual[i][j], desired[j][bemenetek[i][bemenetek_iteralo]], bemenetek[i][bemenetek_iteralo])) jo = false;
-				bemenetek_iteralo++;
-			}
 			if (jo && !dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
 				if (!hasonlitas(actual[i][j], desired[j][kimenetek[kimenetek_iteralo][i]],kimenetek[kimenetek_iteralo][i])) jo = false;
 				kimenetek_iteralo++;
@@ -346,28 +342,15 @@ double fitness_func(double **actual, double **desired) {
 
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 		for (int j = 0; j < bemenetek_szama + kimenetek_szama; j++) {
-			if (dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter) {
-				if (bemenetek[i][bemenetek_iteralo]) {
-					if (actual[i][j] < desired[j][bemenetek[i][bemenetek_iteralo]]) {
-						fitness += sqrt(pow(desired[j][bemenetek[i][bemenetek_iteralo]] - actual[i][j], 2));
-					}
-				}
-				else {
-					if (actual[i][j] > desired[j][bemenetek[i][bemenetek_iteralo]]) {
-						fitness += sqrt(pow(desired[j][bemenetek[i][bemenetek_iteralo]] - actual[i][j], 2));
-					}
-				}
-				bemenetek_iteralo++;
-			}
 			if (!dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].ter && dronpa[itomb_mol[j]][jtomb_mol[j]][ktomb_mol[j]].kell) {
 				if (kimenetek[kimenetek_iteralo][i]) {
-					if (actual[i][j] < desired[j][kimenetek[kimenetek_iteralo][i]]) {
-						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]] - actual[i][j], 2));
+					if (actual[i][j] < desired[j][kimenetek[kimenetek_iteralo][i]]+100) {
+						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]]+100 - actual[i][j], 2));
 					}
 				}
 				else {
-					if (actual[i][j] > desired[j][kimenetek[kimenetek_iteralo][i]]) {
-						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]] - actual[i][j], 2));
+					if (actual[i][j] > desired[j][kimenetek[kimenetek_iteralo][i]]-100) {
+						fitness += sqrt(pow(desired[j][kimenetek[kimenetek_iteralo][i]]-100 - actual[i][j], 2));
 					}
 				}
 				kimenetek_iteralo++;
@@ -451,17 +434,17 @@ void harmony_search() {
 	//random tér inicializálás (original candidate)
 	for (int i = 0; i < bemenetek_szama; i++) {
 		for (int j = 0; j < 2; j++) {
-			inputTer[i][j] = fRand(-max_ter, max_ter);
+			inputTer[i][j] = 0;
 		}
 	}			
 	double r[2][2];								//child number
 	double w[2][2];								//child number variations
 	double best[2][2] = { {inputTer[0][0],inputTer[0][1]},{ inputTer[1][0],inputTer[1][1]} };			//best number
 
-	int t = 1000;								//"temperature"
-
+	int t = 100000/n;								//"temperature"
+	double sig = 4;
 	double nu = 0;								//gaussian nu-je
-	double sigma[2][2] = { {1,1},{1,1} };		//gaussian sigmája
+	double sigma[2][2] = { {sig,sig},{sig,sig} };		//gaussian sigmája, adaptív sigma kéne
 
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
@@ -563,6 +546,7 @@ void harmony_search() {
 				}
 			}
 
+			//hasonlit = logikai_hasonlitas(actual, desired);
 			//összehasonlítás, fitness
 			fitness=fitness_func(actual,desired);
 			besto += fitness;
@@ -619,6 +603,8 @@ void harmony_search() {
 			}
 		}
 
+		//hasonlit = logikai_hasonlitas(actual, desired);
+
 		//összehasonlítás
 		fitness = fitness_func(actual, desired);
 		bestoszam += fitness;
@@ -647,8 +633,8 @@ void harmony_search() {
 			}
 			std::string ok = "graf" + std::to_string(i) + ".csv";
 			char* c = &ok[0];
-			futasv(c,true);
-			//futas();
+			//futasv(c,true);
+			futas();
 
 			bemenet_iteralo = 0;
 			for (int j = 0; j < struktura_szamlal; j++) {
@@ -657,8 +643,8 @@ void harmony_search() {
 					bemenet_iteralo++;
 				}
 			}
-			futasv(c,false);
-			//futas();
+			//futasv(c,false);
+			futas();
 
 
 			//dipól értékek elmentése
@@ -704,7 +690,7 @@ void harmony_search() {
 		cout << endl;
 	}
 	//megadja a próbálgatások számát
-	cout <<"number of iterations: "<< iteration << endl<<endl;
+	cout <<"number of simulations: "<< iteration*2+iteration*n << endl<<endl;
 
 
 	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
