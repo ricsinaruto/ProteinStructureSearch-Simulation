@@ -40,6 +40,8 @@
 #include "print.h"   /* printing functions */
 #include "shapes.h"  /* basic shapes (cube, cone, etc) */
 #include "textures.h"/* texture functionality */
+#include "classes.h" /* classes tároló */
+
 
 
 /*  Structs  */
@@ -92,8 +94,9 @@ extern int toggleAnimation;  /* toggle animation */
 
 
 							 /*  Objects  */
-extern cube_s cubes[60000]; /* cube objects */
-extern molekula dronpa[38][38][38]; //molekula class 36*36*36os elrendezés
+extern cube_s cubes[CUBE_COUNT_BOUNDARY]; /* cube objects */
+extern molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD]; //molekula class 36*36*36os elrendezés
+extern init_molekula protein[DEF_PROTEIN_NUMBER];
 
 //my own shit
 extern char *mouseBtnPressed;	//left vagy right
@@ -137,7 +140,7 @@ extern double Cp2;
 extern int *itomb_mol;
 extern int *jtomb_mol;
 extern int *ktomb_mol;
-extern int struktura_szamlal;
+
 
 
 

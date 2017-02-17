@@ -1,5 +1,6 @@
 /*  Poor man's approximation of PI */
 #define PI 3.1415926535898
+#define e 2.71828182845904523536
 /*  Macro for sin & cos in degrees */
 #define Cos(th) cos(PI/180*(th))
 #define Sin(th) sin(PI/180*(th))
@@ -51,6 +52,7 @@
 #define CE2_CONST	180
 #define CP1_CONST	0.037
 #define CP2_CONST	153
+#define DEF_DIPOL	-100
 
 /* INTERACTION CONSTANTS */
 #define INIT_TEXT "Press the left mouse button before pressing the right one when using the q,w,e keys!";
@@ -64,6 +66,17 @@
 #define COORD_ARRAY_LENGTH	1000
 #define DEF_TOLERANCE		10
 #define DEF_MAX_TER			6
+#define DEF_PROTEIN_NUMBER	2
+#define MENTES				false
+
+/* SIMULATED ANNEALING PARAMS */
+#define ITER_NUMBER			3
+#define DEF_SIGMA			0.4
+#define DEF_TEMP			1000000
+#define OVER_FIT			1000
+#define START_POINT			0
+#define DEF_NU				0
+#define DEF_SUGAR			0.01
 
 /* VISUALIZATION */
 #define CUBE_COUNT			46656

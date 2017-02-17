@@ -48,6 +48,9 @@
     <ClCompile Include="textures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="classes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screencasts.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="classes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
