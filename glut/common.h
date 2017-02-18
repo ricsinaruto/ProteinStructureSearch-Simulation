@@ -45,7 +45,7 @@
 
 
 /* EQUATION PARAMETERS */
-#define TIME_STEP	0.1
+#define TIME_STEP	1
 #define K_CONST		-0.07
 #define DIST_CONST	343
 #define CE1_CONST	0.008
@@ -71,12 +71,12 @@
 
 /* SIMULATED ANNEALING PARAMS */
 #define ITER_NUMBER			10			///number of iterations per each while cycle
-#define DEF_SIGMA			1			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
-#define DEF_TEMP			500			///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
-#define OVER_FIT			100		///a fitness fuctiont a desired-hez képest mennyire toljuk el
+#define DEF_SIGMA			0.2			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
+#define DEF_TEMP			(int)1000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
+#define OVER_FIT			5			///a fitness fuctiont a desired-hez képest mennyire toljuk el
 #define START_POINT			0			///a bemeneti terek kezdő értéke
 #define DEF_NU				0			///normál eloszlás várható értéke
-#define DEF_SUGAR			0.4		///random generáláshoz paraméter
+#define DEF_SUGAR			0.4			///random generáláshoz paraméter
 
 /* VISUALIZATION */
 #define CUBE_COUNT			46656

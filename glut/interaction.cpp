@@ -533,7 +533,7 @@ bool harmony_search(int molekulaszam) {
 		}
 
 		//generáció szimulálása
-		for (fori=0; fori <= n; fori++) {
+		for (fori=0; fori < n; fori++) {
 			//random szám generálás 2
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2;) {
@@ -569,6 +569,10 @@ bool harmony_search(int molekulaszam) {
 					}
 				}
 			}
+			else if (fori>4 || iteration>1) {
+				besto -= fitness;
+				besto = besto + besto / (fori + (iteration - 1)*n);
+			}
 		}
 
 		/* SIMULATION */ 
@@ -577,13 +581,17 @@ bool harmony_search(int molekulaszam) {
 		x = fRand(0, 1);
 		fitness = fitness_func(molekulaszam);
 		bestoszam += fitness;
-		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1) || 
-			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)) {
+		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1)/* || 
+			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)*/) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					inputTer[i][j] = candidate_ter[i][j];
 				}
 			}
+		}
+		else if (iteration>2) {
+			bestoszam -= fitness;
+			bestoszam = bestoszam + bestoszam / stuff;
 		}
 
 		/* SIMULATION */
@@ -618,7 +626,8 @@ bool harmony_search(int molekulaszam) {
 		cout << endl;
 	}
 	//megadja a próbálgatások számát
-	cout <<"number of simulations: "<< iteration*2+iteration*n << endl<<endl;
+	cout <<"number of simulations: "<< iteration*2+iteration*n << endl;
+	cout << "molekulak szama a strukturaban: " << molekulaszam << endl;
 
 
 	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
@@ -730,6 +739,32 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 
 						sikerult = harmony_search(molekulaSzam);
 
+						if (sikerult) {
+							for (int j = 0; j < molekulaSzam; j++) {
+								if (protein[j].ter) {
+									cout << "terrel terhelt: " << protein[j].x << " " << protein[j].y << " " << protein[j].z << endl;
+								}
+								if (protein[j].kimenet) {
+									cout<<"kimenet: "<< protein[j].x << " " << protein[j].y << " " << protein[j].z << "    ";
+									cout << "dipol: ";
+									for (int r = 0; r < pow(2, bemenetek_szama); r++) {
+										cout  << protein[j].actual[r]<<" ";
+									}
+									cout << endl;
+								}
+
+								if (!protein[j].kell) {
+									cout << "tobbi molekula: " << protein[j].x << " " << protein[j].y << " " << protein[j].z << endl;
+								}
+							}
+							i = molekulaSzam;
+							l = molekulaSzam;
+							m = molekulaSzam;
+							n = molekulaSzam;
+							p = molekulaSzam;
+							//cout << "siker" << endl;
+						}
+
 
 						protein[p].kell = false;
 						protein[p].ter = false;
@@ -739,14 +774,7 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 						protein[i].kell = false;
 						protein[i].kimenet = false;
 
-						if (sikerult) {
-							i = molekulaSzam;
-							l = molekulaSzam;
-							m = molekulaSzam;
-							n = molekulaSzam;
-							p = molekulaSzam;
-							cout << "siker" << endl;
-						}
+						
 					}
 				}
 			}
