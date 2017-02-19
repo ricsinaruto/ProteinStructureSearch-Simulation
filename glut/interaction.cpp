@@ -389,14 +389,14 @@ double fitness_func(int molekulaszam) {
 				if (kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]]+OVER_FIT) {
 						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]]+OVER_FIT - protein[j].actual[i], 2));
-						kimenetek_iteralo++;
 					}
+					kimenetek_iteralo++;
 				}
-				else {
+				else if(!kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT - protein[j].actual[i], 2));
-						kimenetek_iteralo++;
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] +OVER_FIT - protein[j].actual[i], 2));
 					}
+					kimenetek_iteralo++;
 				}
 			}
 		}
