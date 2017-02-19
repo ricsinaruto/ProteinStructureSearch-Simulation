@@ -707,7 +707,9 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 						protein[p].ter = true;
 						protein[n].kell = true;
 						protein[n].ter = true;
-						
+
+						/* FONTOS */
+						/* Ezek a for ciklusok nem próbálják ki azt az esetet ha több kimenet van, illetve, a bementek felcserélhetőségét se vizsgálják */
 
 						sikerult = harmony_search(molekulaSzam);
 
