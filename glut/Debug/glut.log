@@ -4,17 +4,14 @@ c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(371): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(661): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(664): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(673): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(714): warning C4101: 'tr20': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(714): warning C4101: 'tr30': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(714): warning C4101: 'tr10': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(714): warning C4101: 'tr40': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1126): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1132): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1134): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1155): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1422): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(686): warning C4101: 'tr20': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(686): warning C4101: 'tr30': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(686): warning C4101: 'tr10': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(686): warning C4101: 'tr40': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1083): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1089): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1091): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1112): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1379): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)

@@ -635,48 +635,21 @@ bool harmony_search(int molekulaszam) {
 		protein[i].reset_dipole(DEF_DIPOL);
 	}
 
-	/* tömb és mátrixok törlése */
-	//for (int i = 0; i < bemenetek_szama + kimenetek_szama; i++) { delete[] desired[i]; }
-	//delete[] desired;
-	//desired = nullptr;
+	for (int i = 0; i <bemenetek_szama; i++) { delete[] candidate_ter[i]; }
+	delete[] candidate_ter;
+	for (int i = 0; i <bemenetek_szama; i++) { delete[] child_ter[i]; }
+	delete[] child_ter;
+	for (int i = 0; i <bemenetek_szama; i++) { delete[] best_ter[i]; }
+	delete[] best_ter;
+	for (int i = 0; i <bemenetek_szama; i++) { delete[] inputTer[i]; }
+	delete[] inputTer;
 
-	//for (int i = 0; i < pow(2, bemenetek_szama); i++) { delete[] actual[i]; }
-	//delete[] actual;
-	//actual = nullptr;
-
-	//for (int i = 0; i < bemenetek_szama; i++) { delete[] inputTer[i]; }
-	//delete[] inputTer;
-	//inputTer = nullptr;
-
-	//delete[] dipol;
-	//dipol = nullptr;
 	return hasonlit;
 }
 
 //ez tart a legtöbb ideig, ebben van egy adott struktúrán belül a különbözõ terekkel való tesztelés
 bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 {
-	//cout << "terteszt kezd" << endl;
-	int **kimenet = new int*[kimenetek_szama];
-	for (int i = 0; i < kimenetek_szama; i++) { kimenet[i] = new int[pow(2, bemenetek_szama)]; }
-
-	int **kimenetek_t = new int*[kimenetek_szam];
-	for (int i = 0; i < kimenetek_szam; i++) { kimenetek_t[i] = new int[pow(2, bemenetek_szam)]; }
-	for (int i = 0; i < kimenetek_szam; i++)
-	{
-		for (int j = 0; j < pow(2, bemenetek_szam); j++)
-		{
-			kimenetek_t[i][j] = kimenetek[i][j];
-		}
-	}
-
-	int **bemenetek_t = new int*[pow(2, bemenetek_szam)];
-	for (int i = 0; i < pow(2, bemenetek_szam); i++) { bemenetek_t[i] = new int[bemenetek_szam]; }
-	for (int i = 0; i < pow(2, bemenetek_szam); i++)
-	{
-		for (int j = 0; j < bemenetek_szam; j++) { bemenetek_t[i][j] = bemenetek[i][j]; }
-	}
-
 
 	int *itomb = new int[molekulaSzam];
 	int *jtomb = new int[molekulaSzam];
@@ -686,7 +659,6 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 	int n = 0;
 	int p = 0;
 	bool sikerult = false;
-	double *dipolmoment = new double[molekulaSzam];
 
 	for (int i = 18 - (molekulaSzam - 1); i <= 18 + molekulaSzam - 1; i++)
 	{
@@ -707,7 +679,7 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 			}
 		}
 	}
-	int *j_elmentes = new int[kimenetek_szam];
+
 	int szimulacioszam = 0;
 	int lehetosegek = 0;
 	int tr1 = 0, tr2 = 0, tr3 = 0, tr4 = 0;
@@ -739,6 +711,7 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 
 						sikerult = harmony_search(molekulaSzam);
 
+						//adatok kiíratása
 						if (sikerult) {
 							for (int j = 0; j < molekulaSzam; j++) {
 								if (protein[j].ter) {
@@ -781,26 +754,10 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 		}
 	}
 
-
-	for (int i = 0; i < kimenetek_szama; i++) { delete[] kimenet[i]; }
-	delete[] kimenet;
-
-
-	for (int i = 0; i < kimenetek_szam; i++) { delete[] kimenetek_t[i]; }
-	delete[] kimenetek_t;
-
-
-	for (int i = 0; i < pow(2, bemenetek_szam); i++) { delete[] bemenetek_t[i]; }
-	delete[] bemenetek_t;
-
 	delete[] itomb;
 	delete[] jtomb;
 	delete[] ktomb;
-	delete[] dipolmoment;
-	delete[] j_elmentes;
 
-
-	//cout << "terteszt veg" << endl;
 	return sikerult;
 }
 
