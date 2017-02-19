@@ -325,7 +325,7 @@ double fitness_func() {
 				}
 				else if (!kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT - protein[j].actual[i], 2));
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT - protein[j].actual[i], 2));
 					}
 					kimenetek_iteralo++;
 				}
@@ -407,8 +407,7 @@ void harmony_search() {
 												//random tér inicializálás (original candidate)
 	for (int i = 0; i < bemenetek_szama; i++) {
 		for (int j = 0; j < 2; j++) {
-			if (j==0) inputTer[i][j] = -1;
-			if (j == 1) inputTer[i][j] = 1;
+			inputTer[i][j] = START_POINT;
 		}
 	}
 
@@ -590,13 +589,13 @@ void fofuggveny()
 
 	//XOR és XNOR struktúrát még nem talált
 	protein[0].initialize_molekula(17, 18, 18, true, true, true);
-	protein[1].initialize_molekula(19, 18, 18, true, true, true);
-	protein[2].initialize_molekula(21, 18, 18, true, true, true);
+	protein[1].initialize_molekula(18, 18, 18, true, true, false);
+	/*protein[2].initialize_molekula(21, 18, 18, true, true, true);
 	protein[3].initialize_molekula(23, 18, 18, true, true, true);
 
 	protein[4].initialize_molekula(18, 18, 18, false, false, false);
 	protein[5].initialize_molekula(20, 18, 18, false, false, false);
-	protein[6].initialize_molekula(22, 18, 18, false, false, false);
+	protein[6].initialize_molekula(22, 18, 18, false, false, false);*/
 
 
 

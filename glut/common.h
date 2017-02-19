@@ -66,19 +66,19 @@
 #define COORD_ARRAY_LENGTH	1000
 #define DEF_TOLERANCE		10
 #define DEF_MAX_TER			6
-#define DEF_PROTEIN_NUMBER	7
+#define DEF_PROTEIN_NUMBER	2
 #define MENTES				false
 
 /* SIMULATED ANNEALING PARAMS */
-#define ITER_NUMBER			10			///number of iterations per each while cycle
-#define DEF_SIGMA			0.01		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
+#define ITER_NUMBER			15			///number of iterations per each while cycle
+#define DEF_SIGMA			0.015		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
 #define DEF_TEMP			(int)10000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
 #define DEF_TEMP_CONST		100000000000			/// mennyivel legyen elosztva a temp
 #define DEF_TEMP_BOOL		false		///legyen-e temp randomizálás
 #define OVER_FIT			5			///a fitness fuctiont a desired-hez képest mennyire toljuk el
 #define START_POINT			0			///a bemeneti terek kezdő értéke
 #define DEF_NU				0			///normál eloszlás várható értéke
-#define DEF_SUGAR			0.004		///random generáláshoz paraméter
+#define DEF_SUGAR			0.00004		///random generáláshoz paraméter
 
 /*külön sigma és sugár kéne mindegyik bemenethez*/
 /*change the comparison so that it compares only to the average of last 10-100 fitnesses*/
