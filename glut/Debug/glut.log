@@ -251,11 +251,11 @@ c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(667): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(673): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(675): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(696): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(963): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(695): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(701): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(703): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(724): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(991): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   initialization.cpp
   globals.cpp
   glWindowPos.cpp
@@ -287,5 +287,6 @@ c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(79): warning C4305: 'a
   classes.cpp
 c:\users\ricsi\documents\github\tdk-project\glut\classes.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
   Generating Code...
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(402): warning C4172: returning address of local variable or temporary: zulul
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)

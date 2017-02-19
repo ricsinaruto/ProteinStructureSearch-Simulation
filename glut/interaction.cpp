@@ -376,6 +376,33 @@ void SIMULATION(double **ter_vektor, bool mentes) {
 	}
 }
 
+//a fitnessek összehasonlításához függvényke
+double *fitness_compare(double finalbest, double fitness, int stuff, int iteration) {
+	finalbest += fitness;
+	double finalbest1;
+	int stuff1;
+	if (stuff % 10 == 0) {
+		finalbest = finalbest / 10; stuff1 = 1;
+	}
+	else stuff1 = 0;
+	if (stuff > 1) finalbest1 = finalbest / ((stuff % 10) + 1);
+	else if (iteration == 2) finalbest1 = finalbest / ((stuff % 10) + 1);
+	else finalbest1 = finalbest;
+
+	double fitnessbest;
+	if (stuff % 10 != 0) fitnessbest = (finalbest - fitness) / ((stuff % 10) + stuff1);
+	else fitnessbest = (finalbest * 10 - fitness) / (10);
+	double fitnessfinal; 
+
+	if (stuff % 10 == 0) {
+		fitnessfinal = (finalbest * 10 - fitness + fitnessbest)/10;
+	}
+	else fitnessfinal = finalbest - fitness + fitnessbest;
+
+	double zulul[4] = { finalbest1, fitnessbest,finalbest,fitnessfinal };
+	return zulul;
+}
+
 //tér keresés
 void harmony_search() {
 
@@ -440,6 +467,7 @@ void harmony_search() {
 	double besto = 0;							//best fitness számoláshoz
 	double bestoszam = 0;						//best fitness számoláshoz
 	double finalbest = 0;						//best fitness számoláshoz
+	double *compare=new double[4];				//ebbe tároljuk a fitness_compare return értékeit
 
 												//keresés
 	while (!hasonlit && t>0) {
@@ -498,7 +526,7 @@ void harmony_search() {
 					}
 				}
 			}
-			else if (fori>4 || iteration>1) {
+			else if (fori>0) {
 				besto -= fitness;
 				besto = besto + besto / (fori + (iteration - 1)*n);
 			}
@@ -509,37 +537,38 @@ void harmony_search() {
 		//összehasonlítás
 		x = fRand(0, 1);
 		fitness = fitness_func();
-		bestoszam += fitness;
-		if (bestoszam / stuff < (bestoszam - fitness) / (stuff - 1) || (DEF_TEMP_BOOL &&
-			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / (t / DEF_TEMP_CONST)))) {
+		compare = fitness_compare(bestoszam, fitness, stuff, iteration);
+		bestoszam = compare[2];
+		if (compare[0] <= compare[1] || (DEF_TEMP_BOOL &&
+			x < pow(e, (1 / compare[0] - 1 / compare[1]) / (t / DEF_TEMP_CONST)))) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					inputTer[i][j] = candidate_ter[i][j];
 				}
 			}
 		}
-		else if (iteration>2) {
-			bestoszam -= fitness;
-			bestoszam = bestoszam + bestoszam / stuff;
-		}
+		else if (iteration>1) bestoszam = compare[3];
 
 		/* SIMULATION */
 		SIMULATION(inputTer, MENTES);
 		//összehasonlítás 2
 		fitness = fitness_func();
-		finalbest += fitness;
-		if (finalbest / stuff < (finalbest - fitness) / (stuff - 1)) {
+		compare = fitness_compare(finalbest,fitness,stuff,iteration);
+		finalbest = compare[2];
+
+		if ( compare[0]<compare[1] ) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					best_ter[i][j] = inputTer[i][j];
 				}
 			}
 		}
-		cout << "legjobb: " << finalbest / stuff << "    current fitness: " << fitness << endl;
+		else if (iteration > 1) finalbest = compare[3];
+		cout << "legjobb: " << compare[0] << "    current fitness: " << fitness << endl;
 
 		t--;
 		iteration++;
-		stuff++;
+		if (iteration>2) stuff++;
 
 		//megfelelnek-e a logikai értékek
 		hasonlit = logikai_hasonlitas();
