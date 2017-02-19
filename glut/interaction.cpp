@@ -2,31 +2,14 @@
 using namespace std;
 
 
-
-//tér nagyság megadása, i lenyomásakor fut le
-/*
-void ternagysag() {
-	if (szamlalo == 3)
-	{
-		if (szamok[0]==0) ter = -(szamok[1] * 10 + szamok[2]);
-		else ter = szamok[1] * 10 + szamok[2];
-		
-		//alaphelyzetre állítás
-		szamlalo = 0;
-		szamok[0] = 36;
-		szamok[1] = 36;
-		szamok[2] = 36;
-	}
-}*/
-
 //kimenetek megadása, k lenyomásakor fut le
 void kimenet()
 {
-	bemenetek_szama = log2(szamlalo-1);
+	bemenetek_szama = log2(szamlalo - 1);
 	kimenetek_szama = szamok[0];
 	for (int i = 1; i < szamlalo; i++)
 	{
-		kimenetek[szamok[0]-1][i-1] = szamok[i];
+		kimenetek[szamok[0] - 1][i - 1] = szamok[i];
 
 		//alaphelyzetre állítás
 		szamok[i] = 36;
@@ -36,20 +19,20 @@ void kimenet()
 }
 
 //r billentyû lenyomásakor ez fut le. A megadott struktúra szimulációját futtatja le
-void futasv(char* file_name,bool first_open)
+void futasv(char* file_name, bool first_open)
 {
 	ofstream fileki;
 	ifstream filebe;
 	int i, j, k, l, n;
 	string sor;
-	n = 50/dt;
+	n = 50 / dt;
 	int szamlal = 0;
 	if (first_open) fileki.open("tmp.csv");
 	else fileki.open("tmp.csv", ios::app);
 
-	
-	
-	
+
+
+
 	if (first_open) fileki << ",";
 	for (i = 1; i <= 36; i++)
 	{
@@ -87,7 +70,7 @@ void futasv(char* file_name,bool first_open)
 			}
 		}
 	}
-	
+
 
 	for (l = 0; l < n; l++)
 	{
@@ -149,7 +132,7 @@ void futasv(char* file_name,bool first_open)
 			fileki << dronpa[itomb[i]][jtomb[i]][ktomb[i]].dip << ",";
 		}
 		fileki << endl;
-		
+
 	}
 	fileki.close();
 
@@ -172,13 +155,12 @@ void futasv(char* file_name,bool first_open)
 	delete[] ktomb;
 }
 
-
 //ugyanaz mint a futas, csak egyszerre több tér is lehet
 void futas()
 {
 	int i, j, k, l, n;
 	string sor;
-	n = 50/dt;
+	n = 50 / dt;
 	int szamlal = 0;
 
 
@@ -281,15 +263,12 @@ void futas()
 	delete[] ktomb;
 }
 
-
-
-
 //összehasonlítást végez be1 és be2 között, 0 bemenetre igazt ad ha be1<be2, 1 bemenetre igazt ad ha be1>be2
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
-	bool hasonlit=false;
-	if ((be1) < be2 && kacsacsor==0) hasonlit = true;
-	
+	bool hasonlit = false;
+	if ((be1) < be2 && kacsacsor == 0) hasonlit = true;
+
 	if (be1>(be2) && kacsacsor == 1) hasonlit = true;
 
 	if (kacsacsor == 2) hasonlit = true;
@@ -304,10 +283,10 @@ int factorial(int f)
 	return(f * factorial(f - 1));
 }
 
-//random number gen
+//random number generator
 double fRand(double fMin, double fMax)
 {
-	
+
 	double f = (double)rand() / RAND_MAX;
 	return fMin + f * (fMax - fMin);
 }
@@ -317,10 +296,10 @@ bool logikai_hasonlitas() {
 	bool jo = true;
 	int kimenetek_iteralo = 0;
 
-	for (int i = 0; i < pow(2,bemenetek_szama); i++) {
-		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) { 
+	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
+		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
 			if (jo && protein[j].kimenet) {
-				if (!hasonlitas(protein[j].actual[i], protein[j].desired[kimenetek[kimenetek_iteralo][i]],kimenetek[kimenetek_iteralo][i])) jo = false;
+				if (!hasonlitas(protein[j].actual[i], protein[j].desired[kimenetek[kimenetek_iteralo][i]], kimenetek[kimenetek_iteralo][i])) jo = false;
 				kimenetek_iteralo++;
 			}
 		}
@@ -332,21 +311,21 @@ bool logikai_hasonlitas() {
 
 //fitness function számoló
 double fitness_func() {
-	double fitness=0;
+	double fitness = 0;
 	int kimenetek_iteralo = 0;
 
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
 			if (protein[j].kimenet) {
 				if (kimenetek[kimenetek_iteralo][i]) {
-					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]]+OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]]+OVER_FIT - protein[j].actual[i], 2));
+					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT) {
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT - protein[j].actual[i], 2));
 						kimenetek_iteralo++;
 					}
 				}
 				else {
-					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT - protein[j].actual[i], 2));
+					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT) {
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT - protein[j].actual[i], 2));
 						kimenetek_iteralo++;
 					}
 				}
@@ -358,8 +337,8 @@ double fitness_func() {
 	return fitness;
 }
 
-//szimuláció sorozatot lefuttat
-void SIMULATION(double **ter_vektor,bool mentes) {
+//szimuláció sorozatot lefuttat, ha mentes igaz, akkor elmenti .csv-be
+void SIMULATION(double **ter_vektor, bool mentes) {
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
 			protein[j].reset_dipole(protein[j].init_dipole);
@@ -375,7 +354,7 @@ void SIMULATION(double **ter_vektor,bool mentes) {
 		}
 		std::string ok = "graf" + std::to_string(i) + ".csv";
 		char* c = &ok[0];
-		if (mentes) futasv(c,true);
+		if (mentes) futasv(c, true);
 		else futas();
 
 		bemenet_iteralo = 0;
@@ -385,7 +364,7 @@ void SIMULATION(double **ter_vektor,bool mentes) {
 				bemenet_iteralo++;
 			}
 		}
-		if (mentes) futasv(c,false);
+		if (mentes) futasv(c, false);
 		else futas();
 
 		//dipól értékek elmentése
@@ -407,30 +386,30 @@ void harmony_search() {
 		protein[i].set_desired();
 		protein[i].set_actual();
 	}
-	
+
 	//random tér inicializálás, első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
 	double **inputTer = new double*[bemenetek_szama];
 	for (int i = 0; i < bemenetek_szama; i++) { inputTer[i] = new double[2]; }
-	
-	
+
+
 
 	//simulated annealing paraméterek, ahol [2][2] van azt majd át kell rakni dinamikusra
 	// /* SIMULATION */ algoritmust átrakni egy függvénybe
 	int iteration = 1;
 	bool hasonlit = false;
 
-	int n = ITER_NUMBER;								//number of children
+	int n = ITER_NUMBER;						//number of children
 	int stuff = 1;								//a while számlálója
-	int fori;										//for ciklusokhoz
+	int fori;									//for ciklusokhoz
 
 	double x, y;								//ez lesz egy random szám
 
-	//random tér inicializálás (original candidate)
+												//random tér inicializálás (original candidate)
 	for (int i = 0; i < bemenetek_szama; i++) {
 		for (int j = 0; j < 2; j++) {
 			inputTer[i][j] = START_POINT;
 		}
-	}			
+	}
 
 	//egy lehetséges tér
 	double **candidate_ter = new double*[bemenetek_szama];
@@ -447,30 +426,28 @@ void harmony_search() {
 			best_ter[i][j] = inputTer[i][j];
 		}
 	}
-	
+
 
 	int t = DEF_TEMP;							//"temperature"
 	double sigma = DEF_SIGMA;					//gaussian sigma-ja
-	double nu = DEF_NU;								//gaussian nu-je
+	double nu = DEF_NU;							//gaussian nu-je
 
 
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
 	double fitness;								//fitness számoláshoz
-	double sugar = DEF_SUGAR;							//sugár a random generátorhoz
+	double sugar = DEF_SUGAR;					//sugár a random generátorhoz
 	double besto = 0;							//best fitness számoláshoz
 	double bestoszam = 0;						//best fitness számoláshoz
 	double finalbest = 0;						//best fitness számoláshoz
 
-	//keresés
+												//keresés
 	while (!hasonlit && t>0) {
-		
-
 		//random szám generálás 1
 		for (int i = 0; i < bemenetek_szama; i++) {
 			for (int j = 0; j < 2;) {
-
 				z = 0;
+
 				while (z <= 0 || z >= 1) {
 					x = fRand(-sugar, sugar);
 					y = fRand(-sugar, sugar);
@@ -485,14 +462,13 @@ void harmony_search() {
 			}
 		}
 
-
 		//generáció szimulálása
-		for (fori=0; fori <= n; fori++) {
+		for (fori = 0; fori < n; fori++) {
 			//random szám generálás 2
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2;) {
-
 					z = 0;
+
 					while (z <= 0 || z >= 1) {
 						x = fRand(-sugar, sugar);
 						y = fRand(-sugar, sugar);
@@ -507,12 +483,11 @@ void harmony_search() {
 				}
 			}
 
-			
 			/* SIMULATION */
-			SIMULATION(child_ter,false);
+			SIMULATION(child_ter, false);
 
 			//összehasonlítás, fitness
-			fitness=fitness_func();
+			fitness = fitness_func();
 			besto += fitness;
 
 			//legyen-e csere?
@@ -523,25 +498,33 @@ void harmony_search() {
 					}
 				}
 			}
+			else if (fori>4 || iteration>1) {
+				besto -= fitness;
+				besto = besto + besto / (fori + (iteration - 1)*n);
+			}
 		}
 
-		/* SIMULATION */ 
-		SIMULATION(candidate_ter,false);
+		/* SIMULATION */
+		SIMULATION(candidate_ter, false);
 		//összehasonlítás
 		x = fRand(0, 1);
 		fitness = fitness_func();
 		bestoszam += fitness;
-		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1) || 
-			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)) {
+		if (bestoszam / stuff < (bestoszam - fitness) / (stuff - 1) || (DEF_TEMP_BOOL &&
+			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / (t / DEF_TEMP_CONST)))) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					inputTer[i][j] = candidate_ter[i][j];
 				}
 			}
 		}
+		else if (iteration>2) {
+			bestoszam -= fitness;
+			bestoszam = bestoszam + bestoszam / stuff;
+		}
 
 		/* SIMULATION */
-		SIMULATION(inputTer,MENTES);
+		SIMULATION(inputTer, MENTES);
 		//összehasonlítás 2
 		fitness = fitness_func();
 		finalbest += fitness;
@@ -552,28 +535,47 @@ void harmony_search() {
 				}
 			}
 		}
-		cout << "legjobb: " << finalbest/stuff<< "    current fitness: "<<fitness << endl;
+		cout << "legjobb: " << finalbest / stuff << "    current fitness: " << fitness << endl;
 
 		t--;
 		iteration++;
 		stuff++;
 
 		//megfelelnek-e a logikai értékek
-		hasonlit=logikai_hasonlitas();
-		
+		hasonlit = logikai_hasonlitas();
+
 		//cout << hasonlit << endl;
 	}
 
 	/* Adatok kiíratása */
 	for (int i = 0; i < bemenetek_szama; i++) {
 		for (int j = 0; j < 2; j++) {
-			cout <<i<<". input molekulara "<<j<<" logikai ter nagysaga: "<< best_ter[i][j] << "   ";
+			cout << i << ". input molekulara " << j << " logikai ter nagysaga: " << best_ter[i][j] << "   ";
 		}
 		cout << endl;
 	}
 	//megadja a próbálgatások számát
-	cout <<"number of simulations: "<< iteration*2+iteration*n << endl<<endl;
+	cout << "number of simulations: " << iteration * 2 + iteration*n << endl << endl;
+	if (hasonlit) {
+		cout << "sikerult" << endl;
+		for (int j = 0; j < DEF_PROTEIN_NUMBER; j++) {
+			if (protein[j].ter) {
+				cout << "terrel terhelt: " << protein[j].x << " " << protein[j].y << " " << protein[j].z << endl;
+			}
+			if (protein[j].kimenet) {
+				cout << "kimenet: " << protein[j].x << " " << protein[j].y << " " << protein[j].z << "    ";
+				cout << "dipol: ";
+				for (int r = 0; r < pow(2, bemenetek_szama); r++) {
+					cout << protein[j].actual[r] << " ";
+				}
+				cout << endl;
+			}
 
+			if (!protein[j].kell) {
+				cout << "tobbi molekula: " << protein[j].x << " " << protein[j].y << " " << protein[j].z << endl;
+			}
+		}
+	}
 
 	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
 	for (int i = 0; i < DEF_PROTEIN_NUMBER; i++) {
@@ -597,15 +599,21 @@ void harmony_search() {
 	//dipol = nullptr;
 }
 
-//f-re lefutó szimulációs fõfüggvény
+//f-re lefutó struktúra kereső fõfüggvény
 void fofuggveny()
 {
-	
+
 	//XOR és XNOR struktúrát még nem talált
-	protein[0].initialize_molekula(17, 18, 18, true, true, false);
-	protein[1].initialize_molekula(18, 18, 18, true, true, true);
-	//protein[2].initialize_molekula(19, 18, 18, true, true, true);
-	
+	protein[0].initialize_molekula(17, 18, 18, true, true, true);
+	protein[1].initialize_molekula(19, 18, 18, true, true, true);
+	protein[2].initialize_molekula(21, 18, 18, true, true, true);
+	protein[3].initialize_molekula(23, 18, 18, true, true, true);
+
+	protein[4].initialize_molekula(18, 18, 18, false, false, false);
+	protein[5].initialize_molekula(20, 18, 18, false, false, false);
+	protein[6].initialize_molekula(22, 18, 18, false, false, false);
+
+
 
 	//tér keresés
 	harmony_search();
@@ -625,7 +633,7 @@ void save()
 			{
 				if (dronpa[i][j][k].van)
 				{
-					strukt << ";"<< i - 1 << ";" << j - 1 << ";" << k - 1 << ";";
+					strukt << ";" << i - 1 << ";" << j - 1 << ";" << k - 1 << ";";
 					if (dronpa[i][j][k].ter)
 					{
 						strukt << 1 << ";";
@@ -633,13 +641,13 @@ void save()
 					else strukt << 0 << ";";
 					strukt << endl;
 				}
-				
+
 			}
 		}
 	}
 	strukt.close();
 
-	strukt.open("params.dat"); 
+	strukt.open("params.dat");
 
 	strukt << th << endl;
 	strukt << ph << endl;
@@ -647,16 +655,16 @@ void save()
 
 	strukt.close();
 
-	
+
 }
 
-//beolvasása a struktúrának
+//struktúra beolvasása
 void load()
 {
 	ifstream filebe;
 	string sor;
 	filebe.open("strukt.csv");
-	
+
 	int szam = -1;
 	int szamok[4] = { 0,0,0,0 };
 	bool param = false;
@@ -757,7 +765,7 @@ void load()
 
 	std::string::size_type sz;   // alias of size_t
 
-	
+
 	while (getline(filebe, sor))
 	{
 		switch (szamlalo)
@@ -774,17 +782,18 @@ void load()
 	filebe.close();
 }
 
+
+
+/*  BILLENTYŰ ÉS EGÉR KEZELÉS  */
+
 // q,w,e billentyûk lenyomásakor a mozgatások és forgások kezelése
-void windowPmotion(int x, int y)
-{
+void windowPmotion(int x, int y) {
 	mouseX = x;
 	mouseY = y;
 
 	//fény forgatása
-	if (Shift == "light")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	if (Shift == "light") {
+		if (mouseBtnPressed == "Left") {
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -795,18 +804,15 @@ void windowPmotion(int x, int y)
 			ph2 = ph;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
+		if (mouseBtnPressed == "Right") {
 			lightTh = (lightTh2 + (mouseX - xcoord));
 			lightPh = (lightPh2 + (mouseX - xcoord));
 		}
 	}
 
 	//struktúra forgatása
-	else if (Shift=="rotation")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	else if (Shift == "rotation") {
+		if (mouseBtnPressed == "Left") {
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -817,18 +823,15 @@ void windowPmotion(int x, int y)
 			ecY2 = ecY;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
+		if (mouseBtnPressed == "Right") {
 			th = (th2 + (mouseX - xcoord));
 			ph = (ph2 + (mouseY - ycoord));
 		}
 	}
 
 	//struktúra mozgatása
-	else if (Shift=="movement")
-	{
-		if (mouseBtnPressed == "Left")
-		{
+	else if (Shift == "movement") {
+		if (mouseBtnPressed == "Left") {
 			xcoord = mouseX;
 			ycoord = mouseY;
 			lightTh2 = lightTh;
@@ -839,10 +842,9 @@ void windowPmotion(int x, int y)
 			ph2 = ph;
 		}
 
-		if (mouseBtnPressed == "Right")
-		{
-			ecX = ecX2 + (-mouseX + xcoord)/10;
-			ecY = ecY2 + (mouseY - ycoord)/10;
+		if (mouseBtnPressed == "Right") {
+			ecX = ecX2 + (-mouseX + xcoord) / 10;
+			ecY = ecY2 + (mouseY - ycoord) / 10;
 		}
 	}
 
@@ -852,15 +854,13 @@ void windowPmotion(int x, int y)
 }
 
 //zoomolás
-void mouseWheel(int scroll, int dir, int x, int y)
-{
+void mouseWheel(int scroll, int dir, int x, int y) {
 	dim -= (double)dir;
 	redisplayAll();
 }
 
 //egér gombok lenyomásának kezelése
-void windowMouse(int btn, int state, int x, int y)
-{
+void windowMouse(int btn, int state, int x, int y) {
 	if (btn == GLUT_LEFT_BUTTON) mouseBtnPressed = "Left";
 	else if (btn == GLUT_RIGHT_BUTTON) mouseBtnPressed = "Right";
 
@@ -877,24 +877,19 @@ void windowMouse(int btn, int state, int x, int y)
 	redisplayAll();
 }
 
-
-
 //összes billentyû lenyomás kezelése
-void windowKey(unsigned char key, int x, int y)
-{
+void windowKey(unsigned char key, int x, int y) {
 	/*  Exit on ESC */
 	if (key == 27) exit(0);
 
 	//space
-	if (key == 32)
-	{
+	if (key == 32) {
 		if (valto == "parameters") valto = "coordinates";
 		else valto = "parameters";
 	}
 
 	//paraméterek megadása
-	if (valto == "parameters")
-	{
+	if (valto == "parameters") {
 		//toggle axes and parameter display
 		if (key == 'x' || key == 'X') toggleAxes = 1 - toggleAxes;
 		else if (key == 'v' || key == 'V') toggleParams = 1 - toggleParams;
@@ -927,19 +922,19 @@ void windowKey(unsigned char key, int x, int y)
 		}
 
 		//szimuláció futtatása
-		else if (key == 'r') futasv("graf.csv",false);
+		else if (key == 'r') futasv("graf.csv", false);
 
 		//próba függvény
 		else if (key == 'f') fofuggveny();
 
-		
+
 		//struktúra elmentése
 		else if (key == 's') save();
 		//struktúra betöltése
 		else if (key == 'o') load();
 	}
 
-	
+
 	/*  Spacebar */
 	//else if (key == 32) toggleAnimation = 1 - toggleAnimation;
 	/*  Change field of view angle */
@@ -949,7 +944,7 @@ void windowKey(unsigned char key, int x, int y)
 	/*  Light elevation */
 	if (key == '[') lightY -= 0.5;
 	if (key == ']') lightY += 0.5;
-	
+
 	/*  Specular level */
 	//else if (key == 's' && specular>0) specular -= 5;
 	//else if (key == 'S' && specular<100) specular += 5;
@@ -965,48 +960,33 @@ void windowKey(unsigned char key, int x, int y)
 	if (key == 8)  enter = "delete";
 
 	//alfanumerikus koordináták megadása
-	if (valto == "coordinates")
-	{
-		for (int i = 97; i < 123; i++)
-		{
-			if (key == i) { szamok[szamlalo] = i-87; szamlalo++; key = ','; }
+	if (valto == "coordinates") {
+		for (int i = 97; i < 123; i++) {
+			if (key == i) { szamok[szamlalo] = i - 87; szamlalo++; key = ','; }
 		}
 
-		for (int i = 48; i < 58; i++)
-		{
+		for (int i = 48; i < 58; i++) {
 			if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }
 		}
 	}
 
 	//0-9ig koordináta megadás
-	for (int i = 48; i < 58; i++)
-	{
+	for (int i = 48; i < 58; i++) {
 		if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }
 	}
 
 	/*  Translate shininess power to value (-1 => 0) */
 	shinyvec[0] = shininess<0 ? 0 : pow(2.0, shininess);
-
 	redisplayAll();
 }
 
-/*
-*  windowMenu
-*  ------
-*  Window menu is the same as the keyboard clicks
-*/
-void windowMenu(int value)
-{
+/* Window menu is the same as the keyboard clicks */
+void windowMenu(int value) {
 	windowKey((unsigned char)value, 0, 0);
 }
 
-/*
-*  windowSpecial()
-*  ------
-*  GLUT calls this routine when an arrow key is pressed
-*/
-void windowSpecial(int key, int x, int y)
-{
+/* GLUT calls this routine when an arrow key is pressed */
+void windowSpecial(int key, int x, int y) {
 	int modifiers = glutGetModifiers();
 	/*  If holding shift, then rotate/elevate */
 	if (modifiers == GLUT_ACTIVE_SHIFT) {
@@ -1016,7 +996,7 @@ void windowSpecial(int key, int x, int y)
 		/*  Up/Down - elevation */
 		else if (key == GLUT_KEY_UP) ph += 5;
 		else if (key == GLUT_KEY_DOWN) ph -= 5;
-		
+
 	}
 	/*  Otherwise, just shift the screen */
 	else {
