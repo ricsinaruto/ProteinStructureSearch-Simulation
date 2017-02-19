@@ -320,14 +320,14 @@ double fitness_func() {
 				if (kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT) {
 						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT - protein[j].actual[i], 2));
-						kimenetek_iteralo++;
 					}
+					kimenetek_iteralo++;
 				}
-				else {
+				else if (!kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] - OVER_FIT - protein[j].actual[i], 2));
-						kimenetek_iteralo++;
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT - protein[j].actual[i], 2));
 					}
+					kimenetek_iteralo++;
 				}
 			}
 		}
@@ -407,7 +407,8 @@ void harmony_search() {
 												//random tér inicializálás (original candidate)
 	for (int i = 0; i < bemenetek_szama; i++) {
 		for (int j = 0; j < 2; j++) {
-			inputTer[i][j] = START_POINT;
+			if (j==0) inputTer[i][j] = -1;
+			if (j == 1) inputTer[i][j] = 1;
 		}
 	}
 
@@ -581,22 +582,6 @@ void harmony_search() {
 	for (int i = 0; i < DEF_PROTEIN_NUMBER; i++) {
 		protein[i].reset_dipole(DEF_DIPOL);
 	}
-
-	/* tömb és mátrixok törlése */
-	//for (int i = 0; i < bemenetek_szama + kimenetek_szama; i++) { delete[] desired[i]; }
-	//delete[] desired;
-	//desired = nullptr;
-
-	//for (int i = 0; i < pow(2, bemenetek_szama); i++) { delete[] actual[i]; }
-	//delete[] actual;
-	//actual = nullptr;
-
-	//for (int i = 0; i < bemenetek_szama; i++) { delete[] inputTer[i]; }
-	//delete[] inputTer;
-	//inputTer = nullptr;
-
-	//delete[] dipol;
-	//dipol = nullptr;
 }
 
 //f-re lefutó struktúra kereső fõfüggvény
