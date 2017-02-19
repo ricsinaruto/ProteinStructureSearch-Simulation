@@ -394,7 +394,7 @@ double fitness_func(int molekulaszam) {
 				}
 				else if(!kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] > protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT) {
-						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] +OVER_FIT - protein[j].actual[i], 2));
+						fitness += sqrt(pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] -OVER_FIT - protein[j].actual[i], 2));
 					}
 					kimenetek_iteralo++;
 				}
@@ -581,8 +581,8 @@ bool harmony_search(int molekulaszam) {
 		x = fRand(0, 1);
 		fitness = fitness_func(molekulaszam);
 		bestoszam += fitness;
-		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1)/* || 
-			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / t)*/) {
+		if (bestoszam / stuff < (bestoszam-fitness) / (stuff - 1) || (DEF_TEMP_BOOL &&
+			x < pow(e, ((1 / (bestoszam / stuff) - 1 / (bestoszam - fitness) / (stuff - 1))) / (t/DEF_TEMP_CONST)))) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					inputTer[i][j] = candidate_ter[i][j];
