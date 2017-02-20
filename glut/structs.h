@@ -1,4 +1,4 @@
-typedef struct point {
+ï»¿typedef struct point {
 	float x;
 	float y;
 	float z;
@@ -17,13 +17,12 @@ typedef struct cube_s {
 
 
 //the main protein class, containing all protein objects
-class molekula
-{
+class molekula {
 public:
 	bool van;	//van-e molekula az adott helyen
-	bool kell;	//részt vesz-e az adott logikai függvényben
-	bool ter;	//térrel terhelt-e a molekula az adott helyen
-	double terMag;	//mekkora térrel terhelt a molekula
-	double dipA, dipB, dip;		//dipólok
-	double qeA, qeB, qp1A, qp1B, qp2A, qp2B;	//új egyenletekhez (equations.docx)
+	bool kell;	//rÃ©szt vesz-e az adott logikai fÃ¼ggvÃ©nyben
+	bool ter;	//tÃ©rrel terhelt-e a molekula az adott helyen
+	double terMag;	//mekkora tÃ©rrel terhelt a molekula
+	double dipA, dipB, dip;		//dipÃ³lok
+	double qeA, qeB, qp1A, qp1B, qp2A, qp2B;	//Ãºj egyenletekhez (equations.docx)
 };

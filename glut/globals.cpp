@@ -79,13 +79,12 @@ int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 int *itomb_mol = new int[COORD_ARRAY_LENGTH];
 int *jtomb_mol = new int[COORD_ARRAY_LENGTH];
 int *ktomb_mol = new int[COORD_ARRAY_LENGTH];
-int struktura_szamlal = 0;
 
 //nem tudom mi ez a logikai függvény lol
-int kimenetek[7][16] = { { 0,0,0,1,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
-						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,0,1,1,1,0,1,0,0,1,0,1,0,0,1 },
-						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
-						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};
+int kimenetek[7][16] = { { 0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1 },{ 0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1 },
+{ 0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1 },{ 0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1 },
+{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
+{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 } };
 
 //bemenetek a proba függvényhez
 int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },
@@ -95,4 +94,5 @@ int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1
 /* VISUALIZATION */
 cube_s cubes[CUBE_COUNT_BOUNDARY];
 molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD];
+init_molekula protein[DEF_PROTEIN_NUMBER];
 int h1[CUBE_COUNT], h2[CUBE_COUNT], h3[CUBE_COUNT];
