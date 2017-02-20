@@ -445,7 +445,7 @@ void harmony_search() {
 	int iteration = 1;
 	bool hasonlit = false;
 
-	int n = 20;								//number of children
+	int n = 50;								//number of children
 	int stuff = 1;								//a while számlálója
 	int fori;										//for ciklusokhoz
 
@@ -463,7 +463,7 @@ void harmony_search() {
 	int t = 10000;								//"temperature"
 
 	double nu = 0;								//gaussian nu-je
-	double sigma[2][2] = { {1,1},{1,1} };		//gaussian sigmája
+	double sigma[2][2] = { {0.5,0.5},{0.5,0.5} };		//gaussian sigmája
 
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell
