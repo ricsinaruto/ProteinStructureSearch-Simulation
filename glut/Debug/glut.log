@@ -1,8 +1,4 @@
-﻿  014.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\014.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-  Compiling...
-  textures.cpp
+﻿  textures.cpp
   shapes.cpp
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
@@ -251,11 +247,19 @@ c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+<<<<<<< HEAD
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(697): warning C4018: '<': signed/unsigned mismatch
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(703): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(726): warning C4018: '<': signed/unsigned mismatch
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(993): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+=======
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(699): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(707): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(728): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(995): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+>>>>>>> origin/simulated-annealing
   initialization.cpp
   globals.cpp
   glWindowPos.cpp
@@ -286,7 +290,13 @@ c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(79): warning C4305: 'a
   display.cpp
   classes.cpp
 c:\users\ricsi\documents\github\tdk-project\glut\classes.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+  014.cpp
+c:\users\ricsi\documents\github\tdk-project\glut\014.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
 c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(403): warning C4172: returning address of local variable or temporary: zulul
+<<<<<<< HEAD
+=======
+  LINK : C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe not found or not built by the last incremental link; performing full link
+>>>>>>> origin/simulated-annealing
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)

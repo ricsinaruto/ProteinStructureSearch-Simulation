@@ -83,6 +83,7 @@
 /*temp-el kezdeni vmit*/
 /*ez a stuff-os finalbest reset is shady*/
 
+
 /* VISUALIZATION */
 #define CUBE_COUNT			46656
 #define CUBE_COUNT_BOUNDARY	60000

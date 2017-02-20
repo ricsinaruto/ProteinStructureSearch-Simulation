@@ -425,7 +425,9 @@ void harmony_search() {
 	int iteration = 1;
 	bool hasonlit = false;
 
+
 	int n = ITER_NUMBER;						//number of children
+
 	int stuff = 1;								//a while számlálója
 	int fori;									//for ciklusokhoz
 
@@ -453,6 +455,7 @@ void harmony_search() {
 			best_ter[i][j] = inputTer[i][j];
 		}
 	}
+
 
 
 	int t = DEF_TEMP;							//"temperature"
