@@ -80,8 +80,10 @@
 #define DEF_NU				0			///normál eloszlás várható értéke
 #define DEF_SUGAR			0.0008		///random generáláshoz paraméter
 /*külön sigma és sugár kéne mindegyik bemenethez*/
+/*adaptívan kéne változtatni a paramétereket az algoritmus futása közben*/
 /*temp-el kezdeni vmit*/
 /*ez a stuff-os finalbest reset is shady*/
+
 
 
 /* VISUALIZATION */
