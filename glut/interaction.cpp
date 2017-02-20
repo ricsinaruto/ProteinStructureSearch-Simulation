@@ -425,11 +425,9 @@ void harmony_search() {
 	int iteration = 1;
 	bool hasonlit = false;
 
-<<<<<<< HEAD
-	int n = 50;								//number of children
-=======
+
 	int n = ITER_NUMBER;						//number of children
->>>>>>> origin/simulated-annealing
+
 	int stuff = 1;								//a while számlálója
 	int fori;									//for ciklusokhoz
 
@@ -459,15 +457,11 @@ void harmony_search() {
 	}
 
 
-<<<<<<< HEAD
-	double nu = 0;								//gaussian nu-je
-	double sigma[2][2] = { {0.5,0.5},{0.5,0.5} };		//gaussian sigmája
-=======
+
 	int t = DEF_TEMP;							//"temperature"
 	double sigma = DEF_SIGMA;					//gaussian sigma-ja
 	double nu = DEF_NU;							//gaussian nu-je
 
->>>>>>> origin/simulated-annealing
 
 	double distro;								//amibe elmentjük a gaussian által létrehozott számot
 	double z;									//a distrohoz kell

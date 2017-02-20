@@ -66,8 +66,6 @@
 #define COORD_ARRAY_LENGTH	1000
 #define DEF_TOLERANCE		10
 #define DEF_MAX_TER			6
-<<<<<<< HEAD
-=======
 #define DEF_PROTEIN_NUMBER	2
 #define MENTES				false
 
@@ -82,7 +80,7 @@
 #define DEF_NU				0			///normál eloszlás várható értéke
 #define DEF_SUGAR			0.4		///random generáláshoz paraméter
 /*külön sigma és sugár kéne mindegyik bemenethez*/
->>>>>>> origin/simulated-annealing
+
 
 /* VISUALIZATION */
 #define CUBE_COUNT			46656
