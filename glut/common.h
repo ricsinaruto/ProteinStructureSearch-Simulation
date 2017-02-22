@@ -74,8 +74,8 @@
 #define DEF_SIGMA			0.05		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
 #define DEF_TEMP			(int)10000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
 #define DEF_TEMP_CONST		10000000			/// mennyivel legyen elosztva a temp
-#define DEF_TEMP_BOOL		true		///legyen-e temp randomizálás
-#define OVER_FIT			5			///a fitness fuctiont a desired-hez képest mennyire toljuk el
+#define DEF_TEMP_BOOL		false		///legyen-e temp randomizálás
+#define OVER_FIT			10			///a fitness fuctiont a desired-hez képest mennyire toljuk el
 #define START_POINT			0			///a bemeneti terek kezdő értéke
 #define DEF_NU				0			///normál eloszlás várható értéke
 #define DEF_SUGAR			0.4		///random generáláshoz paraméter
