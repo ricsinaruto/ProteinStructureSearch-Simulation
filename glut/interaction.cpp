@@ -538,12 +538,12 @@ void harmony_search() {
 		/* SIMULATION */
 		SIMULATION(candidate_ter, false);
 		//összehasonlítás
-		x = fRand(0, 1);
 		fitness = fitness_func();
 		compare = fitness_compare(bestoszam, fitness, stuff, iteration);
+		x = fRand(0, pow(e,-abs(1/(compare[0]-compare[1]))));
 		bestoszam = compare[2];
 		if (compare[0] <= compare[1] || (DEF_TEMP_BOOL &&
-			x < pow(e, (1 / compare[0] - 1 / compare[1]) / (t / DEF_TEMP_CONST)))) {
+			x < pow(e, (1 / compare[0] - 1 / compare[1]) / (DEF_TEMP - t)*DEF_TEMP_CONST))) {
 			for (int i = 0; i < bemenetek_szama; i++) {
 				for (int j = 0; j < 2; j++) {
 					inputTer[i][j] = candidate_ter[i][j];
@@ -551,7 +551,7 @@ void harmony_search() {
 			}
 		}
 		else if (iteration>1) bestoszam = compare[3];
-
+		//if (x < pow(e, (1 / compare[1] - 1 / compare[0]) / (t/1500))) cout << endl;
 		/* SIMULATION */
 		SIMULATION(inputTer, MENTES);
 		//összehasonlítás 2
@@ -586,7 +586,8 @@ void harmony_search() {
 		}
 		cout << endl;
 	}
-	//megadja a próbálgatások számát
+
+	//adatok kiírása
 	cout << "number of simulations: " << iteration * 2 + iteration*n << endl << endl;
 	if (hasonlit) {
 		cout << "sikerult" << endl;
@@ -621,13 +622,13 @@ void fofuggveny()
 
 	//XOR és XNOR struktúrát még nem talált
 	protein[0].initialize_molekula(17, 18, 18, true, true, true);
-	protein[1].initialize_molekula(18, 18, 18, true, true, false);
-	/*protein[2].initialize_molekula(21, 18, 18, true, true, true);
+	protein[1].initialize_molekula(19, 18, 18, true, true, true);
+	protein[2].initialize_molekula(21, 18, 18, true, true, true);
 	protein[3].initialize_molekula(23, 18, 18, true, true, true);
 
 	protein[4].initialize_molekula(18, 18, 18, false, false, false);
 	protein[5].initialize_molekula(20, 18, 18, false, false, false);
-	protein[6].initialize_molekula(22, 18, 18, false, false, false);*/
+	protein[6].initialize_molekula(22, 18, 18, false, false, false);
 
 
 
