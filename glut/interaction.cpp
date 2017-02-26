@@ -696,8 +696,8 @@ bool terteszt(int molekulaSzam, int bemenetek_szam, int kimenetek_szam)
 
 	for (l = l0; l < molekulaSzam - 3; l++) {
 		for (m = m0 + l - l0; m < molekulaSzam - 2; m++) {
-			for (n = n0 + m - m0; n < molekulaSzam - 1; n++) {
-				for (p = p0 + n - n0; p < molekulaSzam; p++) {
+			for (n = 0; n < molekulaSzam; n++) {
+				for (p = 0; p < molekulaSzam; p++) {
 					for (int i = 0; i < molekulaSzam; i++) {
 						protein[i].kell = true;
 						protein[i].kimenet = true;
