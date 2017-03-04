@@ -70,7 +70,7 @@
 #define MENTES				false
 
 /* SIMULATED ANNEALING PARAMS */
-#define ITER_NUMBER			50			///number of iterations per each while cycle
+#define ITER_NUMBER			10			///number of iterations per each while cycle
 #define DEF_SIGMA			0.01		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
 #define DEF_TEMP			(int)10000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
 #define DEF_TEMP_CONST		DEF_TEMP/(100/n)		/// mennyivel legyen elosztva a temp

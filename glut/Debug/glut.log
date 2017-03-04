@@ -164,6 +164,7 @@ c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): erro
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   interaction.cpp
+<<<<<<< HEAD
 c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
 c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
   c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
@@ -218,6 +219,18 @@ c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): erro
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
+=======
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(700): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(706): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(708): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(729): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(996): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+>>>>>>> origin/simulated-annealing
   initialization.cpp
 c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
 c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
@@ -659,3 +672,10 @@ c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): erro
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
 c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   Generating Code...
+<<<<<<< HEAD
+=======
+c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(403): warning C4172: returning address of local variable or temporary: zulul
+  LINK : C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe not found or not built by the last incremental link; performing full link
+  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
+  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)
+>>>>>>> origin/simulated-annealing
