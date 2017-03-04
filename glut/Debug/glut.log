@@ -1,302 +1,661 @@
 ﻿  textures.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   shapes.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(22): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(23): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(23): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(24): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(25): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(26): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(27): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(27): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(28): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(29): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(31): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(31): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(32): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(32): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(33): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(33): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(34): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(34): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(35): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(35): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(36): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(36): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(37): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(38): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(40): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(41): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(42): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(43): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(44): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(45): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(46): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(46): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(47): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(47): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(261): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(261): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(262): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(262): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(263): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(263): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(264): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(264): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(265): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(265): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(266): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(266): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(267): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(267): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(268): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(268): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(270): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(270): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(271): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(271): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(272): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(272): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(273): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(273): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(274): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(274): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(275): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(275): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(276): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(276): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(277): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(277): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(279): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(279): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(280): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(280): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(281): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(281): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(282): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(282): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(283): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(283): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(284): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(284): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(285): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(285): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(286): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(286): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(316): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(316): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(317): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(317): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(318): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(318): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(319): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(319): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(320): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(320): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(321): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(321): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(322): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(322): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(323): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(323): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(325): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(325): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(326): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(326): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(327): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(327): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(328): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(328): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(329): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(329): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(330): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(330): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(331): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(331): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(332): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(332): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(334): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(334): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(335): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(335): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(336): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(336): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(337): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(337): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(338): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(338): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(339): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(339): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(340): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(340): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(341): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(341): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(386): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(386): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(387): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(387): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(388): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(388): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(389): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(389): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(390): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(390): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(391): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(391): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(392): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(392): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(393): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(393): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(395): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(395): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(396): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(396): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(397): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(397): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(398): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(398): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(399): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(399): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(400): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(400): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(401): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(401): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(402): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(402): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(404): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(404): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(405): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(405): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(406): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(406): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(407): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(407): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(408): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(408): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(409): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(409): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(410): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(410): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(411): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(411): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(454): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(454): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(455): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(455): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(456): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(456): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(457): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(457): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(458): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(458): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(459): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(459): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(460): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(460): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(461): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(461): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(463): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(463): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(464): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(464): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(465): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(465): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(466): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(466): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(467): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(467): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(468): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(468): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(469): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(469): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(470): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(470): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(472): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(472): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(473): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(473): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(474): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(474): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(475): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(475): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(477): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(477): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(478): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(478): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(479): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(479): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   print.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   interaction.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-<<<<<<< HEAD
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(697): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(703): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(726): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(993): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-=======
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(699): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(705): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(707): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(728): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(995): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
->>>>>>> origin/simulated-annealing
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   initialization.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   globals.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   glWindowPos.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(50): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(52): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(54): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(56): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(58): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(60): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   error.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   draw.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(25): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(26): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(27): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(27): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(28): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(79): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   display.cpp
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   classes.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\classes.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   014.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\014.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): error C2440: '=': cannot convert from 'Eigen::internal::Packet4f' to 'double'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(66): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2672: 'psub': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2782: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: could be '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(77): error C2784: 'Packet Eigen::internal::psub(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from '__m128'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(100): note: see declaration of 'Eigen::internal::psub'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(94): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2672: 'pmul': no matching overloaded function found
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2782: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': template parameter 'Packet' is ambiguous
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: could be 'Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): note: or       'double'
+c:\users\ricsi\documents\github\opennn\eigen\src\core\arch\sse\mathfunctions.h(98): error C2784: 'Packet Eigen::internal::pmul(const Packet &,const Packet &)': could not deduce template argument for 'const Packet &' from 'const Eigen::internal::Packet4f'
+  c:\users\ricsi\documents\github\opennn\eigen\src\core\genericpacketmath.h(113): note: see declaration of 'Eigen::internal::pmul'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): warning C4346: 'OtherDerived::IsVectorAtCompileTime': dependent name is not a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): note: prefix with 'typename' to indicate a type
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(95): note: see reference to class template instantiation 'Eigen::RotationBase<Derived,_Dim>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ')' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(71): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(77): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(82): error C2061: syntax error: identifier 'r'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3927: '->': trailing return type is not allowed after a non-function declarator
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3484: syntax error: expected '->' before the return type
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3613: missing return type after '->' ('int' assumed)
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C3646: 'linear': unknown override specifier
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2059: syntax error: '('
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(83): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2059: syntax error: 'return'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(84): error C2238: unexpected token(s) preceding ';'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2988: unrecognizable template declaration/definition
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\rotationbase.h(88): error C2143: syntax error: missing ';' before ''template<''
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ')' before 'constant'
+  c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(276): note: see reference to class template instantiation 'Eigen::Hyperplane<_Scalar,_AmbientDim,_Options>' being compiled
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2143: syntax error: missing ';' before 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: 'constant'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2059: syntax error: ')'
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(67): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
+c:\users\ricsi\documents\github\opennn\eigen\src\geometry\hyperplane.h(14): fatal error C1075: the left brace '{' was unmatched at the end of the file
   Generating Code...
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(403): warning C4172: returning address of local variable or temporary: zulul
-<<<<<<< HEAD
-=======
-  LINK : C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe not found or not built by the last incremental link; performing full link
->>>>>>> origin/simulated-annealing
-  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
-  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)

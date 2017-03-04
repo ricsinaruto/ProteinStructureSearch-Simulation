@@ -41,7 +41,7 @@
 #include "shapes.h"  /* basic shapes (cube, cone, etc) */
 #include "textures.h"/* texture functionality */
 #include "classes.h" /* classes tároló */
-#include "C:\Users\ricsi\Documents\GitHub\OpenNN/opennn/opennn.h"
+
 
 
 /*  Structs  */
