@@ -61,24 +61,24 @@
 #define DEF_VALTO "parameters"
 
 /* SEARCHING ALGORITHM */
-#define DEF_KIMENETEK_SZAMA 4
-#define DEF_BEMENETEK_SZAMA 4
+#define DEF_KIMENETEK_SZAMA 1
+#define DEF_BEMENETEK_SZAMA 2
 #define COORD_ARRAY_LENGTH	1000
 #define DEF_TOLERANCE		1
 #define DEF_MAX_TER			100
-#define DEF_PROTEIN_NUMBER	7
+#define DEF_PROTEIN_NUMBER	2
 #define MENTES				false
 
 /* SIMULATED ANNEALING PARAMS */
 #define ITER_NUMBER			10			///number of iterations per each while cycle
-#define DEF_SIGMA			0.01		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
+#define DEF_SIGMA			0.8		///sigma a normál eloszláshoz amiből a random bemenetek választódnak
 #define DEF_TEMP			(int)10000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
 #define DEF_TEMP_CONST		DEF_TEMP/(100/n)		/// mennyivel legyen elosztva a temp
 #define DEF_TEMP_BOOL		false		///legyen-e temp randomizálás
-#define OVER_FIT			1			///a fitness fuctiont a desired-hez képest mennyire toljuk el
+#define OVER_FIT			20			///a fitness fuctiont a desired-hez képest mennyire toljuk el
 #define START_POINT			0			///a bemeneti terek kezdő értéke
 #define DEF_NU				0			///normál eloszlás várható értéke
-#define DEF_SUGAR			0.0008		///random generáláshoz paraméter
+#define DEF_SUGAR			0.008		///random generáláshoz paraméter
 /*külön sigma és sugár kéne mindegyik bemenethez*/
 /*adaptívan kéne változtatni a paramétereket az algoritmus futása közben*/
 /*temp-el kezdeni vmit*/
