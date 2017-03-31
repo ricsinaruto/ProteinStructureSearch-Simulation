@@ -123,6 +123,7 @@ extern int bemenetek[16][4];
 extern double tolerance;
 extern double max_ter;
 extern int struktura_szamlal;
+extern int molekulaSzam;
 
 //egyeneletkhez paraméterek
 extern double dt;
