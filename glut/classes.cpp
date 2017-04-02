@@ -12,7 +12,6 @@ init_molekula::init_molekula() {
 	ter = false;
 	kimenet = false;
 	actual = new double[pow(2, bemenetek_szama)];
-	szomszedok = new double[DEF_PROTEIN_NUMBER];
 	torolt = false;
 }
 
@@ -26,8 +25,6 @@ void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int
 	bemenet_szam = _bemenet_szam;
 	kimenet = _kimenet;
 
-
-
 	dronpa[x][y][z].van = true;
 	dronpa[x][y][z].dip = DEF_DIPOL;
 	dronpa[x][y][z].dipA = DEF_DIPOL;
@@ -35,6 +32,7 @@ void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int
 	dronpa[x][y][z].ter = ter;
 	torolt = false;
 }
+
 
 //delete molekula
 void init_molekula::delete_molekula() {
@@ -50,6 +48,50 @@ void init_molekula::delete_molekula() {
 	dronpa[x][y][z].qp2B = 0;
 	dronpa[x][y][z].ter = false;
 	torolt = true;
+
+	for (int i = 0; i < 6; i++) {
+		szomszedok.pop_back();
+	}
+}
+
+//set szomszédok
+void init_molekula::set_szomszedok() {
+	std::vector<int> i;
+	i.push_back(x + 1);
+	i.push_back(y);
+	i.push_back(z);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
+
+	i.push_back(x -1);
+	i.push_back(y);
+	i.push_back(z);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
+
+	i.push_back(x);
+	i.push_back(y+1);
+	i.push_back(z);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
+
+	i.push_back(x);
+	i.push_back(y-1);
+	i.push_back(z);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
+
+	i.push_back(x);
+	i.push_back(y);
+	i.push_back(z+1);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
+
+	i.push_back(x);
+	i.push_back(y);
+	i.push_back(z-1);
+	szomszedok.push_back(i);
+	for (int j = 0; j < 3; j++) i.pop_back();
 }
 
 //tér set

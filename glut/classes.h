@@ -9,8 +9,8 @@ public:
 
 	double init_dipole;		//első futás után dipol moment
 	double desired[2];		//desired vektor
+	std::vector<std::vector<int>> szomszedok;
 	double *actual;			//actual dipole érték
-	double *szomszedok;		//molekula szomszédjai
 	int	   bemenet_szam;	//melyik bemenet az adott mulekula
 
 	//alap konstruktor
@@ -18,6 +18,9 @@ public:
 
 	//konstruktor
 	void initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet);
+
+	//set szomszédok
+	void set_szomszedok();
 
 	//delete molekula
 	void delete_molekula();

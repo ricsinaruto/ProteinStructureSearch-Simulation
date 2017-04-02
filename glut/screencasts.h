@@ -14,6 +14,10 @@
 #include <sstream>
 #include <string>
 #include <random>
+#include <vector>
+#include <set>
+#include <algorithm>
+#include <iterator>
 
 
 /*OpenGL and friends*/

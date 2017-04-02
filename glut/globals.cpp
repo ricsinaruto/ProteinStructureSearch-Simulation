@@ -72,7 +72,7 @@ int struktura_szamlal = 0;
 /* SEARCHING ALGORITHM */
 int kimenetek_szama = DEF_KIMENETEK_SZAMA;
 int bemenetek_szama = DEF_BEMENETEK_SZAMA;
-int molekulaSzam = DEF_PROTEIN_NUMBER;
+int molekulaSzam = DEF_PROTEIN_NUMBER+1;
 double tolerance	= DEF_TOLERANCE;
 double max_ter = DEF_MAX_TER;
 int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };

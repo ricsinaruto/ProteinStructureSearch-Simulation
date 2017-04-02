@@ -448,15 +448,93 @@ void protein_definialas() {
 	bool kimenet_lok = false;
 	bool redo = false;
 	bool redo_structure = true;
-	molekulaSzam = DEF_PROTEIN_NUMBER;
+	std::vector<int> placeholder_koordok;
+
+
+	//előzőeket törölni, kivéve első futás
+	if (molekulaSzam <= DEF_PROTEIN_NUMBER) {
+		for (int k = 0; k < molekulaSzam; k++) {
+			protein[k].delete_molekula();
+		}
+	}
+	
+	//random mennyiségű molekula
+	molekulaSzam = fRand(3,DEF_PROTEIN_NUMBER+0.9999999999999);
+	cout << endl;
+	cout <<"molekulak szama: "<< molekulaSzam << endl;
 
 	for (int k = 0; k < molekulaSzam; k++) {
 		protein[k];
 	}
 
+	//struktúra felépítés
+	int elemek = 0;
+	for (elemek = 0; elemek < molekulaSzam;elemek++) {
+		if (elemek == 0) {
+			protein[elemek].initialize_molekula(18, 18, 18, false, 2, false);
+			protein[elemek].set_szomszedok();
+		}
 
+		else {
+			std::vector<std::vector<int>> lista;
+			std::set<std::vector<int>> elem_koord;
+			for (int iter = 0; iter < elemek; iter++) {
+				for (int i = 0; i < 6; i++) {
+					lista.push_back(protein[iter].szomszedok[i]);
+				}
+				placeholder_koordok.push_back(protein[iter].x);
+				placeholder_koordok.push_back(protein[iter].y);
+				placeholder_koordok.push_back(protein[iter].z);
+				elem_koord.insert(placeholder_koordok);
+				for (int j = 0; j < 3; j++) placeholder_koordok.pop_back();
+			}
+			std::set<std::vector<int>> koord_set(lista.begin(), lista.end());
+			lista.clear();
+
+			//csak a különbözőket megtartani
+			std::set<std::vector<int>> vegso_koordok;
+			std::set_difference(koord_set.begin(), koord_set.end(), elem_koord.begin(), elem_koord.end(),std::inserter(vegso_koordok, vegso_koordok.end()));
+
+			//random elem kiválasztás
+			int k = fRand(0, vegso_koordok.size() - 0.0000000001);
+			//std::set<unsigned long>::iterator it;
+			int i = 0;
+			for (auto f : vegso_koordok) {
+				if (i == k) {
+					placeholder_koordok = f;
+				}
+				i++;
+			}
+			protein[elemek].initialize_molekula(placeholder_koordok[0], placeholder_koordok[1], placeholder_koordok[2], false, 2, false);
+			protein[elemek].set_szomszedok();
+
+			placeholder_koordok.clear();
+			elem_koord.clear();
+			koord_set.clear();
+			vegso_koordok.clear();
+		}
+	}
+	
+
+	//1 darab kimenet
+	int kimen = fRand(0, molekulaSzam - 0.000000000001);
+	protein[kimen].kimenet = true;
+
+	//random bemenetek
+	for (int i = 0; i < molekulaSzam; i++) {
+		int ter_legyen = fRand(0, 1.9999999999);
+		if (ter_legyen) {
+			int melyik_ter = fRand(0, bemenetek_szama - 0.00000000001);
+			protein[i].ter = true;
+			protein[i].set_ter_mol();
+			protein[i].bemenet_szam = melyik_ter;
+		}
+	}
+
+
+	/* ELŐZŐ ALGORITMUS */
 	//manuális definiálás
-	for (int i = 0; i < 3; i++) {
+	/*for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			for (int k = 0; k < 3; k++) {
 				protein[k + j * 3 + i * 9].initialize_molekula(18 + i, 18 + j, 18 + k, false, 2, false);
@@ -489,22 +567,7 @@ void protein_definialas() {
 		}
 		else protein[i] = protein[i + shift + 1];
 		
-	}
-	
-
-	//1 darab kimenet
-	int kimen = fRand(0, molekulaSzam - 0.000000000001);
-	protein[kimen].kimenet = true;
-
-	for (int i = 0; i < molekulaSzam; i++) {
-		int ter_legyen = fRand(0, 1.9999999999);
-		if (ter_legyen) {
-			int melyik_ter = fRand(0, bemenetek_szama - 0.00000000001);
-			protein[i].ter = true;
-			protein[i].set_ter_mol();
-			protein[i].bemenet_szam = melyik_ter;
-		}
-	}
+	}*/
 }
 
 
@@ -680,14 +743,17 @@ bool harmony_search() {
 	}
 
 	/* Adatok kiíratása */
-	for (int i = 0; i < bemenetek_szama; i++) {
-		for (int j = 0; j < 2; j++) {
-			cout <<i<<". input molekulara "<<j<<" logikai ter nagysaga: "<< best_ter[i][j] << "   ";
+	if (hasonlit) {
+		for (int i = 0; i < bemenetek_szama; i++) {
+			for (int j = 0; j < 2; j++) {
+				cout << i << ". input molekulara " << j << " logikai ter nagysaga: " << best_ter[i][j] << "   ";
+			}
+			cout << endl;
 		}
-		cout << endl;
 	}
+	
 	//megadja a próbálgatások számát
-	cout <<"number of simulations: "<< iteration*2+iteration*n << endl;
+	cout << "number of simulations: " << iteration * 2 + iteration*n << endl;
 	//cout << "molekulak szama a strukturaban: " << molekulaSzam << endl;
 
 
