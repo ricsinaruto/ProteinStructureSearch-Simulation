@@ -402,7 +402,7 @@ double fitness_func(int molekulaszam) {
 		}
 		kimenetek_iteralo = 0;
 	}
-	fitness = fitness / 1000;
+	fitness = fitness / 100;
 	fitness = 1 / (1 + log(1 + fitness));
 	return fitness;
 }
@@ -444,7 +444,7 @@ void SIMULATION(double **ter_vektor, bool mentes, int molekulaszam) {
 }
 
 void protein_definialas() {
-	///*
+	/*
 	bool ter_lok = false;
 	bool kimenet_lok = false;
 	bool redo = false;
@@ -454,65 +454,65 @@ void protein_definialas() {
 
 	//előzőeket törölni, kivéve első futás
 	if (molekulaSzam <= DEF_PROTEIN_NUMBER) {
-		for (int k = 0; k < molekulaSzam; k++) {
-			protein[k].delete_molekula();
-		}
+	for (int k = 0; k < molekulaSzam; k++) {
+	protein[k].delete_molekula();
+	}
 	}
 
 	//random mennyiségű molekula
-	molekulaSzam = fRand(3, DEF_PROTEIN_NUMBER + 0.9999999999999);
+	molekulaSzam = fRand(3,DEF_PROTEIN_NUMBER+0.9999999999999);
 	cout << endl;
-	cout << "molekulak szama: " << molekulaSzam << endl;
+	cout <<"molekulak szama: "<< molekulaSzam << endl;
 
 	for (int k = 0; k < molekulaSzam; k++) {
-		protein[k];
+	protein[k];
 	}
 
 	//struktúra felépítés
 	int elemek = 0;
-	for (elemek = 0; elemek < molekulaSzam; elemek++) {
-		if (elemek == 0) {
-			protein[elemek].initialize_molekula(18, 18, 18, false, 2, false);
-			protein[elemek].set_szomszedok();
-		}
+	for (elemek = 0; elemek < molekulaSzam;elemek++) {
+	if (elemek == 0) {
+	protein[elemek].initialize_molekula(18, 18, 18, false, 2, false);
+	protein[elemek].set_szomszedok();
+	}
 
-		else {
-			std::vector<std::vector<int>> lista;
-			std::set<std::vector<int>> elem_koord;
-			for (int iter = 0; iter < elemek; iter++) {
-				for (int i = 0; i < 6; i++) {
-					lista.push_back(protein[iter].szomszedok[i]);
-				}
-				placeholder_koordok.push_back(protein[iter].x);
-				placeholder_koordok.push_back(protein[iter].y);
-				placeholder_koordok.push_back(protein[iter].z);
-				elem_koord.insert(placeholder_koordok);
-				for (int j = 0; j < 3; j++) placeholder_koordok.pop_back();
-			}
-			std::set<std::vector<int>> koord_set(lista.begin(), lista.end());
-			lista.clear();
+	else {
+	std::vector<std::vector<int>> lista;
+	std::set<std::vector<int>> elem_koord;
+	for (int iter = 0; iter < elemek; iter++) {
+	for (int i = 0; i < 6; i++) {
+	lista.push_back(protein[iter].szomszedok[i]);
+	}
+	placeholder_koordok.push_back(protein[iter].x);
+	placeholder_koordok.push_back(protein[iter].y);
+	placeholder_koordok.push_back(protein[iter].z);
+	elem_koord.insert(placeholder_koordok);
+	for (int j = 0; j < 3; j++) placeholder_koordok.pop_back();
+	}
+	std::set<std::vector<int>> koord_set(lista.begin(), lista.end());
+	lista.clear();
 
-			//csak a különbözőket megtartani
-			std::set<std::vector<int>> vegso_koordok;
-			std::set_difference(koord_set.begin(), koord_set.end(), elem_koord.begin(), elem_koord.end(), std::inserter(vegso_koordok, vegso_koordok.end()));
+	//csak a különbözőket megtartani
+	std::set<std::vector<int>> vegso_koordok;
+	std::set_difference(koord_set.begin(), koord_set.end(), elem_koord.begin(), elem_koord.end(),std::inserter(vegso_koordok, vegso_koordok.end()));
 
-			//random elem kiválasztás
-			int k = fRand(0, vegso_koordok.size() - 0.0000000001);
-			int i = 0;
-			for (auto f : vegso_koordok) {
-				if (i == k) {
-					placeholder_koordok = f;
-				}
-				i++;
-			}
-			protein[elemek].initialize_molekula(placeholder_koordok[0], placeholder_koordok[1], placeholder_koordok[2], false, 2, false);
-			protein[elemek].set_szomszedok();
+	//random elem kiválasztás
+	int k = fRand(0, vegso_koordok.size() - 0.0000000001);
+	int i = 0;
+	for (auto f : vegso_koordok) {
+	if (i == k) {
+	placeholder_koordok = f;
+	}
+	i++;
+	}
+	protein[elemek].initialize_molekula(placeholder_koordok[0], placeholder_koordok[1], placeholder_koordok[2], false, 2, false);
+	protein[elemek].set_szomszedok();
 
-			placeholder_koordok.clear();
-			elem_koord.clear();
-			koord_set.clear();
-			vegso_koordok.clear();
-		}
+	placeholder_koordok.clear();
+	elem_koord.clear();
+	koord_set.clear();
+	vegso_koordok.clear();
+	}
 	}
 
 
@@ -522,30 +522,41 @@ void protein_definialas() {
 
 	//random bemenetek
 	for (int i = 0; i < molekulaSzam; i++) {
-		int ter_legyen = fRand(0, 1.9999999999);
-		if (ter_legyen) {
-			int melyik_ter = fRand(0, bemenetek_szama - 0.00000000001);
-			protein[i].ter = true;
-			protein[i].set_ter_mol();
-			protein[i].bemenet_szam = melyik_ter;
+	int ter_legyen = fRand(0, 1.9999999999);
+	if (ter_legyen) {
+	int melyik_ter = fRand(0, bemenetek_szama - 0.00000000001);
+	protein[i].ter = true;
+	protein[i].set_ter_mol();
+	protein[i].bemenet_szam = melyik_ter;
+	}
+	}*/
+
+
+	for (int k = 0; k < molekulaSzam; k++) {
+		protein[k];
+	}
+
+	// FOR TESTING ============ //
+	///*
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			for (int k = 0; k < 3; k++) {
+				protein[k + j * 3 + i * 9].initialize_molekula(18 + i, 18 + j, 18 + k, false, 2, false);
+			}
 		}
 	}
 
 
 
-	// FOR TESTING ============ //
-	/*
-	molekulaSzam = 2;
-	protein[0].initialize_molekula(18, 18, 18, false, 2, false);
-	protein[1].initialize_molekula(18, 18, 19, false, 2, false);
-	//1 darab kimenet
-	protein[1].kimenet = true;
-	protein[0].ter = true;
-	protein[0].set_ter_mol();
-	protein[0].bemenet_szam = 0;
-	protein[1].ter = true;
-	protein[1].set_ter_mol();
-	protein[1].bemenet_szam = 1;
+
+	//az első futást csak egyszer kell, és elmentjük az alap dipól értékeket
+	futas();
+	for (int i = 0; i < molekulaSzam; i++) {
+		protein[i].set_init_dipole();
+		protein[i].set_desired();
+		protein[i].set_actual();
+	}
 	// ========================= //
 
 	/* ELŐZŐ ALGORITMUS */
@@ -589,14 +600,8 @@ void protein_definialas() {
 
 //tér keresés
 bool harmony_search() {
+	molekulaSzam = 27;
 
-	//az első futást csak egyszer kell, és elmentjük az alap dipól értékeket
-	futas();
-	for (int i = 0; i < molekulaSzam; i++) {
-		protein[i].set_init_dipole();
-		protein[i].set_desired();
-		protein[i].set_actual();
-	}
 
 	//random tér inicializálás, első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
 	double **inputTer = new double*[bemenetek_szama];
@@ -621,12 +626,6 @@ bool harmony_search() {
 		}
 	}
 
-	//egy lehetséges tér
-	double **candidate_ter = new double*[bemenetek_szama];
-	for (int i = 0; i < bemenetek_szama; i++) { candidate_ter[i] = new double[2]; }
-	//új generáció
-	double **child_ter = new double*[bemenetek_szama];
-	for (int i = 0; i < bemenetek_szama; i++) { child_ter[i] = new double[2]; }
 	//legjobb megoldás		
 	double **best_ter = new double*[bemenetek_szama];
 	for (int i = 0; i < bemenetek_szama; i++) { best_ter[i] = new double[2]; }
@@ -639,23 +638,24 @@ bool harmony_search() {
 
 
 
-	double nu = DEF_NU;							//gaussian nu-je
-
-
-	double distro;								//amibe elmentjük a gaussian által létrehozott számot
-	double z;									//a distrohoz kell
-	double fitness;								//fitness számoláshoz
-	double sugar = DEF_SUGAR;					//sugár a random generátorhoz
-	double besto = 0;							//best fitness számoláshoz
-	double bestoszam = 0;						//best fitness számoláshoz
-	double finalbest = 0;						//best fitness számoláshoz
-
 	DNA population[DEF_POP_SIZE];
 	double mutationRate = DEF_MUT_RATE;
 	std::vector<DNA> matingPool;
+	double last_best = 0;
 
 	//keresés
 	while (!hasonlit && n>0) {
+		//előzőeket törölni, kivéve első futás
+		if (n != ITER_NUMBER) {
+			for (int k = 0; k < molekulaSzam; k++) {
+				protein[k].delete_molekula();
+			}
+		}
+
+		//structure definition
+		protein_definialas();
+
+
 		double best_fitness = 0;
 		for (int i = 0; i < DEF_POP_SIZE; i++) {
 			population[i].calcFitness();
@@ -666,34 +666,60 @@ bool harmony_search() {
 				best_ter = population[i].getFields();
 				i = DEF_POP_SIZE;
 			}
-		}
+			else {
+				//release protein, 1 kimenet
+				int temp = population[i].genes[population[i].vec_len - 1];
+				protein[temp].kimenet = false;
 
-		//create the mutation pool
-		for (int i = 0; i < DEF_POP_SIZE; i++) {
-			int nn = int(population[i].fitness * DEF_MATING_POOL_COEFF);
-			for (int j = 0; j < nn; j++) {
-				matingPool.push_back(population[i]);
+				for (int j = 0; j < molekulaSzam; j++) {
+					protein[j].ter = false;
+					protein[j].bemenet_szam = 2;
+					protein[j].unset_ter_mol();
+				}
+			}
+		}
+		if (!hasonlit) {
+			//create the mutation pool
+			for (int i = 0; i < DEF_POP_SIZE; i++) {
+				int nn = int(population[i].fitness * DEF_MATING_POOL_COEFF);
+				for (int j = 0; j < nn; j++) {
+					matingPool.push_back(population[i]);
+				}
+			}
+
+			for (int i = 0; i < DEF_POP_SIZE; i++) {
+				int a = int(fRand(0, matingPool.size() - 0.0000000001));
+				int b = int(fRand(0, matingPool.size() - 0.0000000001));
+
+				DNA partnerA = matingPool[a];
+				DNA partnerB = matingPool[b];
+				DNA child = partnerA.crossover(partnerB);
+
+				child.mutate(mutationRate);
+				population[i] = child;
 			}
 		}
 
-		for (int i = 0; i < DEF_POP_SIZE; i++) {
-			int a = int(fRand(0, matingPool.size() - 0.0000000001));
-			int b = int(fRand(0, matingPool.size() - 0.0000000001));
 
-			DNA partnerA = matingPool[a];
-			DNA partnerB = matingPool[b];
-			DNA child = partnerA.crossover(partnerB);
 
-			child.mutate(mutationRate);
-			population[i] = child;
+		if (n % 50 == 0) {
+			if (last_best - 0.01 < best_fitness && best_fitness < last_best + 0.01)  mutationRate = 0.25;
+			else mutationRate = DEF_MUT_RATE;
+
+			last_best = best_fitness;
 		}
-
-
-		cout << best_fitness << endl;;
+		cout << best_fitness << "         " << mutationRate << endl;
 		matingPool.clear();
 		//iterálók
 		generation++;
 		n--;
+
+
+
+		//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
+		for (int i = 0; i < molekulaSzam; i++) {
+			protein[i].reset_dipole(DEF_DIPOL);
+		}
 	}
 
 	/* Adatok kiíratása */
@@ -711,15 +737,9 @@ bool harmony_search() {
 	//cout << "molekulak szama a strukturaban: " << molekulaSzam << endl;
 
 
-	//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
-	for (int i = 0; i < molekulaSzam; i++) {
-		protein[i].reset_dipole(DEF_DIPOL);
-	}
 
-	for (int i = 0; i <bemenetek_szama; i++) { delete[] candidate_ter[i]; }
-	delete[] candidate_ter;
-	for (int i = 0; i <bemenetek_szama; i++) { delete[] child_ter[i]; }
-	delete[] child_ter;
+
+
 	for (int i = 0; i <bemenetek_szama; i++) { delete[] best_ter[i]; }
 	delete[] best_ter;
 	for (int i = 0; i <bemenetek_szama; i++) { delete[] inputTer[i]; }
@@ -736,7 +756,7 @@ void fofuggveny()
 	while (!sikerult) {
 
 		//random input/outputok
-		protein_definialas();
+		//protein_definialas();
 
 		sikerult = harmony_search();
 

@@ -48,9 +48,9 @@ void init_molekula::delete_molekula() {
 	dronpa[x][y][z].ter = false;
 	torolt = true;
 
-	for (int i = 0; i < 6; i++) {
-		szomszedok.pop_back();
-	}
+	/*for (int i = 0; i < 6; i++) {
+	szomszedok.pop_back();
+	}*/
 }
 
 //set szomszédok
@@ -96,6 +96,10 @@ void init_molekula::set_szomszedok() {
 //tér set
 void init_molekula::set_ter_mol() {
 	dronpa[x][y][z].ter = true;
+}
+
+void init_molekula::unset_ter_mol() {
+	dronpa[x][y][z].ter = false;
 }
 
 //dipól lekérése
@@ -151,10 +155,16 @@ void init_molekula::reset_dipole(double dipole) {
 
 //constructor
 DNA::DNA() {
-	genes = new double[bemenetek_szama * 2];
+	vec_len = bemenetek_szama * 2 + 1 + molekulaSzam;
+	genes = new double[vec_len];
 	for (int i = 0; i < bemenetek_szama * 2; i++) {
 		genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
 	}
+	for (int i = bemenetek_szama * 2; i < vec_len - 1; i++) {
+		genes[i] = int(fRand(0, 3 - 0.000000001));
+	}
+
+	genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
 	fitness = 1000;
 	hasonlit = false;
 }
@@ -173,6 +183,23 @@ double **DNA::getFields() {
 
 //calculate the fitness
 void DNA::calcFitness() {
+	int tmp = genes[vec_len - 1];
+	protein[tmp].kimenet = true;
+
+	//bemenetek
+	for (int i = 0; i < molekulaSzam; i++) {
+		if (genes[bemenetek_szama * 2 + i] == 0) {
+			protein[i].ter = true;
+			protein[i].set_ter_mol();
+			protein[i].bemenet_szam = 0;
+		}
+		if (genes[bemenetek_szama * 2 + i] == 1) {
+			protein[i].ter = true;
+			protein[i].set_ter_mol();
+			protein[i].bemenet_szam = 1;
+		}
+	}
+
 	SIMULATION(getFields(), false, molekulaSzam);
 	fitness = fitness_func(molekulaSzam);
 }
@@ -182,10 +209,10 @@ DNA DNA::crossover(DNA partner) {
 	// A new child
 	DNA child;
 
-	int midpoint = int(fRand(0, bemenetek_szama * 2 - 0.00000000001)); // Pick a midpoint
+	int midpoint = int(fRand(0, vec_len - 0.00000000001)); // Pick a midpoint
 
-																	   // Half from one, half from the other
-	for (int i = 0; i < bemenetek_szama * 2; i++) {
+														   // Half from one, half from the other
+	for (int i = 0; i < vec_len; i++) {
 		if (i > midpoint) child.genes[i] = genes[i];
 		else              child.genes[i] = partner.genes[i];
 	}
@@ -198,5 +225,13 @@ void DNA::mutate(float mutationRate) {
 		if (fRand(0, 1) < mutationRate) {
 			genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
 		}
+	}
+	for (int i = bemenetek_szama * 2; i < vec_len - 1; i++) {
+		if (fRand(0, 1) < mutationRate) {
+			genes[i] = int(fRand(0, 3 - 0.000000001));
+		}
+	}
+	if (fRand(0, 1) < mutationRate) {
+		genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
 	}
 }

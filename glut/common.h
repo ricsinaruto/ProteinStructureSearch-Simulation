@@ -66,14 +66,14 @@
 #define COORD_ARRAY_LENGTH	1000
 #define DEF_TOLERANCE		0.1
 #define DEF_MAX_TER			100
-#define DEF_PROTEIN_NUMBER	20
+#define DEF_PROTEIN_NUMBER	27
 #define MENTES				false
 
 /* GENETIC ALGORITHM PARAMS */
-#define ITER_NUMBER				50			///number of iterations per each while cycle
-#define DEF_POP_SIZE			40			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
-#define DEF_MUT_RATE			0.1		///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
-#define DEF_MATING_POOL_COEFF	200			///used to multiply fitness for mating pool sizes
+#define ITER_NUMBER				100000		///number of iterations per each while cycle
+#define DEF_POP_SIZE			100			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
+#define DEF_MUT_RATE			0.05			///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
+#define DEF_MATING_POOL_COEFF	500			///used to multiply fitness for mating pool sizes
 
 #define OVER_FIT			5			///a fitness fuctiont a desired-hez képest mennyire toljuk el
 #define START_POINT			0			///a bemeneti terek kezdő értéke

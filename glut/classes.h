@@ -28,6 +28,9 @@ public:
 	//tér setelése molekulára
 	void set_ter_mol();
 
+	//unset field on molecule
+	void unset_ter_mol();
+
 	//dipól lekérése
 	double get_dipole();
 
@@ -56,6 +59,7 @@ public:
 	double *genes;
 	double fitness;
 	bool hasonlit;
+	int vec_len;
 
 	//konstruktor
 	DNA();
