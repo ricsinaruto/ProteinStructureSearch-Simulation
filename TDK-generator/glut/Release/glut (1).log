@@ -1,0 +1,2 @@
+﻿globals.obj : error LNK2001: unresolved external symbol "class GLUI_Master_Object GLUI_Master" (?GLUI_Master@@3VGLUI_Master_Object@@A)
+C:\Users\ricsi\Desktop\tdk\Release\glut.exe : fatal error LNK1120: 1 unresolved externals

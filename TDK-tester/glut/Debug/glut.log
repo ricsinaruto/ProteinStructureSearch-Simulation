@@ -1,0 +1,24 @@
+﻿  interaction.cpp
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(516): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(520): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(522): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(701): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(630): warning C4101: 'z': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(629): warning C4101: 'distro': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(597): warning C4101: 'y': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(595): warning C4101: 'fori': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(597): warning C4101: 'x': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(631): warning C4101: 'fitness': unreferenced local variable
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(844): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(850): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(852): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(873): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(1140): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\non-upload-stuff\tdk-tester\glut\interaction.cpp(404): warning C4172: returning address of local variable or temporary: zulul
+  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\Non-upload-stuff\TDK-tester\Debug\glut.exe
+  glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\Non-upload-stuff\TDK-tester\Debug\glut.pdb (Partial PDB)
