@@ -13,7 +13,7 @@ public:
 	double *actual;			//actual dipole érték
 	int	   bemenet_szam;	//melyik bemenet az adott mulekula
 
-	//alap konstruktor
+							//alap konstruktor
 	init_molekula();
 
 	//konstruktor
@@ -48,4 +48,27 @@ public:
 
 	//reset dipole moment
 	void reset_dipole(double dipole);
+};
+
+//genetikus algoritmus class
+class DNA {
+public:
+	double *genes;
+	double fitness;
+	bool hasonlit;
+
+	//konstruktor
+	DNA();
+
+	//get the fields from genes
+	double **getFields();
+
+	//calculate fitness score
+	void calcFitness();
+
+	//crossover function
+	DNA crossover(DNA partner);
+
+	//mutate
+	void mutate(float mutationRate);
 };

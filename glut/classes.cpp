@@ -2,7 +2,6 @@
 
 //kereső algoritmushoz molekula class függvények
 
-
 //alap konstruktor
 init_molekula::init_molekula() {
 	x = 0;
@@ -63,33 +62,33 @@ void init_molekula::set_szomszedok() {
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 
-	i.push_back(x -1);
+	i.push_back(x - 1);
 	i.push_back(y);
 	i.push_back(z);
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 
 	i.push_back(x);
-	i.push_back(y+1);
+	i.push_back(y + 1);
 	i.push_back(z);
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 
 	i.push_back(x);
-	i.push_back(y-1);
+	i.push_back(y - 1);
 	i.push_back(z);
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 
 	i.push_back(x);
 	i.push_back(y);
-	i.push_back(z+1);
+	i.push_back(z + 1);
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 
 	i.push_back(x);
 	i.push_back(y);
-	i.push_back(z-1);
+	i.push_back(z - 1);
 	szomszedok.push_back(i);
 	for (int j = 0; j < 3; j++) i.pop_back();
 }
@@ -144,4 +143,60 @@ void init_molekula::reset_dipole(double dipole) {
 	dronpa[x][y][z].qp1B = 0;
 	dronpa[x][y][z].qp2A = 0;
 	dronpa[x][y][z].qp2B = 0;
+}
+
+
+
+/* GENETIC ALGORITHM */
+
+//constructor
+DNA::DNA() {
+	genes = new double[bemenetek_szama * 2];
+	for (int i = 0; i < bemenetek_szama * 2; i++) {
+		genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
+	}
+	fitness = 1000;
+	hasonlit = false;
+}
+
+//get fields from genes
+double **DNA::getFields() {
+	double **fields = new double*[bemenetek_szama];
+	for (int i = 0; i < bemenetek_szama; i++) { fields[i] = new double[2]; }
+
+	for (int i = 0; i < bemenetek_szama; i++) {
+		fields[i][0] = genes[2 * i];
+		fields[i][1] = genes[2 * i + 1];
+	}
+	return fields;
+}
+
+//calculate the fitness
+void DNA::calcFitness() {
+	SIMULATION(getFields(), false, molekulaSzam);
+	fitness = fitness_func(molekulaSzam);
+}
+
+// Crossover
+DNA DNA::crossover(DNA partner) {
+	// A new child
+	DNA child;
+
+	int midpoint = int(fRand(0, bemenetek_szama * 2 - 0.00000000001)); // Pick a midpoint
+
+																	   // Half from one, half from the other
+	for (int i = 0; i < bemenetek_szama * 2; i++) {
+		if (i > midpoint) child.genes[i] = genes[i];
+		else              child.genes[i] = partner.genes[i];
+	}
+	return child;
+}
+
+// Based on a mutation probability, picks a new random character
+void DNA::mutate(float mutationRate) {
+	for (int i = 0; i < bemenetek_szama * 2; i++) {
+		if (fRand(0, 1) < mutationRate) {
+			genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
+		}
+	}
 }
