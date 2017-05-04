@@ -382,10 +382,12 @@ bool logikai_hasonlitas(int molekulaszam) {
 double fitness_func(int molekulaszam) {
 	double fitness = 0;
 	int kimenetek_iteralo = 0;
+	bool same_dipole = true;
 
 	for (int i = 0; i < pow(2, bemenetek_szama); i++) {
 		for (int j = 0; j < molekulaszam; j++) {
 			if (protein[j].kimenet) {
+				if (protein[j].actual[i] > protein[j].init_dipole + 0.01 || protein[j].actual[i] < protein[j].init_dipole - 0.01) same_dipole = false;
 				if (kimenetek[kimenetek_iteralo][i]) {
 					if (protein[j].actual[i] < protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT) {
 						fitness += pow(protein[j].desired[kimenetek[kimenetek_iteralo][i]] + OVER_FIT - protein[j].actual[i], 2);
@@ -402,6 +404,9 @@ double fitness_func(int molekulaszam) {
 		}
 		kimenetek_iteralo = 0;
 	}
+
+	//kiszűrni az egyke kimeneti molekula esetet
+	if (same_dipole) fitness = 10000;
 	fitness = fitness / 100;
 	fitness = 1 / (1 + log(1 + fitness));
 	return fitness;
@@ -600,7 +605,7 @@ void protein_definialas() {
 
 //tér keresés
 bool harmony_search() {
-	molekulaSzam = 27;
+	molekulaSzam = DEF_PROTEIN_NUMBER;
 
 
 	//random tér inicializálás, első index az input molekula száma, második index, hogy a 0 logikai értékű térről, vagy az 1 logikai értékű térről van-e szó
@@ -646,14 +651,15 @@ bool harmony_search() {
 	//keresés
 	while (!hasonlit && n>0) {
 		//előzőeket törölni, kivéve első futás
-		if (n != ITER_NUMBER) {
+		if (n == ITER_NUMBER) {
 			for (int k = 0; k < molekulaSzam; k++) {
-				protein[k].delete_molekula();
+				protein[k];
+				protein[k].initialize_molekula(18, 18, 18, false, 2, false);
 			}
 		}
 
 		//structure definition
-		protein_definialas();
+		//protein_definialas();
 
 
 		double best_fitness = 0;
@@ -661,22 +667,17 @@ bool harmony_search() {
 			population[i].calcFitness();
 			if (population[i].fitness > best_fitness) best_fitness = population[i].fitness;
 			//also check logikai_hasonlitas
-			hasonlit = logikai_hasonlitas(molekulaSzam);
+			hasonlit = logikai_hasonlitas(population[i].mol_szam);
+			/*if (last_best == best_fitness) {
+			hasonlit = true;
+			}*/
 			if (hasonlit) {
+				molekulaSzam = population[i].mol_szam;
 				best_ter = population[i].getFields();
 				i = DEF_POP_SIZE;
 			}
-			else {
-				//release protein, 1 kimenet
-				int temp = population[i].genes[population[i].vec_len - 1];
-				protein[temp].kimenet = false;
+			//tesztelés
 
-				for (int j = 0; j < molekulaSzam; j++) {
-					protein[j].ter = false;
-					protein[j].bemenet_szam = 2;
-					protein[j].unset_ter_mol();
-				}
-			}
 		}
 		if (!hasonlit) {
 			//create the mutation pool
@@ -701,9 +702,9 @@ bool harmony_search() {
 		}
 
 
-
+		// paraméterek figyelése, kiíratása
 		if (n % 50 == 0) {
-			if (last_best - 0.01 < best_fitness && best_fitness < last_best + 0.01)  mutationRate = 0.25;
+			if (last_best - 0.01 < best_fitness && best_fitness < last_best + 0.01)  mutationRate = 0.3;
 			else mutationRate = DEF_MUT_RATE;
 
 			last_best = best_fitness;
@@ -713,13 +714,6 @@ bool harmony_search() {
 		//iterálók
 		generation++;
 		n--;
-
-
-
-		//nullázó, hogy többször lehessen futtatni a keresést anélkül hogy újraindítnánk a programot
-		for (int i = 0; i < molekulaSzam; i++) {
-			protein[i].reset_dipole(DEF_DIPOL);
-		}
 	}
 
 	/* Adatok kiíratása */
@@ -762,6 +756,7 @@ void fofuggveny()
 
 		//adatok kiíratása
 		if (sikerult) {
+			cout << "Molekulák száma: " << molekulaSzam << endl;
 			for (int j = 0; j < molekulaSzam; j++) {
 				if (protein[j].ter) {
 					cout << protein[j].bemenet_szam << "-dik terrel terhelt: "

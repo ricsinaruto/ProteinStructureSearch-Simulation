@@ -155,17 +155,28 @@ void init_molekula::reset_dipole(double dipole) {
 
 //constructor
 DNA::DNA() {
+	mol_szam = 0;
 	vec_len = bemenetek_szama * 2 + 1 + molekulaSzam;
 	genes = new double[vec_len];
 	for (int i = 0; i < bemenetek_szama * 2; i++) {
 		genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
 	}
 	for (int i = bemenetek_szama * 2; i < vec_len - 1; i++) {
-		genes[i] = int(fRand(0, 3 - 0.000000001));
+		if (fRand(0, 1) < 0.1) {
+			genes[i] = int(fRand(0, 3 - 0.000000001));
+			mol_szam++;
+		}
+		else genes[i] = 3;
 	}
 
-	genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
-	fitness = 1000;
+	bool good_one = false;
+	while (!good_one) {
+		genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
+		int temp = bemenetek_szama * 2 + genes[vec_len - 1];
+		if (genes[temp] != 3) good_one = true;
+	}
+
+	fitness = 100000;
 	hasonlit = false;
 }
 
@@ -183,25 +194,57 @@ double **DNA::getFields() {
 
 //calculate the fitness
 void DNA::calcFitness() {
-	int tmp = genes[vec_len - 1];
-	protein[tmp].kimenet = true;
-
-	//bemenetek
+	mol_szam = 0;
+	std::vector<int> indexek;
+	// kitöröljük az előzőeket (mint egy destruktor)
 	for (int i = 0; i < molekulaSzam; i++) {
-		if (genes[bemenetek_szama * 2 + i] == 0) {
+		//kivéve legelső futás
+		protein[i].delete_molekula();
+		if (genes[bemenetek_szama * 2 + i] != 3) {
+			indexek.push_back(i);
+			mol_szam++;
+		}
+	}
+
+	// létrehozzuk az újakat és rárakjuk a bemeneteket
+	for (int i = 0; i < mol_szam; i++) {
+		protein[i];
+		// 10es számrendszer:
+		int x = indexek[i] / 100;
+		int y = (indexek[i] - x * 100) / 10;
+		int z = indexek[i] - x * 100 - y * 10;
+		protein[i].initialize_molekula(x + 12, y + 12, z + 12, false, 2, false);
+	}
+
+	// miután inicializáltunk kell egy első futás
+	futas();
+
+	//bemenetek definiálása
+	for (int i = 0; i < mol_szam; i++) {
+		protein[i].set_init_dipole();
+		protein[i].set_desired();
+		protein[i].set_actual();
+		if (genes[bemenetek_szama * 2 + indexek[i]] == 0) {
 			protein[i].ter = true;
 			protein[i].set_ter_mol();
 			protein[i].bemenet_szam = 0;
 		}
-		if (genes[bemenetek_szama * 2 + i] == 1) {
+		if (genes[bemenetek_szama * 2 + indexek[i]] == 1) {
 			protein[i].ter = true;
 			protein[i].set_ter_mol();
 			protein[i].bemenet_szam = 1;
 		}
+
+		//1 kimenet
+		if (genes[vec_len - 1] == indexek[i]) protein[i].kimenet = true;
 	}
 
-	SIMULATION(getFields(), false, molekulaSzam);
-	fitness = fitness_func(molekulaSzam);
+
+
+	SIMULATION(getFields(), false, mol_szam);
+	fitness = fitness_func(mol_szam);
+
+	indexek.clear();
 }
 
 // Crossover
@@ -209,13 +252,23 @@ DNA DNA::crossover(DNA partner) {
 	// A new child
 	DNA child;
 
-	int midpoint = int(fRand(0, vec_len - 0.00000000001)); // Pick a midpoint
 
-														   // Half from one, half from the other
-	for (int i = 0; i < vec_len; i++) {
-		if (i > midpoint) child.genes[i] = genes[i];
-		else              child.genes[i] = partner.genes[i];
+	// Half from one, half from the other
+	bool good_one = false;
+	while (!good_one) {
+		int midpoint1 = int(fRand(0, vec_len - 0.00000000001)); // Pick a midpoint
+		int midpoint2 = int(fRand(0, vec_len - 0.00000000001)); // Pick a midpoint
+
+		for (int i = 0; i < vec_len; i++) {
+			if ((midpoint1 >midpoint2 && i < midpoint1 && i>midpoint2) || (midpoint1 <midpoint2 && i > midpoint1 && i<midpoint2)) child.genes[i] = genes[i];
+			else              child.genes[i] = partner.genes[i];
+		}
+
+		//viable gene?
+		int temp = bemenetek_szama * 2 + child.genes[vec_len - 1];
+		if (child.genes[temp] != 3) good_one = true;
 	}
+
 	return child;
 }
 
@@ -226,12 +279,27 @@ void DNA::mutate(float mutationRate) {
 			genes[i] = fRand(-DEF_MAX_TER, DEF_MAX_TER);
 		}
 	}
+
+	int temp = bemenetek_szama * 2 + genes[vec_len - 1];
 	for (int i = bemenetek_szama * 2; i < vec_len - 1; i++) {
 		if (fRand(0, 1) < mutationRate) {
-			genes[i] = int(fRand(0, 3 - 0.000000001));
+			bool good_one = false;
+			while (!good_one) {
+				if (fRand(0, 1) < 0.1) {
+					genes[i] = int(fRand(0, 3 - 0.000000001));
+				}
+				else genes[i] = 3;
+
+				if (genes[temp] != 3) good_one = true;
+			}
 		}
 	}
 	if (fRand(0, 1) < mutationRate) {
-		genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
+		bool good_one = false;
+		while (!good_one) {
+			genes[vec_len - 1] = int(fRand(0, molekulaSzam - 0.000000001));
+			int temp = bemenetek_szama * 2 + genes[vec_len - 1];
+			if (genes[temp] != 3) good_one = true;
+		}
 	}
 }

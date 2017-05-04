@@ -60,6 +60,7 @@ public:
 	double fitness;
 	bool hasonlit;
 	int vec_len;
+	int mol_szam;
 
 	//konstruktor
 	DNA();

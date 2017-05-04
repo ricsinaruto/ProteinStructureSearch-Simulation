@@ -1,25 +1,4 @@
-﻿  interaction.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(371): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(671): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(698): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(620): warning C4101: 'y': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(618): warning C4101: 'fori': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(620): warning C4101: 'x': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(851): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(857): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(859): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(880): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\glut\interaction.cpp(1147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  classes.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\classes.cpp(13): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\classes.cpp(186): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-  Compiling...
-  textures.cpp
+﻿  textures.cpp
   shapes.cpp
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(21): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(21): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
@@ -262,36 +241,6 @@ c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(475): warning C4244:
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\ricsi\documents\github\tdk-project\glut\shapes.cpp(476): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
   print.cpp
-  initialization.cpp
-  globals.cpp
-  glWindowPos.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(50): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(52): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(54): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(56): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(58): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\glwindowpos.cpp(60): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-  error.cpp
-  draw.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(25): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(26): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(27): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(27): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(28): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\glut\draw.cpp(79): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  display.cpp
-  014.cpp
-c:\users\ricsi\documents\github\tdk-project\glut\014.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\Debug\glut.pdb (Partial PDB)
