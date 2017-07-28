@@ -71,14 +71,14 @@
 
 /* GENETIC ALGORITHM PARAMS */
 #define ITER_NUMBER				100		///number of iterations per each while cycle
-#define DEF_POP_SIZE			1500			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
-#define DEF_MUT_RATE			0.001			///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
-#define DEF_MATING_POOL_COEFF	200			///used to multiply fitness for mating pool sizes
+#define DEF_POP_SIZE			1500	///population size for the GA
+#define DEF_MUT_RATE			0.001	///mutation rate for the GA
+#define DEF_MATING_POOL_COEFF	200		///used to multiply fitness for mating pool sizes
 
-#define OVER_FIT			5			///a fitness fuctiont a desired-hez képest mennyire toljuk el
-#define START_POINT			0			///a bemeneti terek kezdő értéke
-#define DEF_NU				0			///normál eloszlás várható értéke
-#define DEF_SUGAR			0.008		///random generáláshoz paraméter
+#define OVER_FIT			5			///how much should we adjust objective function compared to the desired dipole value
+#define START_POINT			0			///starting value of input fields
+#define DEF_NU				0			///expected value of normal distribution
+#define DEF_SUGAR			0.008		///parameter for random generation
 
 /* VISUALIZATION */
 #define CUBE_COUNT			46656

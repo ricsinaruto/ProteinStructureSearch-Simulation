@@ -44,14 +44,14 @@
 #include "print.h"   /* printing functions */
 #include "shapes.h"  /* basic shapes (cube, cone, etc) */
 #include "textures.h"/* texture functionality */
-#include "classes.h" /* classes tároló */
+#include "classes.h" /* classes go here */
 
 
 
 /*  Structs  */
 #include "structs.h" /* common structs */
 
-#include "glWindowPos.h"	//vmi plusz cucc ami kell nem tom már mihez
+#include "glWindowPos.h"	//stuff to handle writing characters on the window
 
 
 /*GLOBALS*/
@@ -99,42 +99,42 @@ extern int toggleAnimation;  /* toggle animation */
 
 							 /*  Objects  */
 extern cube_s cubes[CUBE_COUNT_BOUNDARY]; /* cube objects */
-extern molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD]; //molekula class 36*36*36os elrendezés
-extern init_molekula protein[DEF_PROTEIN_NUMBER];
+extern molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD]; //molecule class forming 36*36*36 grid
+extern init_molekula protein[DEF_PROTEIN_NUMBER];			//max number of proteins used in the GA
 
-//my own shit
-extern char *mouseBtnPressed;	//left vagy right
-extern char *mouseState;		//up vagy down
-extern char *Shift;				//forgás/mozgás fajtája 
-extern double jobbx;			//asszem obsolete
-extern int mouseX, mouseY;		//a q,w,e-hez kell
-extern int xcoord, ycoord;		//a q,w,e-hez kell
-extern int th2, ph2;			//forgatáshoz kell
-extern int lightTh2, lightPh2;	//fény forgatáshoz kell
-		//asszem obsolete
-extern double ecX2, ecY2;		//x és y menti mozgatáshoz kell
+//my own stuff
+extern char *mouseBtnPressed;	//left or right
+extern char *mouseState;		//up or down
+extern char *Shift;				//type of movement or rotation
+extern double jobbx;			//obsolete
+extern int mouseX, mouseY;		//needed for q,w,e keys
+extern int xcoord, ycoord;		//needed for q,w,e keys
+extern int th2, ph2;			//needed for rotation
+extern int lightTh2, lightPh2;	//needed for lighting
+
+extern double ecX2, ecY2;		//needed for movement along x and y axis
 extern int main_window;			//obsolete
-extern int szamok[17];			//tartalmazza a beírt molekula koordinátáit, ezt használom a kimenetek megadására is
-extern int szamlalo;			//számolja, hogy hány szám billentyû lett lenyomva, ha értéke 3 nullázódik
-extern char *enter;				//enter lenyomva
-extern char *valto;				//ez váltja az entert
-extern int kimenetek_szama;
-extern int bemenetek_szama;
-extern int kimenetek[7][16];
+extern int szamok[17];			//contatins the coordinate of the specified molecule, I also use this for the user to specify output bits
+extern int szamlalo;			//counts how many numbers have been pressed, if it reaches 3 it goes to 0
+extern char *enter;				//is enter pressed?
+extern char *valto;				//switching the enter key
+extern int kimenetek_szama;		//number of outputs
+extern int bemenetek_szama;		//number of inputs
+extern int kimenetek[7][16];	//contains the bits for the specified outputs
 extern int h1[46656], h2[46656], h3[46656];
-//bemenetek a proba függvényhez
+
+//inputs for the proba function in interaction.cpp
 extern int bemenetek[16][4];
 extern double tolerance;
 extern double max_ter;
 extern int struktura_szamlal;
 extern int molekulaSzam;
 
-//egyeneletkhez paraméterek
+//parameters for equations
 extern double dt;
 extern double t;
 extern double K;
 extern double tav;
-
 
 extern double U;
 extern double Ce1;
@@ -142,7 +142,7 @@ extern double Ce2;
 extern double Cp1;
 extern double Cp2;
 
-//ezekben tároljuk a létrehozott molekulák koordinátáit
+//store the coordinates of created molecules
 extern int *itomb_mol;
 extern int *jtomb_mol;
 extern int *ktomb_mol;

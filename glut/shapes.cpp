@@ -12,10 +12,10 @@
 */
 void cube(double x, double y, double z,double dx, double dy, double dz,double th,int i,int j,int k)
 {
-	if (dronpa[i+1][j+1][k+1].ter == true)  glColor4f(0, 1, 0, 1);	//zöld szín ha térrel terhelt molekulát adunk meg
-	else glColor4f(1, 0, 0, 1);		//alap piros szín
+	if (dronpa[i+1][j+1][k+1].ter == true)  glColor4f(0, 1, 0, 1);	//it's green if it has a field
+	else glColor4f(1, 0, 0, 1);		//basic red color
 
-	//nagyság tényezõ
+	//size coefficient
 	double s = 0.5;
 	/*  Cube vertices */
 	GLfloat A[3] = { 0.5 + s / 2, 0.5+s/2 , 0.5 + s / 2 };
@@ -249,7 +249,7 @@ void cube(double x, double y, double z,double dx, double dy, double dz,double th
 }
 
 
-//ugyanaz mint a cube függvény, csak kisebb fekete kockákat rajzol
+//same as cube function but it draws smaller black cubes
 void negyzetracs(double x, double y, double z,double dx, double dy, double dz,double th,int i, int j,int k)
 {
 	
@@ -289,7 +289,7 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 
 	
 	
-	//36x36x36os rács
+	//36x36x36 grid
 	for (int tex = 0; tex < 36; tex++)
 	{
 		currentTexture = textures[tex];

@@ -4,9 +4,9 @@
 //Start up GLUT and tell it what to do
 int main(int argc, char* argv[]) {
 	windowName = "Dronpa Simulation Program";
-	toggleAxes = 1;			//alapból a rács megjelenítésével induljon
+	toggleAxes = 1;			//start with showing the grid
 	
-	//glut ablack inicializálása
+	//initialize the glut window
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(windowWidth, windowHeight);
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
 	main_window = glutCreateWindow(windowName);
 
-	//glut inicializáló függvények
+	//glut initialization functions
 	glutDisplayFunc(display);
 	glutReshapeFunc(displayReshape);
 	glutKeyboardFunc(windowKey);
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 	glutPassiveMotionFunc(windowPmotion);
 	glutMouseWheelFunc(mouseWheel);
 
-	//saját inicializáló függvények
+	//my own intialization functions
 	initializeTextures();
 	initializeObjs();
 	initializeProteins();

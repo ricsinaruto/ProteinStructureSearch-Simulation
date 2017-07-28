@@ -1,46 +1,47 @@
-﻿//kereső algoritmushoz molekula class
+﻿
+//molecule class for searching algorithm
 class init_molekula {
 public:
-	int x, y, z; //koordináták
-				 //bool kell; //részt vesz-e az adott logikai függvényben
-	bool ter; //térrel terhelt-e a molekula az adott helyen
+	int x, y, z; //coordinates
+				
+	bool ter; //does the molecule have a field applied
 	bool kimenet; //kimenet-e az adott molekula
 	bool torolt;
 
-	double init_dipole;		//első futás után dipol moment
-	double desired[2];		//desired vektor
-	std::vector<std::vector<int>> szomszedok;
-	double *actual;			//actual dipole érték
-	int	   bemenet_szam;	//melyik bemenet az adott mulekula
+	double init_dipole;		//dipole moment after first run
+	double desired[2];		//desired vector
+	std::vector<std::vector<int>> szomszedok; //to store the molecule's neighbours
+	double *actual;			//actual dipole value
+	int	   bemenet_szam;	//which input is the molecule
 
-							//alap konstruktor
-	init_molekula();
+	//basic constructor		
+	init_molekula(); 
 
-	//konstruktor
+	//constructor
 	void initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet);
 
-	//set szomszédok
+	//set neighbours
 	void set_szomszedok();
 
-	//delete molekula
+	//delete molecule
 	void delete_molekula();
 
-	//tér setelése molekulára
+	//apply field to molecule
 	void set_ter_mol();
 
 	//unset field on molecule
 	void unset_ter_mol();
 
-	//dipól lekérése
+	//get the dipole value
 	double get_dipole();
 
-	//init_dipole set
+	//set initial dipole
 	void set_init_dipole();
 
-	//desired vektor megadása
+	//set desired vector
 	void set_desired();
 
-	//tér nagyság megadása
+	//set magnitude of field
 	void set_ter(double terMag);
 
 	//set actual dipole value
@@ -53,7 +54,7 @@ public:
 	void reset_dipole(double dipole);
 };
 
-//genetikus algoritmus class
+//genetic algorithm class
 class DNA {
 public:
 	double *genes;
@@ -62,7 +63,7 @@ public:
 	int vec_len;
 	int mol_szam;
 
-	//konstruktor
+	//constructor
 	DNA();
 
 	//get the fields from genes

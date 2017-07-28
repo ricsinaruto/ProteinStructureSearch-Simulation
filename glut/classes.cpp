@@ -1,8 +1,7 @@
 ﻿#include "screencasts.h"
 
-//kereső algoritmushoz molekula class függvények
 
-//alap konstruktor
+//basic constructor
 init_molekula::init_molekula() {
 	x = 0;
 	y = 0;
@@ -14,7 +13,7 @@ init_molekula::init_molekula() {
 	torolt = false;
 }
 
-//konstruktor
+//constructor
 void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet) {
 	x = _x;
 	y = _y;
@@ -33,7 +32,7 @@ void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int
 }
 
 
-//delete molekula
+//delete molecule
 void init_molekula::delete_molekula() {
 	dronpa[x][y][z].van = false;
 	dronpa[x][y][z].dip = 0;
@@ -53,7 +52,7 @@ void init_molekula::delete_molekula() {
 	}*/
 }
 
-//set szomszédok
+//set neighbours
 void init_molekula::set_szomszedok() {
 	std::vector<int> i;
 	i.push_back(x + 1);
@@ -93,7 +92,7 @@ void init_molekula::set_szomszedok() {
 	for (int j = 0; j < 3; j++) i.pop_back();
 }
 
-//tér set
+//set field
 void init_molekula::set_ter_mol() {
 	dronpa[x][y][z].ter = true;
 }
@@ -102,23 +101,23 @@ void init_molekula::unset_ter_mol() {
 	dronpa[x][y][z].ter = false;
 }
 
-//dipól lekérése
+//get dipole value
 double init_molekula::get_dipole() {
 	return dronpa[x][y][z].dip;
 }
 
-//init_dipole set
+//set initial dipole value
 void init_molekula::set_init_dipole() {
 	init_dipole = dronpa[x][y][z].dip;
 }
 
-//desired vektor megadása
+//set desired vector
 void init_molekula::set_desired() {
 	desired[0] = init_dipole - tolerance;
 	desired[1] = init_dipole + tolerance;
 }
 
-//tér nagyság megadása
+//set field magnitude
 void init_molekula::set_ter(double terMag) {
 	dronpa[x][y][z].ter = true;
 	dronpa[x][y][z].terMag = terMag;
@@ -196,9 +195,9 @@ double **DNA::getFields() {
 void DNA::calcFitness() {
 	mol_szam = 0;
 	std::vector<int> indexek;
-	// kitöröljük az előzőeket (mint egy destruktor)
+	// we delete the previous (mint egy destruktor)
 	for (int i = 0; i < molekulaSzam; i++) {
-		//kivéve legelső futás
+		//except first run
 		protein[i].delete_molekula();
 		if (genes[bemenetek_szama * 2 + i] != 3) {
 			indexek.push_back(i);
@@ -206,20 +205,20 @@ void DNA::calcFitness() {
 		}
 	}
 
-	// létrehozzuk az újakat és rárakjuk a bemeneteket
+	// initialize new ones 
 	for (int i = 0; i < mol_szam; i++) {
 		protein[i];
-		// 10es számrendszer:
+		// base 10:
 		int x = indexek[i] / 100;
 		int y = (indexek[i] - x * 100) / 10;
 		int z = indexek[i] - x * 100 - y * 10;
 		protein[i].initialize_molekula(x + 12, y + 12, z + 12, false, 2, false);
 	}
 
-	// miután inicializáltunk kell egy első futás
+	// after initialization we need a first run
 	futas();
 
-	//bemenetek definiálása
+	//define the inputs
 	for (int i = 0; i < mol_szam; i++) {
 		protein[i].set_init_dipole();
 		protein[i].set_desired();
@@ -235,12 +234,12 @@ void DNA::calcFitness() {
 			protein[i].bemenet_szam = 1;
 		}
 
-		//1 kimenet
+		//1 output
 		if (genes[vec_len - 1] == indexek[i]) protein[i].kimenet = true;
 	}
 
 
-
+	//do a simulation step
 	SIMULATION(getFields(), false, mol_szam);
 	fitness = fitness_func(mol_szam);
 
@@ -272,7 +271,7 @@ DNA DNA::crossover(DNA partner) {
 	return child;
 }
 
-// Based on a mutation probability, picks a new random character
+// Based on a mutation probability, picks a new random parameter
 void DNA::mutate(float mutationRate) {
 	for (int i = 0; i < bemenetek_szama * 2; i++) {
 		if (fRand(0, 1) < mutationRate) {
