@@ -8,7 +8,7 @@ typedef struct tsr {
 	point t;	/* translation */
 	point s;	/* scale */
 	point r;	/* rotation */
-	point hely;	/*coordinate position*/
+	point hely;	/* coordinate position */
 } tsr;
 
 typedef struct cube_s {
@@ -16,13 +16,13 @@ typedef struct cube_s {
 } cube_s;
 
 
-//the main protein class, containing all protein objects
+// the main protein class, containing all protein objects
 class molekula
 {
 public:
-	bool van;	//van-e molekula az adott helyen
-	bool ter;	//térrel terhelt-e a molekula az adott helyen
-	double terMag;	//mekkora térrel terhelt a molekula
-	double dipA, dipB, dip;		//dipólok
-	double qeA, qeB, qp1A, qp1B, qp2A, qp2B;	//új egyenletekhez (equations.docx)
+	bool van;									// is there a molecule at that place?
+	bool ter;									// is there a field applied to it?
+	double terMag;								// what is the magnitude of the field applied?
+	double dipA, dipB, dip;						// dipole values for equations
+	double qeA, qeB, qp1A, qp1B, qp2A, qp2B;	// for the new equations (equations.docx)
 };

@@ -2,7 +2,7 @@
 using namespace std;
 
 
-//egyeneletkhez paraméterek
+//parameters for equations
 double dt = 0.01;
 double t = 0;
 double K = -0.07;
@@ -29,13 +29,13 @@ int struktura_szamlal = 0;
 
 
 
-//bemenetek a proba függvényhez
+//inputs to proba function
 int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },{ 0,1,1,0 },{ 1,1,1,0 },
 { 0,0,0,1 },{ 1,0,0,1 },{ 0,1,0 ,1 },{ 1,1,0,1 },{ 0,0,1,1 },{ 1,0,1,1 },{ 0,1,1,1 },{ 1,1,1,1 } };
 
 
 
-//tér nagyság megadása, i lenyomásakor fut le
+//give the magnitude of electric field, runs when i key is pressed
 void ternagysag()
 {
 	if (szamlalo == 3)
@@ -51,7 +51,7 @@ void ternagysag()
 	}
 }
 
-//kimenetek megadása, k lenyomásakor fut le
+//define outputs, runs when k key is pressed
 void kimenet()
 {
 	bemenetek_szama = log2(szamlalo-1);
@@ -67,7 +67,7 @@ void kimenet()
 	szamlalo = 0;
 }
 
-//r billentyû lenyomásakor ez fut le. A megadott struktúra szimulációját futtatja le
+// this runs if the r key is pressed. it will run a simulation step for the specified structure
 void futasv()
 {
 	ofstream fileki;
@@ -204,7 +204,7 @@ void futasv()
 	delete[] ktomb;
 }
 
-//ezt használja a proba függvény
+//used by proba() function
 void futas()
 {
 	int i, j, k, l, n;
@@ -312,7 +312,7 @@ void futas()
 	delete[] ktomb;
 }
 
-//-100-ra állítja dipól értékeket
+//sets dipole moment values to -100
 void wipe()
 {
 	int i, j, k;
@@ -331,7 +331,7 @@ void wipe()
 	}
 }
 
-//kiszámolja és sorba rakja egy struktúra molekuláinak a szomszédsági gráfszámát
+//it calculates and sorts the neighbour graph numbers of a structure's molecules 
 int *grafszam(int molekulaSzam)
 {
 	int *molekulak = new int[molekulaSzam];
@@ -400,7 +400,7 @@ int *grafszam(int molekulaSzam)
 	delete[] molekulak;
 }
 
-//összehasonlítást végez be1 és be2 között, 0 bemenetre igazt ad ha be1<be2, 1 bemenetre igazt ad ha be1>be2
+//compare be1 and be2
 bool hasonlitas(int be1, int be2, int kacsacsor)
 {
 	bool hasonlit=false;
@@ -419,10 +419,9 @@ int factorial(int f)
 	return(f * factorial(f - 1));
 }
 
-//ez tart a legtöbb ideig, ebben van egy adott struktúrán belül a különbözõ terekkel való tesztelés
+// this function tests all field combinations possible in a specific structure
 bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 {
-	//cout << "terteszt kezd" << endl;
 	int **kimenet = new int*[kimenetek_szama];
 	for (int i = 0; i < kimenetek_szama; i++) { kimenet[i] = new int[pow(2, bemenetek_szama)]; }
 
@@ -495,9 +494,6 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 			{
 				for (p = p0 + n - n0; p < molekulaSzam; p++)
 				{
-					
-					
-					
 					int **tesztelt_kimenetek = new int*[kimenetek_szam];
 					for (int lll = 0; lll < kimenetek_szam; lll++) 
 					{  
@@ -685,7 +681,7 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 																	}
 																}
 
-																//ha nem bemenet
+																//if not input
 																if (kimenet_e)
 																{
 																	for (int b = 0; b < kimenetek_szam; b++)
@@ -728,7 +724,6 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 															fileki << itomb[j] << " " <<
 																jtomb[j] << " " << ktomb[j] << endl;
 														}
-														//cout << dronpa[itomb[j]][jtomb[j]][ktomb[j]].dip << endl;
 														dronpa[itomb[j]][jtomb[j]][ktomb[j]].dip = -100;
 														dronpa[itomb[j]][jtomb[j]][ktomb[j]].dipA = -100;
 														dronpa[itomb[j]][jtomb[j]][ktomb[j]].dipB = -100;
@@ -843,7 +838,7 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 							if (lehetosegek == pow(2, bemenetek_szam) && idonteven)
 							{
 
-								cout << "sikerult" << endl;
+								cout << "success" << endl;
 								m = molekulaSzam + 1;
 								l = molekulaSzam + 1;
 								p = molekulaSzam + 1;
@@ -892,7 +887,7 @@ bool terteszt(int molekulaSzam,int bemenetek_szam, int kimenetek_szam)
 	return sikerult;
 }
 
-//f-re lefutó szimulációs függvény
+//searching algorithm, runs if f is pressed
 bool proba(int molekulaSzam)
 {
 	
@@ -958,7 +953,7 @@ bool proba(int molekulaSzam)
 							}
 
 							osszehasonlito[hasonlit_int] = grafszam(eddigiMolekulak);
-							if (!sikerult) cout << "egyszer" << endl;
+							if (!sikerult) cout << "terteszt run once" << endl;
 
 							hasonlit_int++;
 
@@ -989,7 +984,7 @@ bool proba(int molekulaSzam)
 	return sikerult;
 }
 
-//f-re lefutó szimulációs fõfüggvény
+//main function for searching, runs if f is pressed
 void fofuggveny()
 {
 	ofstream fileki;
@@ -1150,7 +1145,7 @@ void fofuggveny()
 	
 }
 
-//struktúra elmentése
+//save a structure to file
 void save()
 {
 	ofstream strukt;
@@ -1189,7 +1184,7 @@ void save()
 	
 }
 
-//beolvasása a struktúrának
+//load a structure from file
 void load()
 {
 	ifstream filebe;
@@ -1271,7 +1266,7 @@ void load()
 				{
 					for (int i = -18; i < 18; i++)
 					{
-						//ez megrajzolja a kockát
+						//draw the cubes
 						if (szam == hely)
 						{
 							cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 } ,{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -1313,13 +1308,15 @@ void load()
 	filebe.close();
 }
 
-// q,w,e billentyûk lenyomásakor a mozgatások és forgások kezelése
+/*  HANDLE KEYBOARD AND MOUSE INPUTS  */
+
+// at the press of q,w,e handle movement and rotation
 void windowPmotion(int x, int y)
 {
 	mouseX = x;
 	mouseY = y;
 
-	//fény forgatása
+	//rotate the light
 	if (Shift == "light")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1341,7 +1338,7 @@ void windowPmotion(int x, int y)
 		}
 	}
 
-	//struktúra forgatása
+	//rotate structure
 	else if (Shift=="rotation")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1363,7 +1360,7 @@ void windowPmotion(int x, int y)
 		}
 	}
 
-	//struktúra mozgatása
+	//move structure
 	else if (Shift=="movement")
 	{
 		if (mouseBtnPressed == "Left")
@@ -1390,14 +1387,14 @@ void windowPmotion(int x, int y)
 	redisplayAll();
 }
 
-//zoomolás
+//zoom
 void mouseWheel(int scroll, int dir, int x, int y)
 {
 	dim -= (double)dir;
 	redisplayAll();
 }
 
-//egér gombok lenyomásának kezelése
+//handle mouse button presses
 void windowMouse(int btn, int state, int x, int y)
 {
 	if (btn == GLUT_LEFT_BUTTON) mouseBtnPressed = "Left";
@@ -1418,7 +1415,7 @@ void windowMouse(int btn, int state, int x, int y)
 
 
 
-//összes billentyû lenyomás kezelése
+//handle all keyboard presses (almost)
 void windowKey(unsigned char key, int x, int y)
 {
 	/*  Exit on ESC */
@@ -1450,32 +1447,32 @@ void windowKey(unsigned char key, int x, int y)
 
 		else if (key == 't') enter = "field";
 
-		//mozgás, forgás, fény forgás
+		//movement, rotation, light rotation
 		else if (key == 'q') Shift = "movement";
 		else if (key == 'w') Shift = "rotation";
 		else if (key == 'e') Shift = "light";
 
-		//tér nagyságának megadása
+		//set field magnitude
 		else if (key == 'i') {
 			enter = "field magnitude";  ternagysag();
 		}
 
-		//kimenet megadás
+		//set outputs
 		else if (key == 'k') {
 			enter = "output"; kimenet();
 		}
 
-		//szimuláció futtatása
+		//run simulation
 		else if (key == 'r') futasv();
 
-		//próba függvény
+		// run searching algo
 		else if (key == 'f') fofuggveny();
 
-		//dipólok törlése
+		//reset dipole values
 		else if (key == 'p') wipe();
-		//struktúra elmentése
+		//save structure
 		else if (key == 's') save();
-		//struktúra betöltése
+		//load structure
 		else if (key == 'o') load();
 	}
 
@@ -1500,11 +1497,11 @@ void windowKey(unsigned char key, int x, int y)
 	//else if (key == 'n' && shininess>-1) shininess -= 1;
 	//else if (key == 'N' && shininess<7) shininess += 1;
 
-	//enter és delete gombok
+	//enter and delete keys
 	if (key == 13)	enter = "pressed";
 	if (key == 8)  enter = "delete";
 
-	//alfanumerikus koordináták megadása
+	//give alphanumeric coordinates
 	if (valto == "coordinates")
 	{
 		for (int i = 97; i < 123; i++)
@@ -1518,7 +1515,7 @@ void windowKey(unsigned char key, int x, int y)
 		}
 	}
 
-	//0-9ig koordináta megadás
+	//coordinates from 0 to 9
 	for (int i = 48; i < 58; i++)
 	{
 		if (key == i) { szamok[szamlalo] = i - 48; szamlalo++; key = ','; }

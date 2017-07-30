@@ -41,7 +41,7 @@ int lightTh = DEF_L_TH;
 unsigned int textures[44];
 int currentTexture = TEX_DEFAULT;
 
-//ugyanazok mint screencasts.h-ban
+// same as in screencasts.h
 char *mouseBtnPressed = "";
 char *mouseState = "";
 char *Shift = "";

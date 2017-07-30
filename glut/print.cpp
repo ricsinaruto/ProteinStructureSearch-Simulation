@@ -3,7 +3,7 @@
 
 #define LEN 8192
 
-/* ezek kellenek karakterek megjelenítéséhez a képernyõn */
+/* needed for printing on the screen */
 
 void printv(va_list args, const char* format)
 {

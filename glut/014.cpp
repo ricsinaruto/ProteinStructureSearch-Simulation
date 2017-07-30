@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	/* screencast specific variables */
 	windowName = "TDK";
 	screencastID = 17;
-	toggleAxes = 1;			//alapból a rács megjelenítésével induljon
+	toggleAxes = 1;			//start with showing the grid
 	
 
 	glutInit(&argc, argv);
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 	main_window = glutCreateWindow(windowName);
 
-	//glut inicializáló függvények
+	//glut initialization functions
 	glutDisplayFunc(display);
 	glutReshapeFunc(displayReshape);
 	glutKeyboardFunc(windowKey);
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 	glutPassiveMotionFunc(windowPmotion);
 	glutMouseWheelFunc(mouseWheel);
 
-	//saját inicializáló függvények
+	//my own intialization functions
 	initializeTextures();
 	initializeObjs();
 	lul();
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 
 
 
-	//molekula rács létrehozása, alapból 0 minden molekula dipólja, és false az értéke
+	//creating the molecule grid, with 0 starting dipole values
 	int i, j, k;
 	for (i = 0; i < 38; i++)
 	{
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 		}
 	}
 	
-
+	//glut loop functions
 	redisplayAll();
 	glutMainLoop();
 	return EXIT_SUCCESS;

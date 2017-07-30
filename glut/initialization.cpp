@@ -1,6 +1,6 @@
 #include "screencasts.h"
 
-//globális változók inicializálása
+//initialize global variables
 void initializeGlobals(void)
 
 {
@@ -37,7 +37,7 @@ void initializeGlobals(void)
 	/* TEXTURES */
 	currentTexture = TEX_DEFAULT;
 
-	//ugyanazok mint screencasts.h-ban
+	// same as in screencasts.h
 	
 	mouseBtnPressed = "Press the left mouse button before pressing the right one when using the q,w,e keys!";
 	mouseState = "";
@@ -69,14 +69,14 @@ void initializeObjs(void)
 	int hely=0;
 	int szam = szamok[0] * 1296 + szamok[1] * 36 + szamok[2];
 
-	//ha beírunk 3 koordinátát ez lefut és egy piros vagy zöld (térrel terhelt) kockát létrehozz az adott koordinátára
+	/* If we specify 3 coordinates this will run and a red or green (field applied) cube will be created */
 	for (int k = -18; k < 18; k++)
 	{
 		for (int j = -18; j < 18; j++)
 		{
 			for (int i = -18; i < 18; i++)
 			{
-				//ez megrajzolja a piros kockát
+				//this draws the red cube
 				if (szamlalo == 3&&szam==hely&&enter=="pressed")
 				{
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 } ,{(float)szamok[0],(float)szamok[1],(float)szamok[2]}} };
@@ -92,7 +92,7 @@ void initializeObjs(void)
 					szamok[2] = 36;
 				}
 
-				//ez visszaállítja az alap fekete kockát
+				//this sets it back to black cube
 				if (szamlalo == 3 && szam == hely&&enter == "delete")
 				{
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 0,0,0 },{ 90,0,0 },{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -106,7 +106,7 @@ void initializeObjs(void)
 					szamok[2] = 36;
 				}
 
-				//ez megrajzolja a térrel terhelt zöld kockát
+				//this draws the green cube which has a field applied to it
 				if (szamlalo == 3 && szam == hely&&enter == "field")
 				{
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 },{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -128,20 +128,9 @@ void initializeObjs(void)
 }
 
 
-//textúrák inicializálása
+//initialize textures
 void initializeTextures(void)
 {
-	/*
-	TEX_DEFAULT 0
-	TEX_BRICK 1
-	TEX_CRATE 2
-	TEX_ICE 3
-	TEX_FIRE 4
-	TEX_EARTH 5
-	TEX_WOOD 6
-	TEX_VENUS 7
-	*/
-	
 
 	textures[0] = loadTexBMP("0.bmp");
 	textures[1] = loadTexBMP("1.bmp");

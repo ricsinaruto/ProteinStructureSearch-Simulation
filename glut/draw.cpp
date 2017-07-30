@@ -19,7 +19,7 @@ void lul(void) {
 		}
 	}
 }
-//alapkockák megrajzolása
+//draw basic sqaures
 void drawAxes(void)
 {
 	
@@ -37,7 +37,7 @@ void drawAxes(void)
 */
 void drawCube(cube_s cb)
 {
-	//A 0,0,0 molekula nem használható!!! (nem fog kirajzolódni)
+	//the molecule at coordinates 0;0;0 can not be used!!! (it won't be drawn)
 	if (cb.tsr.hely.x >0 || cb.tsr.hely.y>0 || cb.tsr.hely.z>0)
 	{
 		cube(cb.tsr.t.x, cb.tsr.t.y, cb.tsr.t.z,
@@ -145,13 +145,13 @@ void drawScene(void)
 	drawParameters();
 	drawLight();	
 
-	//megadott kockák inicializálása
+	//initialize the created cubes
 	if (szamlalo == 3)
 	{
 		initializeObjs();
 	}
 
-	//inicializált kockák rajzolása
+	//draw the initialized cubes
 	for (int i = 0; i < 46656; i++)
 	{
 		drawCube(cubes[i]);

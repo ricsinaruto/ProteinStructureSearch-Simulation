@@ -1,6 +1,6 @@
 #include "screencasts.h"
 
-//valami error cucc
+// error handling
 void errCheck(char* where)
 {
 	int err = glGetError();
