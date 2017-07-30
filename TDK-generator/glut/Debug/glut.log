@@ -243,26 +243,27 @@ c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\shapes.cpp(479): 
   print.cpp
   interaction.cpp
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(8): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(143): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(302): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(516): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(520): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(522): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(164): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(303): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(517): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(521): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(523): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(646): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(689): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(623): warning C4101: 'z': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(590): warning C4101: 'y': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(588): warning C4101: 'fori': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(590): warning C4101: 'x': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(624): warning C4101: 'fitness': unreferenced local variable
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(828): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(688): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(624): warning C4101: 'z': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(591): warning C4101: 'y': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(589): warning C4101: 'fori': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(591): warning C4101: 'x': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(625): warning C4101: 'fitness': unreferenced local variable
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(826): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(832): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(834): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(836): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(857): warning C4018: '<': signed/unsigned mismatch
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(1124): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(855): warning C4018: '<': signed/unsigned mismatch
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(1122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   initialization.cpp
+  globals.cpp
   glWindowPos.cpp
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -276,7 +277,6 @@ c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(5
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(56): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(58): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\glwindowpos.cpp(60): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-  globals.cpp
   error.cpp
   draw.cpp
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\draw.cpp(15): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -291,11 +291,11 @@ c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\draw.cpp(28): war
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\draw.cpp(79): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   display.cpp
   classes.cpp
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\classes.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\classes.cpp(11): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
   014.cpp
 c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\014.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
-c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(404): warning C4172: returning address of local variable or temporary: zulul
+c:\users\ricsi\documents\github\tdk-project\tdk-generator\glut\interaction.cpp(405): warning C4172: returning address of local variable or temporary: zulul
   LINK : C:\Users\ricsi\Documents\GitHub\TDK-project\TDK-generator\Debug\glut.exe not found or not built by the last incremental link; performing full link
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\TDK-generator\Debug\glut.exe
   glut.vcxproj -> C:\Users\ricsi\Documents\GitHub\TDK-project\TDK-generator\Debug\glut.pdb (Partial PDB)

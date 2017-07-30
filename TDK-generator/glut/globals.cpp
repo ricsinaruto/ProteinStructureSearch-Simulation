@@ -80,13 +80,13 @@ int *itomb_mol = new int[COORD_ARRAY_LENGTH];
 int *jtomb_mol = new int[COORD_ARRAY_LENGTH];
 int *ktomb_mol = new int[COORD_ARRAY_LENGTH];
 
-//nem tudom mi ez a logikai függvény lol
+//logical function
 int kimenetek[7][16] = { { 0,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1 },{ 0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1 },
 { 0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1 },{ 0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1 },
 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 } };
 
-//bemenetek a proba függvényhez
+//inputs of logic function; these are always the same
 int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },
 						{ 0,1,1,0 },{ 1,1,1,0 },{ 0,0,0,1 },{ 1,0,0,1 },{ 0,1,0 ,1 },{ 1,1,0,1 },
 						{ 0,0,1,1 },{ 1,0,1,1 },{ 0,1,1,1 },{ 1,1,1,1 } };

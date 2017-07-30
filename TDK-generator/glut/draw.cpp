@@ -1,7 +1,7 @@
 #include "screencasts.h"
 
 
-//alapkockák megrajzolása
+//draw the basic cubes
 void drawAxes(void) {
 	if (toggleAxes)	negyzetracs(0, 0, 0, 1, 1, 1, 0, 0, 0, 0);
 }
@@ -9,7 +9,7 @@ void drawAxes(void) {
 
 //Draws a cube
 void drawCube(cube_s cb) {
-	//A 0,0,0 molekula nem használható!!! (nem fog kirajzolódni)
+	//the molecule at coordinates 0;0;0 can not be used!!! (it won't be drawn)
 	if (cb.tsr.hely.x >0 || cb.tsr.hely.y>0 || cb.tsr.hely.z>0)
 		cube(cb.tsr.t.x, cb.tsr.t.y, cb.tsr.t.z, cb.tsr.s.x, cb.tsr.s.y, cb.tsr.s.z,
 			 cb.tsr.r.y, cb.tsr.hely.x, cb.tsr.hely.y, cb.tsr.hely.z);
@@ -88,10 +88,10 @@ void drawScene(void) {
 	drawAxes();
 	drawParameters();
 
-	if (szamlalo == 3)	initializeObjs();				//megadott kockák inicializálása
-	for (int i = 0; i < 46656; i++)	drawCube(cubes[i]);	//inicializált kockák rajzolása
+	if (szamlalo == 3)	initializeObjs();				//initialize the created cubes
+	for (int i = 0; i < 46656; i++)	drawCube(cubes[i]);	//draw the initialized cubes
 	
 	
-	//default textúra betöltése
+	//load the default texture
 	currentTexture = textures[TEX_DEFAULT];
 }

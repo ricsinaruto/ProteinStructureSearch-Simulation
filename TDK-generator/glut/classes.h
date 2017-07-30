@@ -1,39 +1,39 @@
-﻿//kereső algoritmushoz molekula class
+﻿//molecule class for searching algorithm
 class init_molekula {
 public:
-	int x, y, z; //koordináták
-	//bool kell; //részt vesz-e az adott logikai függvényben
-	bool ter; //térrel terhelt-e a molekula az adott helyen
+	int x, y, z; //coordinates
+	
+	bool ter; //does the molecule have a field applied
 	bool kimenet; //kimenet-e az adott molekula
 
-	double init_dipole;		//első futás után dipol moment
-	double desired[2];		//desired vektor
-	double *actual;			//actual dipole érték
-	double *szomszedok;		//molekula szomszédjai
-	int	   bemenet_szam;	//melyik bemenet az adott mulekula
+	double init_dipole;		//dipole moment after first run
+	double desired[2];		//desired vector
+	double *actual;			//actual dipole value
+	double *szomszedok;		//neighbours of the molecule
+	int	   bemenet_szam;	//which input is the molecule
 
-	//alap konstruktor
+	//basic constructor		
 	init_molekula();
 
-	//konstruktor
+	//constructor
 	void initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet,double *_szomszedok);
 
 	//overload
 	void initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet);
 
-	//tér setelése molekulára
+	//apply field to molecule
 	void set_ter_mol();
 
-	//dipól lekérése
+	//get the dipole value
 	double get_dipole();
 
-	//init_dipole set
+	//set initial dipole
 	void set_init_dipole();
 
-	//desired vektor megadása
+	//set desired vector
 	void set_desired();
 
-	//tér nagyság megadása
+	//set magnitude of field
 	void set_ter(double terMag);
 
 	//set actual dipole value

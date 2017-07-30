@@ -1,7 +1,7 @@
 #include "screencasts.h"
 #define LEN 8192
 
-/* ezek kellenek karakterek megjelenítéséhez a képernyõn */
+/* these are needed for visualization of text on window */
 void printv(va_list args, const char* format) {
 	char buf[LEN];
 	char* ch = buf;
@@ -16,7 +16,7 @@ void print(const char* format, ...) {
 	va_end(args);
 }
 
-//ezt kell használni printelésre
+//this function is used for printing characters
 void printAt(int x, int y, const char* format, ...) {
 	va_list args;
 	glWindowPos2i(x, y);
