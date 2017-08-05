@@ -4,15 +4,14 @@
 /* Initializes all of our objects */
 void initializeObjs(void) {
 	int hely=0;
-	int szam = szamok[0] * 1296 + szamok[1] * 36 + szamok[2];	//36os számrendszerbe váltás
+	int szam = szamok[0] * 1296 + szamok[1] * 36 + szamok[2];	//switch to base 36
 
-	/* ha beírunk 3 koordinátát ez lefut és egy piros vagy zöld (térrel terhelt) 
-	kockát létrehozz az adott koordinátára */
+	/* If we specify 3 coordinates this will run and a red or green (field applied) cube will be created */
 	for (int k = -18; k < 18; k++) {
 		for (int j = -18; j < 18; j++) {
 			for (int i = -18; i < 18; i++) {
 
-				//ez megrajzolja a piros kockát
+				//this draws the red cube
 				if (szamlalo == 3&&szam==hely&&enter=="pressed") {
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 } ,
 										{(float)szamok[0],(float)szamok[1],(float)szamok[2]}} };
@@ -27,7 +26,7 @@ void initializeObjs(void) {
 					szamok[0] = szamok[1] = szamok[2] = 36;
 				}
 
-				//ez visszaállítja az alap fekete kockát
+				//this sets it back to black cube
 				if (szamlalo == 3 && szam == hely&&enter == "delete") {
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 0,0,0 },{ 90,0,0 },
 									{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -42,7 +41,7 @@ void initializeObjs(void) {
 					szamok[0] = szamok[1] = szamok[2] = 36;
 				}
 
-				//ez megrajzolja a térrel terhelt zöld kockát
+				//this draws the green cube which has a field applied to it
 				if (szamlalo == 3 && szam == hely&&enter == "field") {
 					cubes[szam] = { { { (float)i, (float)j, (float)k },{ 1,1,1 },{ 90,0,0 },
 									{ (float)szamok[0],(float)szamok[1],(float)szamok[2] } } };
@@ -57,7 +56,7 @@ void initializeObjs(void) {
 					szamok[0] = szamok[1] = szamok[2] = 36;
 				}
 
-				//3 tömb a 3 koordinátára (ez textúrákhoz kell majd)
+				//3 array fot the 3 coordinates (will be needed for textures)
 				h1[hely] = hely / 1296;
 				h2[hely] = (hely - h1[hely] * 1296) / 36;
 				h3[hely] = hely - h1[hely] * 1296 - h2[hely] * 36;
@@ -67,7 +66,7 @@ void initializeObjs(void) {
 	}
 }
 
-//molekula rács létrehozása, alapból 0 minden molekula dipólja, és false az értéke
+//initialize molecule grid, with 0 dipole moment, and false existing
 void initializeProteins(void) {
 	for (int i = 0; i < 38; i++) {
 		for (int j = 0; j < 38; j++) {
@@ -88,16 +87,16 @@ void initializeProteins(void) {
 	}
 }
 
-//textúrák inicializálása
+//initialize textures
 void initializeTextures(void) {
-	//számok
+	//numbers
 	for (int i = 0; i < 10; i++) {
 		std::string ok = std::to_string(i)+".bmp";
 		char* c = &ok[0];
 		textures[i] = loadTexBMP(c);
 	}
 
-	//karakterek
+	//characters
 	for (int i = 10; i < 36; i++) {
 		std::stringstream ss;
 		std::string ok;

@@ -71,14 +71,14 @@
 
 /* SIMULATED ANNEALING PARAMS */
 #define ITER_NUMBER			10			///number of iterations per each while cycle
-#define DEF_SIGMA			0.8			///sigma a normál eloszláshoz amiből a random bemenetek választódnak
-#define DEF_TEMP			(int)1000/(ITER_NUMBER+2)///valamilyen választási paraméter, ennyiszer futhat max a while ciklus
-#define DEF_TEMP_CONST		100			///temp elosztása ezzel a számmal
-#define DEF_TEMP_BOOL		false		///legyen-e tempes összehasonlítás
-#define OVER_FIT			20			///a fitness fuctiont a desired-hez képest mennyire toljuk el
-#define START_POINT			0			///a bemeneti terek kezdő értéke
-#define DEF_NU				0			///normál eloszlás várható értéke
-#define DEF_SUGAR			0.008			///random generáláshoz paraméter
+#define DEF_SIGMA			0.8			///sigma for normal ditribution
+#define DEF_TEMP			(int)1000/(ITER_NUMBER+2)///max number of cycles
+#define DEF_TEMP_CONST		100			///divide temp by this number
+#define DEF_TEMP_BOOL		false		///should we use temperature annealing
+#define OVER_FIT			20			///how much should we adjust objective function compared to the desired dipole value
+#define START_POINT			0			///starting value of input fields
+#define DEF_NU				0			///expected value of normal distribution
+#define DEF_SUGAR			0.008		///parameter for random generation
 
 /* VISUALIZATION */
 #define CUBE_COUNT			46656

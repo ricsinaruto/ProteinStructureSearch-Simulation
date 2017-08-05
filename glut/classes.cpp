@@ -1,9 +1,8 @@
 ﻿#include "screencasts.h"
 
-//kereső algoritmushoz molekula class függvények
 
 
-//alap konstruktor
+//basic constructor
 init_molekula::init_molekula() {
 	x = 0;
 	y = 0;
@@ -15,7 +14,7 @@ init_molekula::init_molekula() {
 	torolt = false;
 }
 
-//konstruktor
+//constructor
 void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet) {
 	x = _x;
 	y = _y;
@@ -34,7 +33,7 @@ void init_molekula::initialize_molekula(int _x, int  _y, int  _z, bool _ter, int
 }
 
 
-//delete molekula
+//delete molecule
 void init_molekula::delete_molekula() {
 	dronpa[x][y][z].van = false;
 	dronpa[x][y][z].dip = 0;
@@ -54,7 +53,7 @@ void init_molekula::delete_molekula() {
 	}
 }
 
-//set szomszédok
+//set neighbours
 void init_molekula::set_szomszedok() {
 	std::vector<int> i;
 	i.push_back(x + 1);
@@ -94,28 +93,28 @@ void init_molekula::set_szomszedok() {
 	for (int j = 0; j < 3; j++) i.pop_back();
 }
 
-//tér set
+//set field
 void init_molekula::set_ter_mol() {
 	dronpa[x][y][z].ter = true;
 }
 
-//dipól lekérése
+//get dipole value
 double init_molekula::get_dipole() {
 	return dronpa[x][y][z].dip;
 }
 
-//init_dipole set
+//set initial dipole value
 void init_molekula::set_init_dipole() {
 	init_dipole = dronpa[x][y][z].dip;
 }
 
-//desired vektor megadása
+//set desired vector
 void init_molekula::set_desired() {
 	desired[0] = init_dipole - tolerance;
 	desired[1] = init_dipole + tolerance;
 }
 
-//tér nagyság megadása
+//set field magnitude
 void init_molekula::set_ter(double terMag) {
 	dronpa[x][y][z].ter = true;
 	dronpa[x][y][z].terMag = terMag;
