@@ -1,12 +1,12 @@
-#include "screencasts.h"
+#include "main.h"
 
-//some error thingy
+// some error thingy
 void errCheck(char* where) {
 	int err = glGetError();
 	if (err) fprintf(stderr, "ERROR: %s [%s]\n", gluErrorString(err), where);
 }
 
-//error handling
+// fatal error handling
 void fatal(const char* format, ...) {
 	va_list args;
 	va_start(args, format);

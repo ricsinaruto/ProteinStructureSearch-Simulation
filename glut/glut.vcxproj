@@ -131,7 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="014.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="classes.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="draw.cpp" />
@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes.h" />
-    <ClInclude Include="common.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="draw.h" />
     <ClInclude Include="error.h" />
@@ -154,7 +154,7 @@
     <ClInclude Include="initialization.h" />
     <ClInclude Include="interaction.h" />
     <ClInclude Include="print.h" />
-    <ClInclude Include="screencasts.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="shapes.h" />
     <ClInclude Include="structs.h" />
     <ClInclude Include="textures.h" />

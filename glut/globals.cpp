@@ -1,5 +1,5 @@
-﻿#include "screencasts.h"
-/*  Global descriptions on screencasts.h  */
+﻿#include "main.h"
+/*  Global descriptions on main.h  */
 
 /*  WINDOW  */
 char *windowName =	"Placeholder";
@@ -42,7 +42,7 @@ int currentTexture = TEX_DEFAULT;
 double t = 0;
 double dt = TIME_STEP;
 double K =	K_CONST;
-double tav = DIST_CONST;
+double dist = DIST_CONST;
 
 double U = 0;
 double Ce1 = CE1_CONST;
@@ -53,47 +53,44 @@ double Cp2 = CP2_CONST;
 /* INTERACTION VARIABLES */
 char *mouseBtnPressed = INIT_TEXT;
 char *enter = DEF_ENTER;
-char *valto = DEF_VALTO;
+char *switcher = DEF_SWITCH;
 char *Shift = DEF_SHIFT;
 char *mouseState = "";
-char *fel= "";
 
 int mouseX = 0, mouseY = 0;
 int xcoord = 0, ycoord = 0;
 int th2 = 0, ph2 = 0;
 int lightTh2 = 0, lightPh2 = 0;
 double ecX2 = 0, ecY2 = 0;
-double jobbx = 0;
 
 int main_window=0;
-int szamlalo=0;
-int struktura_szamlal = 0;
+int counter=0;
 
 /* SEARCHING ALGORITHM */
-int kimenetek_szama = DEF_KIMENETEK_SZAMA;
-int bemenetek_szama = DEF_BEMENETEK_SZAMA;
-int molekulaSzam = DEF_PROTEIN_NUMBER+1;
+int num_out = DEF_NUM_OUT;
+int num_in = DEF_NUM_IN;
+int num_molecules = DEF_PROTEIN_NUMBER+1;
 double tolerance	= DEF_TOLERANCE;
-double max_ter = DEF_MAX_TER;
-int szamok[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+double max_field = DEF_MAX_FIELD;
+int numbers[17] = { 36,36,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 
-int *itomb_mol = new int[COORD_ARRAY_LENGTH];
-int *jtomb_mol = new int[COORD_ARRAY_LENGTH];
-int *ktomb_mol = new int[COORD_ARRAY_LENGTH];
+int *i_array_mol = new int[COORD_ARRAY_LENGTH];
+int *j_array_mol = new int[COORD_ARRAY_LENGTH];
+int *k_array_mol = new int[COORD_ARRAY_LENGTH];
 
-//logical function
-int kimenetek[7][16] = { { 0,0,0,1,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
+// a logical function
+int outputs[7][16] = { { 0,0,0,1,1,0,0,1,1,1,0,0,1,0,1,0 },{ 0,0,0,1,0,1,1,1,0,0,1,0,1,0,0,1 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,0,1,1,1,0,1,0,0,1,0,1,0,0,1 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },{ 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 },
 						 { 0,0,1,0,1,0,1,1,0,0,1,1,1,1,1,0 }};
 
-//inputs of logic function; these are always the same
-int bemenetek[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },
+// inputs of logic function; these are always the same
+int inputs[16][4] = { { 0,0,0,0 },{ 1,0,0,0 },{ 0,1,0,0 },{ 1,1,0,0 },{ 0,0,1,0 },{ 1,0,1,0 },
 						{ 0,1,1,0 },{ 1,1,1,0 },{ 0,0,0,1 },{ 1,0,0,1 },{ 0,1,0 ,1 },{ 1,1,0,1 },
 						{ 0,0,1,1 },{ 1,0,1,1 },{ 0,1,1,1 },{ 1,1,1,1 } };
 
-/* VISUALIZATION */
+/* OBJECTS */
 cube_s cubes[CUBE_COUNT_BOUNDARY];
-molekula dronpa[MAX_COORD][MAX_COORD][MAX_COORD];
-init_molekula protein[DEF_PROTEIN_NUMBER];
-int h1[CUBE_COUNT], h2[CUBE_COUNT], h3[CUBE_COUNT];
+molecule dronpa[MAX_COORD][MAX_COORD][MAX_COORD];
+init_molecule protein[DEF_PROTEIN_NUMBER];
+int base36_1[CUBE_COUNT], base36_2[CUBE_COUNT], base36_3[CUBE_COUNT];

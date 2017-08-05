@@ -1,80 +1,83 @@
-﻿
-//molecule class for searching algorithm
-class init_molekula {
+﻿/* molecule class for searching algorithm */
+class init_molecule {
 public:
-	int x, y, z; //coordinates
+	int x, y, z;			// coordinates
 				
-	bool ter; //does the molecule have a field applied
-	bool kimenet; //kimenet-e az adott molekula
-	bool torolt;
+	bool hasField;			// does the molecule have a field applied?
+	bool isOutput;			// is the molecule an output?
+	bool deleted;			// is the molecule deleted?
 
-	double init_dipole;		//dipole moment after first run
-	double desired[2];		//desired vector
-	std::vector<std::vector<int>> szomszedok; //to store the molecule's neighbours
-	double *actual;			//actual dipole value
-	int	   bemenet_szam;	//which input is the molecule
+	double init_dipole;		// dipole moment after first run
+	double desired[2];		// desired vector
+	double *actual;			// actual dipole value
+	int	   input_num;		// which input is the molecule
 
-	//basic constructor		
-	init_molekula(); 
+	// vector to store the molecule's neighbours
+	std::vector<std::vector<int>> neighbours; 
 
-	//constructor
-	void initialize_molekula(int _x, int  _y, int  _z, bool _ter, int _bemenet_szam, bool _kimenet);
 
-	//set neighbours
-	void set_szomszedok();
+	// basic constructor		
+	init_molecule(); 
 
-	//delete molecule
-	void delete_molekula();
+	// constructor
+	void initialize_molecule(int _x, int  _y, int  _z, bool _hasField, int _input_num, bool _isOutput);
 
-	//apply field to molecule
-	void set_ter_mol();
+	// set neighbours
+	void set_neighbours();
 
-	//unset field on molecule
-	void unset_ter_mol();
+	// delete molecule
+	void delete_molecule();
 
-	//get the dipole value
+	// apply field to molecule
+	void set_field_mol();
+
+	// unset field on molecule
+	void unset_field_mol();
+
+	// get the dipole value
 	double get_dipole();
 
-	//set initial dipole
+	// set initial dipole
 	void set_init_dipole();
 
-	//set desired vector
+	// set desired vector
 	void set_desired();
 
-	//set magnitude of field
-	void set_ter(double terMag);
+	// set magnitude of field
+	void set_field(double fieldMag);
 
-	//set actual dipole value
+	// set actual dipole value
 	void set_actual();
 
-	//update actual dipole value
-	void update_actual(int sor);
+	// update actual dipole value
+	void update_actual(int row);
 
-	//reset dipole moment
+	// reset dipole moment
 	void reset_dipole(double dipole);
 };
+  
 
-//genetic algorithm class
+/* genetic algorithm class */
 class DNA {
 public:
-	double *genes;
-	double fitness;
-	bool hasonlit;
-	int vec_len;
-	int mol_szam;
+	double *genes;		// genes represented by a double array
+	double fitness;		// fitness score
+	bool similar;		// is it similar?
+	int vec_len;		// length of genes array
+	int mol_num;		// number of molecules
 
-	//constructor
+	// constructor
 	DNA();
 
-	//get the fields from genes
+	// get the fields from genes
 	double **getFields();
 
-	//calculate fitness score
+	// calculate fitness score
 	void calcFitness();
 
-	//crossover function
+	// crossover function
 	DNA crossover(DNA partner);
 
-	//mutate
+	// mutate function
 	void mutate(float mutationRate);
 };

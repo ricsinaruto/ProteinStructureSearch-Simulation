@@ -1,4 +1,4 @@
-#include "screencasts.h"
+#include "main.h"
 /*
 *  glWindowPos for use on those systems without it
 *  (OpenGL versions prior to 1.4)

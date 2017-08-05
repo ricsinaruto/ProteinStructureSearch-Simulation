@@ -1,5 +1,4 @@
-#include "screencasts.h"
-
+#include "main.h"
 
 
 /*
@@ -9,15 +8,17 @@
 *     at (x,y,z)
 *     dimensions (dx,dy,dz)
 *     rotated th about the y axis
+*	  (i,j,k) are the position coordinates of the cube
 */
-void cube(double x, double y, double z,double dx, double dy, double dz,double th,int i,int j,int k)
-{
-	if (dronpa[i+1][j+1][k+1].ter == true)  glColor4f(0, 1, 0, 1);	//it's green if it has a field
-	else glColor4f(1, 0, 0, 1);		//basic red color
+void cube(double x, double y, double z,double dx, double dy, double dz,double th,int i,int j,int k) {
+
+	if (dronpa[i+1][j+1][k+1].field == true)  glColor4f(0, 1, 0, 1);	// it's green if it has a field
+	else									  glColor4f(1, 0, 0, 1);	// basic red color
 
 	//size coefficient
 	double s = 0.5;
-	/*  Cube vertices */
+
+	/* Cube vertices */
 	GLfloat A[3] = { 0.5 + s / 2, 0.5+s/2 , 0.5 + s / 2 };
 	GLfloat B[3] = { 0.5 - s / 2, 0.5+s/2 , 0.5 + s / 2 };
 	GLfloat C[3] = { 0.5 - s / 2,0.5 - s / 2, 0.5 + s / 2 };
@@ -45,15 +46,15 @@ void cube(double x, double y, double z,double dx, double dy, double dz,double th
 	GLfloat GZ[3] = { 0.5 - s / 2,0.5 - s / 2,0.5 - s / 2+s/3 };
 	GLfloat HZ[3] = { 0.5 + s / 2,0.5 - s / 2,0.5 - s / 2+s/3 };
 
-	
+	/* Transform */
 	glPushMatrix();
-	/*  Transform */
+
 	glTranslated(x, y, z);
 	glRotated(th, 0, 1, 0);
 	glScaled(dx, dy, dz);
 
-	glEnable(GL_TEXTURE_2D);
 	/* using the current texture */
+	glEnable(GL_TEXTURE_2D);
 	
 
 	/* Cube */
@@ -249,12 +250,13 @@ void cube(double x, double y, double z,double dx, double dy, double dz,double th
 }
 
 
-//same as cube function but it draws smaller black cubes
-void negyzetracs(double x, double y, double z,double dx, double dy, double dz,double th,int i, int j,int k)
-{
-	
+// same as cube function but it draws smaller black cubes
+void grid(double x, double y, double z,double dx, double dy, double dz,double th,int i, int j,int k) {
+
+	// size coefficient
 	double s = 0.2;
-	/*  Cube vertices */
+
+	/* Cube vertices */
 	GLfloat A[3] = { 0.5 + s / 2  , 0.5 + s / 2   , 0.5 + s / 2   };
 	GLfloat B[3] = { 0.5 - s / 2  , 0.5 + s / 2  , 0.5 + s / 2   };
 	GLfloat C[3] = { 0.5 - s / 2  ,0.5 - s / 2  , 0.5 + s / 2  };
@@ -282,33 +284,26 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 	GLfloat GZ[3] = { 0.5 - s / 2,0.5 - s / 2,0.5 - s / 2 + s / 3 };
 	GLfloat HZ[3] = { 0.5 + s / 2,0.5 - s / 2,0.5 - s / 2 + s / 3 };
 	
+	// transform
 	glRotated(th, 0, 1, 0);
 	glScaled(dx, dy, dz);
 	glEnable(GL_TEXTURE_2D);
 	glNormal3f(0, 0, 1);
 
-	
-	
-	//36x36x36 grid
-	for (int tex = 0; tex < 36; tex++)
-	{
+
+	// 36x36x36 grid
+	for (int tex = 0; tex < 36; tex++) {
 		currentTexture = textures[tex];
 		glBindTexture(GL_TEXTURE_2D, currentTexture);
 		glBegin(GL_QUADS);
-		int hely = 0;
-		for (int kk = -18; kk < 18; kk++)
-		{
-			for (int jj = -18; jj < 18; jj++)
-			{
-				for (int ii = -18; ii < 18; ii++)
-				{
-					//glPushMatrix();
 
-					/*  Transform */
-					//glTranslated(ii,jj, kk);
-
-					if (tex == h1[hely])
-					{
+		int position = 0;
+		for (int kk = -18; kk < 18; kk++) {
+			for (int jj = -18; jj < 18; jj++) {
+				for (int ii = -18; ii < 18; ii++) {
+				
+					// we speed up drawing with the saved coordinates
+					if (tex == base36_1[position]) {	
 						/*  Cube vertices */
 						GLfloat A[3] = { 0.5 + s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
 						GLfloat B[3] = { 0.5 - s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
@@ -344,7 +339,6 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						/* left => BFGC */
 						/* top => EFBA */
 						/* bottom => DCGH */
-
 
 						glTexCoord2f(0, 0); glVertex3fv(C);
 						glTexCoord2f(1, 0); glVertex3fv(CX);
@@ -377,8 +371,7 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						glTexCoord2f(0, 1); glVertex3fv(C);
 					}
 
-					if (tex == h2[hely])
-					{
+					if (tex == base36_2[position]) {
 						/*  Cube vertices */
 						GLfloat A[3] = { 0.5 + s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
 						GLfloat B[3] = { 0.5 - s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
@@ -414,6 +407,7 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						/* left => BFGC */
 						/* top => EFBA */
 						/* bottom => DCGH */
+
 						glTexCoord2f(0, 0); glVertex3fv(CX);
 						glTexCoord2f(1, 0); glVertex3fv(DX);
 						glTexCoord2f(1, 1); glVertex3fv(AX);
@@ -445,8 +439,7 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						glTexCoord2f(0, 1); glVertex3fv(CX);
 					}
 
-					if (tex == h3[hely])
-					{
+					if (tex == base36_3[position]) {
 						/*  Cube vertices */
 						GLfloat A[3] = { 0.5 + s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
 						GLfloat B[3] = { 0.5 - s / 2 + ii, 0.5 + s / 2 + jj , 0.5 + s / 2 + kk };
@@ -482,6 +475,7 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						/* left => BFGC */
 						/* top => EFBA */
 						/* bottom => DCGH */
+
 						glTexCoord2f(0, 0); glVertex3fv(DX);
 						glTexCoord2f(1, 0); glVertex3fv(D);
 						glTexCoord2f(1, 1); glVertex3fv(A);
@@ -512,17 +506,13 @@ void negyzetracs(double x, double y, double z,double dx, double dy, double dz,do
 						glTexCoord2f(1, 1); glVertex3fv(D);
 						glTexCoord2f(0, 1); glVertex3fv(DX);
 					}
-						
-
-					//glPopMatrix();
 					
-					hely++;
+					position++;
 				}
 			}
 		}
 		glEnd();
 	}
-	
 	
 	glDisable(GL_TEXTURE_2D);
 }

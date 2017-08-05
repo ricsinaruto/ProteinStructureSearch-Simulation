@@ -1,16 +1,14 @@
 #define _CRT_SECURE_NO_DEPRECATE
-#include "screencasts.h"
+#include "main.h"
 
 
 /*
 *  Reverse n bytes
 */
-static void reverseBytes(void* x, const int n)
-{
+static void reverseBytes(void* x, const int n) {
 	int k;
 	char* ch = (char*)x;
-	for (k = 0; k<n / 2; k++)
-	{
+	for (k = 0; k<n / 2; k++) {
 		char tmp = ch[k];
 		ch[k] = ch[n - 1 - k];
 		ch[n - 1 - k] = tmp;
@@ -20,9 +18,7 @@ static void reverseBytes(void* x, const int n)
 /*
 *  Load texture from BMP file
 */
-//MAGIC
-unsigned int loadTexBMP(char* file)
-{
+unsigned int loadTexBMP(char* file) {
 	unsigned int   texture;		/* Texture name */
 	FILE*          f;			/* File pointer */
 	unsigned short magic;		/* Image magic */

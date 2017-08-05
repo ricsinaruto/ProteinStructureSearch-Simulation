@@ -1,7 +1,6 @@
-#include "screencasts.h"
+#include "main.h"
 
-
-//Initializes display
+// Initializes display
 void displayInit(void) {
 	glClearColor(0.0, 0.0, 0.0, 0.0);		//reset color
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -9,8 +8,7 @@ void displayInit(void) {
 	glLoadIdentity();						//identity matrix
 }
 
-
-//Set the eye position
+// Set the eye position
 void displayEye(void) {
 	double Ex = -2 * dim*Sin(th)*Cos(ph);
 	double Ey = +2 * dim        *Sin(ph);
@@ -20,16 +18,14 @@ void displayEye(void) {
 	gluLookAt(Ex + ecX, Ey+ecY, Ez + ecZ, ecX, ecY, ecZ, 0, Cos(ph), 0);
 }
 
-
-//GLUT calls this routine when the window is resized
+// GLUT calls this routine when the window is resized
 void displayReshape(int width, int height) {
 	asp = (height>0) ? (double)width / height : 1;
 	glViewport(0, 0, width, height);
 	displayProject(fov, asp, dim);
 }
 
-
-//Sets the projection
+// Set the projection
 void displayProject(double fov, double asp, double dim) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -38,23 +34,22 @@ void displayProject(double fov, double asp, double dim) {
 	glLoadIdentity();
 }
 
-
 //Display the scene
 void display(void) {
-	//setup functions
+	// setup functions
 	displayInit();
 	displayEye();
 
 	drawScene();
 
+	// swap buffers
 	glFlush();
 	glutSwapBuffers();
 
 	errCheck("display sanity check");
 }
 
-
-//This is called whenever we need to draw the display
+// This is called whenever we need to redraw the display
 void redisplayAll(void) {
 	displayProject(fov, asp, dim);
 	glutPostRedisplay();

@@ -42,27 +42,21 @@
     <ClCompile Include="display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="014.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="textures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="classes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="screencasts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="glWindowPos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="initialization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="print.h">
@@ -90,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="classes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
-void futas();
-void SIMULATION(double **ter_vektor, bool mentes, int molekulaszam);
-double fitness_func(int molekulaszam);
+void run();
+void SIMULATION(double **field_vec, bool save, int mol_numb);
+double fitness_func(int mol_numb);
 double fRand(double fMin, double fMax);
 void windowKey(unsigned char key, int x, int y);
 void windowMenu(int value);
