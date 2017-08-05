@@ -43,7 +43,7 @@ void ternagysag()
 		if (szamok[0]==0) ter = -(szamok[1] * 10 + szamok[2]);
 		else ter = szamok[1] * 10 + szamok[2];
 		
-		//alaphelyzetre állítás
+		//reset
 		szamlalo = 0;
 		szamok[0] = 36;
 		szamok[1] = 36;
