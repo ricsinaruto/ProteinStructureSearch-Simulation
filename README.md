@@ -8,6 +8,7 @@
 ##### You can find a detailed user guide in section 3.7 of the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf), and other instructions on how to use different parts of the program in sections 3.4.3 and 3.5.2. The user guide will mostly be true for all of the versions of the program, but if not, changes are documented in the separate branches.
 
 ## Description of Branches
+The latest version of the program can be found in the GA-all-big-structures branch. The code in this version has also been extensively commented, cleaned and translated to english.
 #### Early-searching-algorithm
 Here you can find the original version of the program, as described in the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf). A very simple searching algorithm is used to find good protein structures. Basically it looks through all the possible protein structures and field value configurations until it finds one that satisfies the user defined logic function.
 #### simulated-annealing
