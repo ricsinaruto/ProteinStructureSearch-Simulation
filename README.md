@@ -1,0 +1,3 @@
+# Annealing+random-structures
+##### This variant of the program generates random protein structures and applies the simulated annealing algorithm to each structure to optimize the field values applied to the proteins. Similar to the Annealing+old-algorithm branch, but instead of looking through all possible structures while increasing the size of the structure, we take one random sized structure at each iteration step. 
+##### This version doesn't support manual protein structure creation and simulation. You can run the searching algorithm by pressing the 'f' key. Otherwise check the user guide in section 3.7 of the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf), and you can find instructions on how to enter a logic function in section 3.5.2.
