@@ -5,7 +5,7 @@
 
 ## Get Started
 ##### The version of the program described and used in the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf) can be downloaded [here](https://ricsinaruto.github.io/website/docs/molecular_simulation_program.rar). You can simply extract the archive and run the executable. In order to run other versions of the program you will need to compile the project with Visual Studio. You will also need [freeglut](http://freeglut.sourceforge.net/index.php#download) library and includes.
-##### You can find a detailed user guide in section 3.7 of the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf). The user guide will mostly be true for all of the versions of the program, but if not changes are documented in the separate branches.
+##### You can find a detailed user guide in section 3.7 of the [paper](https://ricsinaruto.github.io/website/docs/tdk.pdf), and other instructions on how to use different parts of the program in sections 3.4.3 and 3.5.2. The user guide will mostly be true for all of the versions of the program, but if not, changes are documented in the separate branches.
 
 ## Description of Branches
 #### Early-searching-algorithm
