@@ -1,5 +1,5 @@
 # ProteinStructureSearch-Simulation
-##### This repository contains code for [this](https://ricsinaruto.github.io/website/docs/tdk.pdf) paper. The state of the program as described in the paper can be found in the Early-searching-algorithm branch. In order branches you can find further variants of the program and I created separate readme files for all the branches so check them out.
+##### This repository contains code for [this](https://ricsinaruto.github.io/website/docs/tdk.pdf) paper. The state of the program as described in the paper can be found in the Early-searching-algorithm branch. In other branches you can find further variants of the program and I created separate readme files for all the branches so check them out.
 ##### The program was basically created to easily simulate the change of dipole moments of complex protein structures and provide the user with a good looking 3D interface in OpenGL. Based on the change of dipole moments we can construct logic circuits as described in the paper mentioned before. Furthermore I implemented several searching algorithms to find protein structures that satisfy user defined logic functions.
 <a><img src="https://github.com/ricsinaruto/ProteinStructureSearch-Simulation/blob/master/first_start.png" align="top" height="450" ></a>
 
